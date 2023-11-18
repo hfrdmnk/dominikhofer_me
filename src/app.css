@@ -6,7 +6,6 @@
 	@font-face {
 		font-family: 'Sentient Variable';
 		font-style: normal;
-		font-display: optional;
 		font-weight: 100 900;
 		src: url(/fonts/sentinent/sentient-variable.ttf) format('truetype');
 	}
@@ -14,7 +13,6 @@
 	@font-face {
 		font-family: 'Sentient Variable';
 		font-style: italic;
-		font-display: optional;
 		font-weight: 100 900;
 		src: url(/fonts/sentinent/sentient-variable-italic.ttf) format('truetype');
 	}
@@ -22,7 +20,6 @@
 	@font-face {
 		font-family: 'Switzer Variable';
 		font-style: normal;
-		font-display: optional;
 		font-weight: 100 900;
 		src: url(/fonts/switzer/switzer-variable.ttf) format('truetype');
 	}
@@ -30,7 +27,6 @@
 	@font-face {
 		font-family: 'Switzer Variable';
 		font-style: italic;
-		font-display: optional;
 		font-weight: 100 900;
 		src: url(/fonts/switzer/switzer-variable-italic.ttf) format('truetype');
 	}
@@ -39,6 +35,10 @@
 		@apply bg-white text-zinc-700;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	::selection {
+		@apply bg-brand-400 text-zinc-900;
 	}
 
 	h1,

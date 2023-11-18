@@ -3,19 +3,20 @@
 </script>
 
 <div class="min-h-[100svh] w-full flex flex-col gap-16 justify-between">
-	<header class="py-4 container"><Logo class="h-6 w-6" /></header>
-	<main class="container flex flex-col gap-4 p-[5vw]" data-hover-group>
+	<header class="py-6 container"><Logo class="h-8 w-8" /></header>
+	<main class=" container flex flex-col gap-4 p-[5vw]" data-hover-group>
 		<h2 class="font-serif text-4xl font-medium italic magnetic-type" data-hover-group="hero">
 			<span data-hover-word="curious">Curious.</span>
 			<span data-hover-word="creative">Creative.</span>
 			<span data-hover-word="coder">Coder.</span>
 		</h2>
-		<p class="max-w-[65ch]">
+		<p class="max-w-lg">
 			Hi, I'm <a href="https://hoferdo.link/twitter" target="_blank">Dominik</a>.
 		</p>
-		<p class="max-w-[65ch]">
+		<p class="max-w-lg">
 			<span data-hover-word="curious"
-				>I like to learn and understand more about the world we live in.</span
+				>I like to learn <span class="font-serif italic">&</span> understand more about the world we
+				live in.</span
 			>
 			<span data-hover-word="creative"
 				>While coming up with cool ideas <span class="font-serif italic">&</span> designing beautiful
@@ -23,9 +24,11 @@
 			>
 			<span data-hover-word="coder">And bringing them to life with fancy symbols.</span>
 		</p>
-		<p class="max-w-[65ch]"><a href="mailto:hi@dominikhofer.me">Who are you?</a></p>
+		<p class="max-w-lg">
+			<a href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it's%20me!">Who are you?</a>
+		</p>
 	</main>
-	<footer class="py-4 container text-xs text-zinc-400 italic">Copyright 2023</footer>
+	<footer class="py-6 container text-xs text-zinc-400">Made in 2023 with ❤️ and 🧉</footer>
 </div>
 
 <style>
