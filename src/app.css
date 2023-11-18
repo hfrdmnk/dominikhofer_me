@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Sentient Variable';
+		font-style: normal;
+		font-display: optional;
+		font-weight: 100 900;
+		src: url(/fonts/sentinent/sentient-variable.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Sentient Variable';
+		font-style: italic;
+		font-display: optional;
+		font-weight: 100 900;
+		src: url(/fonts/sentinent/sentient-variable-italic.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Switzer Variable';
+		font-style: normal;
+		font-display: optional;
+		font-weight: 100 900;
+		src: url(/fonts/switzer/switzer-variable.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Switzer Variable';
+		font-style: italic;
+		font-display: optional;
+		font-weight: 100 900;
+		src: url(/fonts/switzer/switzer-variable-italic.ttf) format('truetype');
+	}
+}
