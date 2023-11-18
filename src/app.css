@@ -34,4 +34,49 @@
 		font-weight: 100 900;
 		src: url(/fonts/switzer/switzer-variable-italic.ttf) format('truetype');
 	}
+
+	body {
+		@apply bg-white text-zinc-700;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h1,
+	.h1 {
+		@apply text-zinc-900;
+	}
+
+	h2,
+	.h2 {
+		@apply text-zinc-900;
+	}
+
+	h3,
+	.h3 {
+		@apply text-zinc-900;
+	}
+
+	h4,
+	.h4 {
+		@apply text-zinc-900;
+	}
+
+	h5,
+	.h5 {
+		@apply text-zinc-900;
+	}
+
+	h6,
+	.h6 {
+		@apply text-zinc-900;
+	}
+
+	a {
+		@apply relative underline decoration-zinc-400 underline-offset-2;
+		transition: all 0.3s ease-out;
+	}
+
+	a:hover {
+		@apply decoration-transparent bg-brand-400 text-zinc-900;
+	}
 }
