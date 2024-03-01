@@ -1,0 +1,100 @@
+/*
+########################
+Reset
+########################
+*/
+
+// Credit: https://www.joshwcomeau.com/css/custom-css-reset/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/*
+########################
+Fonts
+########################
+*/
+
+@font-face {
+	font-family: 'EB Garamond';
+	src: url('../fonts/EBGaramond-Variable-Italic.ttf') format('truetype');
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'EB Garamond';
+	src: url('../fonts/EBGaramond-Variable.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('../fonts/GeistMono-Variable.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('../fonts/Switzer-Variable-Italic.ttf') format('truetype');
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('../fonts/Switzer-Variable.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+}
+
+/*
+########################
+Base Styles
+########################
+*/
+
+body {
+	font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
