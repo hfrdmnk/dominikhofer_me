@@ -1,0 +1,40 @@
+/*
+########################
+Nav
+########################
+*/
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 1rem;
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+nav a {
+	text-decoration: none;
+	color: #000;
+}
+
+.nav__list {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	list-style: none;
+}
+
+/* 
+########################
+Footer 
+########################
+*/
+
+footer {
+	padding: 2rem 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.875rem;
+}

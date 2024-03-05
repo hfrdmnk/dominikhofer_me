@@ -94,7 +94,89 @@ Base Styles
 ########################
 */
 
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-o-font-smoothing: antialiased;
+}
+
+html {
+	font-size: 16px;
+}
+
 body {
 	font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	background-color: #fff;
+	color: #4b5563;
+	font-size: 1rem;
+	line-height: 1.5;
+	font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype',
+		'URW Palladio L', P052, serif;
+	text-wrap: balance;
+	color: #000;
+	font-size: 1.25rem;
+	/* line-height: 1.2; */
+	font-weight: 500;
+	padding-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	font-style: italic;
+}
+
+.monospace {
+	font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro',
+		Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	font-size: 0.875em;
+}
+
+p {
+	margin-bottom: 0.5rem;
+}
+
+ul {
+	margin-bottom: 0.5rem;
+}
+
+/* h1,
+.h1 {
+	font-size: 1.75rem;
+	line-height: 1;
+}
+
+h2,
+.h2 {
+	font-size: 1.44rem;
+	line-height: 1.1;
+}
+
+h3,
+.h3 {
+	font-size: 1.2rem;
+	line-height: 1.1;
+} */
+
+/*
+########################
+Layout
+########################
+*/
+
+.container {
+	display: grid;
+	grid-template-columns:
+		minmax(1rem, 1fr) minmax(0, 5vw) minmax(0, 64ch) minmax(0, 5vw)
+		minmax(1rem, 1fr);
+}
+
+.container > * {
+	grid-column: 3;
 }
