@@ -190,6 +190,11 @@ a.mark::before,
 	width: 0%;
 	height: 100%;
 	background-color: var(--color-accent);
+	transition: width 0.3s var(--easing-sine-in-out);
+}
+
+.nav__link:hover::before {
+	width: 100%;
 }
 
 a.mark:hover::before,
@@ -214,16 +219,6 @@ a.mark:hover::before,
 		transform: scaleX(1);
 		height: 100%;
 		background-color: var(--color-accent);
-	}
-}
-
-.nav__link:hover::before {
-	animation: mark-nav 0.5s var(--easing-sine-in-out) forwards;
-}
-
-@keyframes mark-nav {
-	to {
-		width: 100%;
 	}
 }
 
