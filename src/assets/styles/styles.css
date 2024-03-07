@@ -19,6 +19,8 @@ nav a {
 }
 
 .nav__list {
+	font-family: var(--font-monospace);
+	font-size: 0.875rem;
 	display: flex;
 	gap: 1rem;
 	align-items: center;
@@ -32,6 +34,7 @@ Footer
 */
 
 footer {
+	font-family: var(--font-monospace);
 	padding: 2rem 1rem;
 	display: flex;
 	justify-content: center;

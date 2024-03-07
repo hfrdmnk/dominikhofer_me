@@ -1,5 +1,30 @@
 /*
 ########################
+Variables
+########################
+*/
+
+:root {
+	--color-foreground-primary: #000;
+	--color-foreground-secondary: #4b5563;
+	--color-background-primary: #fff;
+	--color-background-secondary: #e5e7eb;
+	--color-border: #d1d5db;
+	--color-accent: #ecfb13;
+
+	--font-sans: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	--font-serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype',
+		'URW Palladio L', P052, serif;
+	--font-monospace: 'Geist Mono', ui-monospace, 'Cascadia Code',
+		'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+	--easing-sine-out: cubic-bezier(0.61, 1, 0.88, 1);
+	--easing-sine-in-out: cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+/*
+########################
 Reset
 ########################
 */
@@ -105,8 +130,7 @@ html {
 }
 
 body {
-	font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: var(--font-sans);
 	background-color: #fff;
 	color: #4b5563;
 	font-size: 1rem;
@@ -120,8 +144,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype',
-		'URW Palladio L', P052, serif;
+	font-family: var(--font-serif);
 	text-wrap: balance;
 	color: #000;
 	font-size: 1.25rem;
@@ -132,37 +155,77 @@ h6 {
 	font-style: italic;
 }
 
-.monospace {
-	font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro',
-		Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-	font-size: 0.875em;
+.prose > * + * {
+	margin-top: 0.5rem;
 }
 
-p {
-	margin-bottom: 0.5rem;
+a {
+	color: currentColor;
+	text-decoration: none;
 }
 
-ul {
-	margin-bottom: 0.5rem;
+a.mark,
+.prose a,
+.nav__link {
+	display: inline-block;
+	position: relative;
+	padding: 0 0.25em;
 }
 
-/* h1,
-.h1 {
-	font-size: 1.75rem;
-	line-height: 1;
+a.mark::before,
+.prose a::before,
+.nav__link::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: var(--color-background-secondary);
+	z-index: -1;
+	transform-origin: bottom left;
 }
 
-h2,
-.h2 {
-	font-size: 1.44rem;
-	line-height: 1.1;
+.nav__link::before {
+	width: 0%;
+	height: 100%;
+	background-color: var(--color-accent);
 }
 
-h3,
-.h3 {
-	font-size: 1.2rem;
-	line-height: 1.1;
-} */
+a.mark:hover::before,
+.prose a:hover::before {
+	animation: mark 1s var(--easing-sine-in-out) forwards;
+}
+
+@keyframes mark {
+	33% {
+		transform: scaleX(0.05);
+		height: 1px;
+		background-color: var(--color-background-secondary);
+	}
+
+	66% {
+		transform: scaleX(0.05);
+		height: 100%;
+		background-color: var(--color-accent);
+	}
+
+	100% {
+		transform: scaleX(1);
+		height: 100%;
+		background-color: var(--color-accent);
+	}
+}
+
+.nav__link:hover::before {
+	animation: mark-nav 0.5s var(--easing-sine-in-out) forwards;
+}
+
+@keyframes mark-nav {
+	to {
+		width: 100%;
+	}
+}
 
 /*
 ########################
