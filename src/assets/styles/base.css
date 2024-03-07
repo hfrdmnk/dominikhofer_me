@@ -131,11 +131,15 @@ html {
 
 body {
 	font-family: var(--font-sans);
-	background-color: #fff;
-	color: #4b5563;
+	background-color: var(--color-background-primary);
+	color: var(--color-foreground-secondary);
 	font-size: 1rem;
 	line-height: 1.5;
 	font-weight: 300;
+}
+
+::selection {
+	background-color: var(--color-accent);
 }
 
 h1,
@@ -147,12 +151,25 @@ h6 {
 	font-family: var(--font-serif);
 	text-wrap: balance;
 	color: #000;
-	font-size: 1.25rem;
-	/* line-height: 1.2; */
 	font-weight: 500;
 	padding-top: 0.5rem;
 	margin-bottom: 0.5rem;
 	font-style: italic;
+}
+
+h1,
+.h1 {
+	font-size: 1.728rem;
+}
+
+h2,
+.h2 {
+	font-size: 1.44rem;
+}
+
+h3,
+.h3 {
+	font-size: 1.2rem;
 }
 
 .prose > * + * {
@@ -173,8 +190,7 @@ a.mark,
 }
 
 a.mark::before,
-.prose a::before,
-.nav__link::before {
+.prose a::before {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -183,43 +199,32 @@ a.mark::before,
 	height: 1px;
 	background-color: var(--color-background-secondary);
 	z-index: -1;
-	transform-origin: bottom left;
-}
-
-.nav__link::before {
-	width: 0%;
-	height: 100%;
-	background-color: var(--color-accent);
 	transition: width 0.3s var(--easing-sine-in-out);
-}
-
-.nav__link:hover::before {
-	width: 100%;
 }
 
 a.mark:hover::before,
 .prose a:hover::before {
-	animation: mark 1s var(--easing-sine-in-out) forwards;
+	width: 0%;
 }
 
-@keyframes mark {
-	33% {
-		transform: scaleX(0.05);
-		height: 1px;
-		background-color: var(--color-background-secondary);
-	}
+a.mark::after,
+.prose a::after,
+.nav__link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0%;
+	height: 100%;
+	background-color: var(--color-accent);
+	z-index: -1;
+	transition: width 0.3s var(--easing-sine-in-out);
+}
 
-	66% {
-		transform: scaleX(0.05);
-		height: 100%;
-		background-color: var(--color-accent);
-	}
-
-	100% {
-		transform: scaleX(1);
-		height: 100%;
-		background-color: var(--color-accent);
-	}
+a.mark:hover::after,
+.prose a:hover::after,
+.nav__link:hover::after {
+	width: 100%;
 }
 
 /*
