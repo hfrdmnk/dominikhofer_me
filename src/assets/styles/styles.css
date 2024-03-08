@@ -34,7 +34,11 @@ Header
 */
 
 header {
-	margin-bottom: 2rem;
+	margin-bottom: calc(var(--spacing-content) * 6);
+}
+
+header > * + * {
+	margin-top: var(--spacing-content);
 }
 
 [data-hover-word] {
@@ -67,4 +71,40 @@ footer {
 	justify-content: center;
 	align-items: center;
 	font-size: 0.875rem;
+	margin-top: calc(var(--spacing-content) * 6);
+}
+
+/*
+########################
+Polaroid
+########################
+*/
+
+.polaroid {
+	position: relative;
+	width: 100%;
+	padding: 3%;
+	padding-bottom: 0;
+	border: 1px solid var(--color-border);
+	border-radius: 0.25rem;
+	transform: rotate(3deg);
+}
+
+.hero .polaroid {
+	margin-left: auto;
+	margin-bottom: -2rem;
+	max-width: 15rem;
+}
+
+.polaroid img {
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	border-radius: 0.125rem;
+}
+
+.polaroid figcaption {
+	padding: 10% 0;
+	font-size: 0.75rem;
+	font-family: var(--font-monospace);
+	text-align: center;
 }
