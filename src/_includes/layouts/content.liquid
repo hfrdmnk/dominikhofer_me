@@ -1,0 +1,14 @@
+---
+layout: layouts/base.liquid
+---
+
+<article class="post">
+    <header>
+        <div class="post__path">cd ~/{{ page.fileSlug }}</div>
+        <h1>{{ title }}</h1>
+        <time class="post__published">Published on {{ page.date | date: "%A, %d.%m.%Y" }}</time>
+    </header>
+    <main class="prose">{{ content }}</main>
+    <footer>
+    </footer>
+</article>

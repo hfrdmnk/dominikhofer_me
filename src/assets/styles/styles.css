@@ -108,3 +108,15 @@ Polaroid
 	font-family: var(--font-monospace);
 	text-align: center;
 }
+
+/*
+########################
+Post
+########################
+*/
+
+.post__path,
+.post__published {
+	font-family: var(--font-monospace);
+	font-size: 0.875rem;
+}
