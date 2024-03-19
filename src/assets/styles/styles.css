@@ -83,29 +83,51 @@ Polaroid
 .polaroid {
 	position: relative;
 	width: 100%;
-	padding: 3%;
-	padding-bottom: 0;
-	border: 1px solid var(--color-border);
-	border-radius: 0.25rem;
-	transform: rotate(3deg);
+	border-radius: 0.5rem;
+	overflow: hidden;
+	transition: filter 0.3s var(--easing-sine-out);
+}
+
+.polaroid:hover {
+	filter: brightness(1.1) grayscale(1);
 }
 
 .hero .polaroid {
 	margin-left: auto;
 	margin-bottom: -2rem;
 	max-width: 15rem;
+	transform: rotate(3deg);
 }
 
 .polaroid img {
-	aspect-ratio: 1/1;
+	aspect-ratio: 4/5;
 	object-fit: cover;
 	border-radius: 0.125rem;
 }
 
+.polaroid::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-backdrop-filter: blur(12px) brightness(0.5) grayscale(0.75);
+	backdrop-filter: blur(12px) brightness(0.5) grayscale(0.75);
+	mask-image: linear-gradient(to top, black 30%, transparent 100%);
+	-webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+	height: 40%;
+}
+
 .polaroid figcaption {
-	padding: 10% 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	padding: 8% 0;
 	font-size: 0.75rem;
 	font-family: var(--font-monospace);
+	color: var(--color-background-primary);
 	text-align: center;
 }
 

@@ -140,6 +140,31 @@ body {
 	font-weight: 300;
 }
 
+body::after {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	pointer-events: none;
+	background-size: 2vw 2vw;
+	background-image: linear-gradient(
+			0deg,
+			var(--color-background-secondary) 1px,
+			transparent 0
+		),
+		linear-gradient(90deg, var(--color-background-secondary) 1px, transparent 0);
+	-webkit-mask-image: radial-gradient(
+		circle at top right,
+		transparent 50%,
+		black 100%
+	);
+	mask-image: radial-gradient(circle at top right, transparent 50%, black 100%);
+	z-index: -1;
+}
+
 ::selection {
 	background-color: var(--color-accent);
 }
@@ -188,7 +213,7 @@ a.mark,
 .nav__link {
 	display: inline-block;
 	position: relative;
-	padding: 0 0.25em;
+	padding: 0 0.1em;
 }
 
 a.mark::before,
@@ -243,7 +268,7 @@ Layout
 .container {
 	display: grid;
 	grid-template-columns:
-		minmax(1rem, 1fr) minmax(0, 5vw) minmax(0, 64ch) minmax(0, 5vw)
+		minmax(1rem, 1fr) minmax(0, 5vw) minmax(0, 70ch) minmax(0, 5vw)
 		minmax(1rem, 1fr);
 }
 
