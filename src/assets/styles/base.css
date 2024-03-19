@@ -179,7 +179,7 @@ h6 {
 	text-wrap: balance;
 	color: #000;
 	font-weight: 500;
-	padding-top: var(--spacing-content);
+	padding-top: calc(var(--spacing-content) * 3);
 	margin-bottom: var(--spacing-content);
 	font-style: italic;
 }
