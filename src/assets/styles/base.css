@@ -82,15 +82,33 @@ Fonts
 
 @font-face {
 	font-family: 'EB Garamond';
-	src: url('../fonts/EBGaramond-Variable-Italic.ttf') format('truetype');
+	src: url('../fonts/EBGaramond-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'EB Garamond';
+	src: url('../fonts/EBGaramond-Italic.ttf') format('truetype');
+	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'EB Garamond';
-	src: url('../fonts/EBGaramond-Variable.ttf') format('truetype');
+	src: url('../fonts/EBGaramond-Medium.ttf') format('truetype');
+	font-weight: 500;
 	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'EB Garamond';
+	src: url('../fonts/EBGaramond-Medium-Italic.ttf') format('truetype');
+	font-weight: 500;
+	font-style: italic;
 	font-display: swap;
 }
 
@@ -125,6 +143,7 @@ Base Styles
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-o-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
 
 html {
@@ -179,9 +198,8 @@ h6 {
 	text-wrap: balance;
 	color: #000;
 	font-weight: 500;
-	padding-top: calc(var(--spacing-content) * 3);
+	padding-top: calc(var(--spacing-content) * 2);
 	margin-bottom: var(--spacing-content);
-	font-style: italic;
 }
 
 h1,
@@ -214,6 +232,7 @@ a.mark,
 	display: inline-block;
 	position: relative;
 	padding: 0 0.1em;
+	font-weight: 400;
 }
 
 a.mark::before,
@@ -254,8 +273,19 @@ a.mark:hover::after,
 	width: 100%;
 }
 
+.prose ul {
+	list-style-position: outside;
+	list-style-type: '☵';
+	padding-left: 0em;
+}
+
+.prose ul > li {
+	padding: 0.1em 0.5em;
+}
+
 .ampersand {
 	font-family: var(--font-serif);
+	font-weight: 500;
 	font-style: italic;
 }
 
@@ -268,7 +298,7 @@ Layout
 .container {
 	display: grid;
 	grid-template-columns:
-		minmax(1rem, 1fr) minmax(0, 5vw) minmax(0, 70ch) minmax(0, 5vw)
+		minmax(1rem, 1fr) minmax(0, 5%) minmax(0, 70ch) minmax(0, 5%)
 		minmax(1rem, 1fr);
 }
 

@@ -1,5 +1,15 @@
 /*
 ########################
+Layout Block
+########################
+*/
+
+.layout__block:not(:last-child) {
+	margin-bottom: calc(var(--spacing-content) * 4);
+}
+
+/*
+########################
 Nav
 ########################
 */
@@ -16,6 +26,17 @@ nav {
 nav a {
 	text-decoration: none;
 	color: #000;
+}
+
+.nav__logo {
+	position: fixed;
+	mix-blend-mode: difference;
+	color: var(--color-background-primary);
+}
+
+.nav__logo svg {
+	height: 3rem;
+	width: 3rem;
 }
 
 .nav__list {
@@ -64,14 +85,36 @@ Footer
 ########################
 */
 
-footer {
+.footer {
 	font-family: var(--font-monospace);
 	padding: 2rem 1rem;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	gap: 1rem;
 	align-items: center;
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 	margin-top: calc(var(--spacing-content) * 6);
+}
+
+.footer__socials {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	padding: 0;
+}
+
+.footer__socials-link {
+	transition: all 0.3s var(--easing-sine-out);
+}
+
+.footer__socials-link:hover {
+	opacity: 0.75;
+}
+
+.footer__socials-link svg {
+	width: 2em;
+	height: 2em;
 }
 
 /*
@@ -86,10 +129,11 @@ Polaroid
 	border-radius: 0.5rem;
 	overflow: hidden;
 	transition: filter 0.3s var(--easing-sine-out);
+	user-select: none;
 }
 
 .polaroid:hover {
-	filter: brightness(1.1) grayscale(1);
+	filter: grayscale(1);
 }
 
 .hero .polaroid {
@@ -111,11 +155,10 @@ Polaroid
 	left: 0;
 	right: 0;
 	bottom: 0;
-	-webkit-backdrop-filter: blur(12px) brightness(0.5) grayscale(0.75);
-	backdrop-filter: blur(12px) brightness(0.5) grayscale(0.75);
-	mask-image: linear-gradient(to top, black 30%, transparent 100%);
-	-webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
-	height: 40%;
+	background: rgba(255, 255, 255, 0.4);
+	-webkit-backdrop-filter: blur(8px) brightness(0.75) grayscale(0.5);
+	backdrop-filter: blur(8px) brightness(0.75) grayscale(0.5);
+	height: 20%;
 }
 
 .polaroid figcaption {
@@ -129,6 +172,27 @@ Polaroid
 	font-family: var(--font-monospace);
 	color: var(--color-background-primary);
 	text-align: center;
+}
+
+/*
+########################
+Home
+########################
+*/
+
+.signature {
+	margin-top: 1rem;
+	max-width: 10rem;
+	pointer-events: none;
+	user-select: none;
+}
+
+.signature__block {
+	font-family: var(--font-serif);
+	font-weight: 500;
+	font-size: 1.125rem;
+	font-style: italic;
+	color: var(--color-text-primary);
 }
 
 /*
