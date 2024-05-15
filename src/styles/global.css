@@ -6,7 +6,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Regular.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Italic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Italic.woff2') format('woff2');
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Medium.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -30,7 +30,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-MediumItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-MediumItalic.woff2') format('woff2');
 	font-weight: 500;
 	font-style: italic;
 	font-display: swap;
@@ -38,7 +38,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-SemiBold.woff2') format('woff2');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -46,7 +46,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-SemiBoldItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-SemiBoldItalic.woff2') format('woff2');
 	font-weight: 600;
 	font-style: italic;
 	font-display: swap;
@@ -54,7 +54,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Bold.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Bold.woff2') format('woff2');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -62,7 +62,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-BoldItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-BoldItalic.woff2') format('woff2');
 	font-weight: 700;
 	font-style: italic;
 	font-display: swap;
@@ -70,7 +70,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-ExtraBold.woff2') format('woff2');
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
@@ -78,7 +78,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-ExtraBoldItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-ExtraBoldItalic.woff2') format('woff2');
 	font-weight: 800;
 	font-style: italic;
 	font-display: swap;
@@ -86,7 +86,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Black.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Black.woff2') format('woff2');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -94,7 +94,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-BlackItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-BlackItalic.woff2') format('woff2');
 	font-weight: 900;
 	font-style: italic;
 	font-display: swap;
@@ -102,7 +102,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Thin.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Thin.woff2') format('woff2');
 	font-weight: 100;
 	font-style: normal;
 	font-display: swap;
@@ -110,7 +110,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-ThinItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-ThinItalic.woff2') format('woff2');
 	font-weight: 100;
 	font-style: italic;
 	font-display: swap;
@@ -118,7 +118,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-ExtraLight.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-ExtraLight.woff2') format('woff2');
 	font-weight: 200;
 	font-style: normal;
 	font-display: swap;
@@ -126,7 +126,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-ExtraLightItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-ExtraLightItalic.woff2') format('woff2');
 	font-weight: 200;
 	font-style: italic;
 	font-display: swap;
@@ -134,7 +134,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-Light.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-Light.woff2') format('woff2');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -142,7 +142,7 @@
 
 @font-face {
 	font-family: 'Inter';
-	src: url('/fonts/Inter-LightItalic.woff2') format('woff2');
+	src: url('/fonts/inter/Inter-LightItalic.woff2') format('woff2');
 	font-weight: 300;
 	font-style: italic;
 	font-display: swap;
@@ -152,7 +152,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-Regular.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-Regular.ttf') format('ttf');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -160,7 +160,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-Italic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-Italic.ttf') format('ttf');
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
@@ -168,7 +168,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-Medium.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-Medium.ttf') format('ttf');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -176,7 +176,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-MediumItalic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-MediumItalic.ttf')
+		format('ttf');
 	font-weight: 500;
 	font-style: italic;
 	font-display: swap;
@@ -184,7 +185,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-SemiBold.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-SemiBold.ttf') format('ttf');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -192,7 +193,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-SemiBoldItalic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-SemiBoldItalic.ttf')
+		format('ttf');
 	font-weight: 600;
 	font-style: italic;
 	font-display: swap;
@@ -200,7 +202,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('ttf');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -208,7 +210,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-BoldItalic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf')
+		format('ttf');
 	font-weight: 700;
 	font-style: italic;
 	font-display: swap;
@@ -216,7 +219,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-ExtraBold.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-ExtraBold.ttf')
+		format('ttf');
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
@@ -224,7 +228,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-ExtraBoldItalic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-ExtraBoldItalic.ttf')
+		format('ttf');
 	font-weight: 800;
 	font-style: italic;
 	font-display: swap;
@@ -232,7 +237,7 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-Black.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-Black.ttf') format('ttf');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -240,7 +245,8 @@
 
 @font-face {
 	font-family: 'Playfair Display';
-	src: url('/fonts/PlayfairDisplay-BlackItalic.ttf') format('ttf');
+	src: url('/fonts/playfair-display/PlayfairDisplay-BlackItalic.ttf')
+		format('ttf');
 	font-weight: 900;
 	font-style: italic;
 	font-display: swap;
@@ -250,7 +256,7 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/fonts/SpaceGrotesk-Regular.ttf') format('ttf');
+	src: url('/fonts/space-grotesk/SpaceGrotesk-Regular.ttf') format('ttf');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -258,7 +264,7 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/fonts/SpaceGrotesk-Medium.ttf') format('ttf');
+	src: url('/fonts/space-grotesk/SpaceGrotesk-Medium.ttf') format('ttf');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -266,7 +272,7 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/fonts/SpaceGrotesk-SemiBold.ttf') format('ttf');
+	src: url('/fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf') format('ttf');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -274,7 +280,7 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/fonts/SpaceGrotesk-Bold.ttf') format('ttf');
+	src: url('/fonts/space-grotesk/SpaceGrotesk-Bold.ttf') format('ttf');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -282,8 +288,31 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/fonts/SpaceGrotesk-Light.ttf') format('ttf');
+	src: url('/fonts/space-grotesk/SpaceGrotesk-Light.ttf') format('ttf');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
+}
+
+/***
+Base Styles
+***/
+
+body {
+	@apply font-sans antialiased;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	@apply font-serif;
 }
