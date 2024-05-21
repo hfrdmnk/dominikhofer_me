@@ -50,3 +50,15 @@ h6,
 .h6 {
 	@apply text-lg font-medium;
 }
+
+/***
+Grid
+***/
+.main-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 96px,
+		repeat(4, 180px) 96px minmax(0, 1fr);
+	grid-template-areas: 'full margin content content content content margin full';
+	gap: 1rem;
+	width: 100%;
+}
