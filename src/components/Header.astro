@@ -1,7 +1,19 @@
 ---
 import { SITE_TITLE } from '../consts';
+import Logo from './Logo.astro';
 ---
 
-<header>
-	Hi from header
+<header class="main-grid">
+	<div class="margin-stretch py-4 flex items-center justify-between">
+        <a href="/" class="w-12 h-12"><Logo /></a>
+        <nav>
+            <ul class="flex gap-6 text-sm font-mono">
+                <li><a class="text-inherit" href="/about">/about</a></li>
+                <li><a class="text-inherit" href="/now">/now</a></li>
+                <li><a class="text-inherit" href="/posts">/posts</a></li>
+                <li><a class="text-inherit" href="/pics">/pics</a></li>
+                <li><a class="text-inherit" href="/connect">/connect</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>

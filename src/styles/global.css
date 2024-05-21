@@ -1,9 +1,17 @@
 /***
+Variables
+***/
+
+:root {
+	--color-brand-primary: #c9ff00;
+}
+
+/***
 Base Styles
 ***/
 
 body {
-	@apply font-sans antialiased bg-white text-gray-900 leading-normal;
+	@apply font-sans antialiased bg-white text-gray-800 leading-normal;
 }
 
 h1,
@@ -54,11 +62,57 @@ h6,
 /***
 Grid
 ***/
+
 .main-grid {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 96px,
-		repeat(4, 180px) 96px minmax(0, 1fr);
-	grid-template-areas: 'full margin content content content content margin full';
+	grid-template-columns: 0 repeat(4, 1fr) 0;
 	gap: 1rem;
 	width: 100%;
+}
+
+.margin-stretch {
+	grid-column: 2 / -2;
+}
+
+.content-stretch {
+	grid-column: 3 / -3;
+}
+
+@media (min-width: 768px) {
+	.main-grid {
+		grid-template-columns: 0 1fr repeat(4, 180px) 1fr 0;
+	}
+}
+
+@media (min-width: 1280px) {
+	.main-grid {
+		grid-template-columns: 1fr 224px repeat(4, 180px) 224px 1fr;
+	}
+}
+
+/***
+Links
+***/
+
+/* Modified from:  https://dannyguo.medium.com/animated-multiline-link-underlines-with-css-abe07f3d6aee */
+
+a:not(.no-highlight, :has(svg), :has(img)) {
+	text-decoration: none;
+	background-position: 0% 100%;
+	background-image: linear-gradient(
+		var(--color-brand-primary),
+		var(--color-brand-primary)
+	);
+	background-repeat: no-repeat;
+	background-size: 0% 100%;
+	transition: background-size 0.3s;
+}
+
+a:not(nav a) {
+	@apply text-gray-950;
+}
+
+a:hover,
+a:focus {
+	background-size: 100% 100%;
 }
