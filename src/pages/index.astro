@@ -2,6 +2,54 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout >
- <h1>Hi</h1>
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<div class="content-stretch space-y-12" data-hover-group>
+			<h1>
+				<span data-hover-word="curious">Curious. </span><span
+					data-hover-word="creative"
+					>Creative.
+				</span><span data-hover-word="coder">Coder.</span>
+			</h1>
+			<div class="space-y-4">
+				<p>That’s me, Dominik :)</p>
+				<p>
+					<span data-hover-word="curious"
+						>I like to learn & understand more about the world we live in.</span
+					>
+					<span data-hover-word="creative">
+						While coming up with cool ideas & designing beautiful things.
+					</span>
+					<span data-hover-word="coder">
+						And bringing them to life with fancy symbols.
+					</span>
+				</p>
+				<p>
+					That’s the most important stuff. If that peaked your interest, you can
+					find the extended edition of my personal profile over at <a
+						href="/about">/about</a
+					>.
+				</p>
+			</div>
+		</div>
+	</header>
 </BaseLayout>
+
+<style>
+	[data-hover-word] {
+		transition: all 0.3s ease-out 0s;
+	}
+
+	[data-hover-group]:has([data-hover-word]:hover) [data-hover-word] {
+		opacity: 0.25;
+	}
+
+	[data-hover-group]:has([data-hover-word='curious']:hover)
+		[data-hover-word='curious'],
+	[data-hover-group]:has([data-hover-word='creative']:hover)
+		[data-hover-word='creative'],
+	[data-hover-group]:has([data-hover-word='coder']:hover)
+		[data-hover-word='coder'] {
+		opacity: 1;
+	}
+</style>

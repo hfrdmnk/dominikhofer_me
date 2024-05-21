@@ -1,20 +1,25 @@
 ---
 import Logo from './Logo.astro';
 import GradientBlur from './GradientBlur.astro';
+import NavLink from './NavLink.astro';
 ---
 
-<div class="main-grid fixed top-0 left-0 w-full bg-gradient-to-b from-white to-transparent">
-    <GradientBlur class="absolute inset-0 -scale-y-100" />
-	<div class="margin-stretch py-4 flex items-center justify-between relative z-10">
-        <a href="/" class="w-12 h-12 text-gray-950"><Logo /></a>
-        <nav>
-            <ul class="flex gap-6 text-sm font-mono">
-                <li><a class="text-inherit" href="/about">/about</a></li>
-                <li><a class="text-inherit" href="/now">/now</a></li>
-                <li><a class="text-inherit" href="/posts">/posts</a></li>
-                <li><a class="text-inherit" href="/pics">/pics</a></li>
-                <li><a class="text-inherit" href="/connect">/connect</a></li>
-            </ul>
-        </nav>
-    </div>
+<div
+	class="main-grid fixed top-0 left-0 w-full bg-gradient-to-b from-white to-transparent">
+	<GradientBlur class="absolute inset-0 -scale-y-100" />
+	<div
+		class="margin-stretch py-8 flex items-center justify-between relative z-10">
+		<a href="/" class="w-12 h-12 text-gray-950"><Logo /></a>
+		<nav>
+			<ul class="flex gap-6 text-sm font-mono">
+				<li><NavLink href="/about">/about</NavLink></li>
+				<li><NavLink class="text-inherit" href="/now">/now</NavLink></li>
+				<li><NavLink class="text-inherit" href="/posts">/posts</NavLink></li>
+				<li><NavLink class="text-inherit" href="/pics">/pics</NavLink></li>
+				<li>
+					<NavLink class="text-inherit" href="/connect">/connect</NavLink>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </div>
