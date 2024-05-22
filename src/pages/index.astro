@@ -1,11 +1,14 @@
 ---
+import FancyImage from '../components/FancyImage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import mainImage from '../images/pages/view.jpg';
 ---
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
 		<div class="content-stretch space-y-12" data-hover-group>
-			<h1>
+			<h1 class="h2">
 				<span data-hover-word="curious">Curious. </span><span
 					data-hover-word="creative"
 					>Creative.
@@ -31,6 +34,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					>.
 				</p>
 			</div>
+			<FancyImage
+				image={mainImage}
+				alt="B&W picture of me looking at Lyon."
+				class="aspect-[1.85/1]"
+				display-name="view.jpg"
+				location="Lyon, FR"
+			/>
 		</div>
 	</header>
 </BaseLayout>
