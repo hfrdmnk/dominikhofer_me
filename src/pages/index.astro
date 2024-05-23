@@ -1,6 +1,7 @@
 ---
 import FancyImage from '../components/FancyImage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 
 import mainImage from '../images/pages/view.jpg';
 ---
@@ -43,6 +44,24 @@ import mainImage from '../images/pages/view.jpg';
 			/>
 		</div>
 	</header>
+	<div class="space-y-16">
+		<SectionMarginTitle title="Where to reach me">
+			<p>
+				Wanna share an idea, show me your project, talk about everything under
+				the sun or just say hi? You can reach me on <a
+					href="https://hoferdo.link/twitter"
+					target="_blank">Twitter/X</a
+				>, <a href="https://hoferdo.link/mastodon" target="_blank">Mastodon</a> or
+				via <a href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
+					>email</a
+				>.
+			</p>
+			<p>Looking forward to your message ✌️</p>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="What I do">
+			<p>Test</p>
+		</SectionMarginTitle>
+	</div>
 </BaseLayout>
 
 <style>
