@@ -15,7 +15,7 @@
 	<script
 		defer
 		data-domain="dominikhofer.me"
-		src="https://analytics.linea.studio:8000/js/script.js"
+		src="https://analytics.linea.studio/js/script.js"
 	></script>
 </svelte:head>
 
