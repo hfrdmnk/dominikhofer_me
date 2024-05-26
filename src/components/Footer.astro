@@ -1,7 +1,17 @@
 ---
+import Socials from './Socials.astro';
+
 const today = new Date();
+const year = today.getFullYear();
 ---
 
-<footer>
-	Hi again
+<footer class="py-8">
+	<div class="main-grid">
+		<div class="content-stretch flex flex-col items-center gap-4">
+			<Socials isFooter={true} />
+			<p class="font-mono text-xs text-gray-600 text-center">
+				made with 💚 and (too much) 🧉 from 2023 to {year} by me.
+			</p>
+		</div>
+	</div>
 </footer>

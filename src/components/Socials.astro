@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { default as cn } from 'classnames';
+const { isFooter } = Astro.props;
+---
+
+<div
+	class={cn(
+		'flex items-center font-mono',
+		isFooter ? 'gap-4 text-sm' : 'gap-2'
+	)}>
+	<a
+		href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
+		class={cn(
+			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
+			{
+				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
+			}
+		)}>
+		<Icon name="ph:envelope" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+	</a>
+	<a
+		href="https://hoferdo.link/twitter"
+		target="_blank"
+		class={cn(
+			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
+			{
+				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
+			}
+		)}>
+		<Icon name="ph:x-logo" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+	</a>
+	<a
+		href="https://hoferdo.link/mastodon"
+		target="_blank"
+		class={cn(
+			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
+			{
+				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
+			}
+		)}>
+		<Icon
+			name="ph:mastodon-logo"
+			class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')}
+		/>
+	</a>
+	<a
+		href="https://hoferdo.link/mastodon"
+		target="_blank"
+		class={cn(
+			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
+			{
+				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
+			}
+		)}>
+		<Icon name="ph:mailbox" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+		{!isFooter && <span>Personal newsletter</span>}
+	</a>
+</div>
