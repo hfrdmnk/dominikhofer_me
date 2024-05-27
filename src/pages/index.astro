@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import FancyImage from '../components/FancyImage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import Socials from '../components/Socials.astro';
 
 import mainImage from '../images/pages/view.jpg';
-import Socials from '../components/Socials.astro';
+import signature from '../images/pages/signature.png';
 ---
 
 <BaseLayout>
@@ -77,6 +79,31 @@ import Socials from '../components/Socials.astro';
 				And since touching grass is also important from time to time, I’m an
 				avid <a href="/races">runner</a> as well.
 			</p>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="What you can do on this website">
+			<ul class="space-y-2 list-disc">
+				<li>Read my latest blog post:</li>
+				<li>
+					Scroll through my digital photo album: <a href="/pics">/pics</a>
+				</li>
+				<li>
+					Take a look at some fleeting thoughts: <a href="/posts?t=notes"
+						>/posts?t=notes</a
+					>
+				</li>
+				<li>Check out the latest races I ran: <a href="/races">/races</a></li>
+				<li>
+					Or again, simply <a
+						href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
+						>say hi</a
+					> :)
+				</li>
+			</ul>
+		</SectionMarginTitle>
+		<SectionMarginTitle>
+			<p>Have a wonderful day, week, month, year!</p>
+			<p>Cheers.</p>
+			<Image src={signature} alt="Dominik's Signature" class="w-48" />
 		</SectionMarginTitle>
 	</div>
 </BaseLayout>

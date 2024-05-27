@@ -17,7 +17,7 @@ const { isFooter } = Astro.props;
 				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
 			}
 		)}>
-		<Icon name="ph:envelope" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+		<Icon name="ph:envelope" class="w-5 h-5" />
 	</a>
 	<a
 		href="https://hoferdo.link/twitter"
@@ -28,7 +28,7 @@ const { isFooter } = Astro.props;
 				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
 			}
 		)}>
-		<Icon name="ph:x-logo" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+		<Icon name="ph:x-logo" class="w-5 h-5" />
 	</a>
 	<a
 		href="https://hoferdo.link/mastodon"
@@ -39,13 +39,10 @@ const { isFooter } = Astro.props;
 				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
 			}
 		)}>
-		<Icon
-			name="ph:mastodon-logo"
-			class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')}
-		/>
+		<Icon name="ph:mastodon-logo" class="w-5 h-5" />
 	</a>
 	<a
-		href="https://hoferdo.link/mastodon"
+		href="https://hoferdo.link/newsletter"
 		target="_blank"
 		class={cn(
 			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
@@ -53,7 +50,7 @@ const { isFooter } = Astro.props;
 				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
 			}
 		)}>
-		<Icon name="ph:mailbox" class={cn(isFooter ? 'w-4 h-4' : 'w-5 h-5')} />
+		<Icon name="ph:mailbox" class="w-5 h-5" />
 		{!isFooter && <span>Personal newsletter</span>}
 	</a>
 </div>
