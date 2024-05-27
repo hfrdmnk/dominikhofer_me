@@ -1,18 +1,27 @@
 ---
 import { Image } from 'astro:assets';
-import FancyImage from '../components/FancyImage.astro';
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FancyImage from '../components/FancyImage.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import Socials from '../components/Socials.astro';
 
 import mainImage from '../images/pages/view.jpg';
 import signature from '../images/pages/signature.png';
+
+const posts = await getCollection('posts');
+posts.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const latestPostSlug = posts[0].slug;
 ---
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
 		<div class="content-stretch space-y-12" data-hover-group>
-			<h1 class="h2">
+			<h1>
 				<span data-hover-word="curious">Curious. </span><span
 					data-hover-word="creative"
 					>Creative.
@@ -55,9 +64,7 @@ import signature from '../images/pages/signature.png';
 					href="https://hoferdo.link/twitter"
 					target="_blank">Twitter/X</a
 				>, <a href="https://hoferdo.link/mastodon" target="_blank">Mastodon</a> or
-				via <a href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
-					>email</a
-				>.
+				via <a href="https://hoferdo.link/hi" target="_blank">email</a>.
 			</p>
 			<p>Looking forward to your message ✌️</p>
 			<Socials />
@@ -82,7 +89,11 @@ import signature from '../images/pages/signature.png';
 		</SectionMarginTitle>
 		<SectionMarginTitle title="What you can do on this website">
 			<ul class="space-y-2 list-disc">
-				<li>Read my latest blog post:</li>
+				<li>
+					Read my latest blog post: <a href={`/${latestPostSlug}`}
+						>/{latestPostSlug}</a
+					>
+				</li>
 				<li>
 					Scroll through my digital photo album: <a href="/pics">/pics</a>
 				</li>
@@ -93,8 +104,7 @@ import signature from '../images/pages/signature.png';
 				</li>
 				<li>Check out the latest races I ran: <a href="/races">/races</a></li>
 				<li>
-					Or again, simply <a
-						href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
+					Or again, simply <a href="https://hoferdo.link/hi" target="_blank"
 						>say hi</a
 					> :)
 				</li>
@@ -102,7 +112,7 @@ import signature from '../images/pages/signature.png';
 		</SectionMarginTitle>
 		<SectionMarginTitle>
 			<p>Have a wonderful day, week, month, year!</p>
-			<p>Cheers.</p>
+			<p>Cheers,</p>
 			<Image src={signature} alt="Dominik's Signature" class="w-48" />
 		</SectionMarginTitle>
 	</div>

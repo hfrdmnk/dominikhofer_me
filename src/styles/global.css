@@ -35,32 +35,32 @@ h6,
 
 h1,
 .h1 {
-	@apply text-5xl italic;
+	@apply text-4xl italic;
 }
 
 h2,
 .h2 {
-	@apply text-4xl italic;
+	@apply text-3xl italic;
 }
 
 h3,
 .h3 {
-	@apply text-3xl;
+	@apply text-2xl;
 }
 
 h4,
 .h4 {
-	@apply text-2xl font-medium;
+	@apply text-xl font-medium;
 }
 
 h5,
 .h5 {
-	@apply text-xl font-medium;
+	@apply text-lg font-medium;
 }
 
 h6,
 .h6 {
-	@apply text-lg font-medium;
+	@apply font-medium;
 }
 
 /***

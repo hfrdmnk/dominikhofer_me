@@ -10,16 +10,6 @@ const { isFooter } = Astro.props;
 		isFooter ? 'gap-4 text-sm' : 'gap-2'
 	)}>
 	<a
-		href="mailto:hi@dominikhofer.me?subject=Hi%2C%20it%27s%20me!"
-		class={cn(
-			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
-			{
-				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
-			}
-		)}>
-		<Icon name="ph:envelope" class="w-5 h-5" />
-	</a>
-	<a
 		href="https://hoferdo.link/twitter"
 		target="_blank"
 		class={cn(
@@ -40,6 +30,17 @@ const { isFooter } = Astro.props;
 			}
 		)}>
 		<Icon name="ph:mastodon-logo" class="w-5 h-5" />
+	</a>
+	<a
+		href="https://hoferdo.link/hi"
+		target="_blank"
+		class={cn(
+			'rounded transition-all text-gray-600 hover:text-gray-800 flex items-center gap-2 no-underline',
+			{
+				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
+			}
+		)}>
+		<Icon name="ph:envelope" class="w-5 h-5" />
 	</a>
 	<a
 		href="https://hoferdo.link/newsletter"

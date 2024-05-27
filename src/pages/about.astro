@@ -1,7 +1,141 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FancyImage from '../components/FancyImage.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import Socials from '../components/Socials.astro';
+
+import bubbles from '../images/pages/bubbles.jpg';
+import nocco from '../images/pages/nocco.jpg';
+import photography from '../images/pages/photography.jpg';
 ---
 
-<BaseLayout >
-    <h1>About</h1>
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<div class="content-stretch space-y-12">
+			<h1>
+				Who <span class="line-through text-gray-400">let the dogs out</span> is Dominik?
+			</h1>
+			<div class="space-y-4">
+				<p>
+					I’m an early 20s guy from Switzerland. So naturally, I’m still trying
+					to find my place in the world. Figuring out who I am and what I want
+					to do. And this website serves as a time capsule for preserving and
+					documenting this project we call personal life.
+				</p>
+				<p>
+					By day, I’m working as a Webflow developer @<a
+						href="https://bloqlabs.ch"
+						target="_blank">Bloq Labs</a
+					> and create my own things at night. Mostly by designing & coding stuff,
+					but I also got into <a href="/races">running</a> lately and I'm trying
+					to get better at articulating my thoughts (aka writing on <a
+						href="/posts">this blog</a
+					>).
+				</p>
+				<p>
+					Other than that, I like to learn and understand as much as I can about
+					this fascinating world we’re living in. Mostly by myself and from
+					books or the internet. But because that can get a bit lonely, and you
+					have to be <em>very</em> disciplined to study the hard parts, I’ll go to
+					uni this summer, studying CS & social studies.
+				</p>
+				<p>
+					For a more up-to-date overview of what I’m doing, take a look at the
+					<a href="/now">/now</a> page.
+				</p>
+			</div>
+			<div class="flex gap-2">
+				<div class="flex-1">
+					<FancyImage
+						image={bubbles}
+						alt="Me watching some soap bubbles and looking fascinated."
+						class="aspect-square"
+						display-name="bubbles.jpg"
+						location="Barcelona, ES"
+					/>
+				</div>
+				<div class="flex-1">
+					<FancyImage
+						image={nocco}
+						alt="My favorite drink, a can of NOCCO."
+						class="aspect-square"
+						display-name="nocco.jpg"
+						location="Stockholm, SE"
+					/>
+				</div>
+				<div class="flex-1">
+					<FancyImage
+						image={photography}
+						alt="Me producing some new content for /pics."
+						class="aspect-square"
+						display-name="photography.jpg"
+						location="Brighton, GB"
+					/>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="space-y-16">
+		<SectionMarginTitle title="A list of things I like">
+			<p>
+				This is not exhaustive, but should get you a pretty good overview of who
+				I am :)
+			</p>
+			<p class="italic">
+				Noir thrillers (books & movies), running, reading a good book, cozy
+				evenings with loved ones, trying out new cooking recipes, rainy days in
+				big cities, getting lost in random rabbit holes, <s
+					>making plans about the future</s
+				> daydreaming, collecting inspiration (for one of my thousand project ideas),
+				working in trains, deep house (or whatever genre Elderbrook and BUNT. fit
+				into), the feeling after coming home from the gym, thinking and philosophising
+				about stuff I find interesting right at that moment (and now writing about
+				it too), baby goats & dogs, biographies of inspiring people, true-crime podcasts,
+				Liverpool FC, Bern, strolling through book stores, NOCCO, El Tony Mate, the
+				smell of a summer thunderstorm, street photography, bringing things to live
+				with code, minimalism (especially as a design style), sushi, poké bowls,
+				simple living, board game nights with friends, …
+			</p>
+			<p>(Plus 1000 other things I forgot to write down and will add later.)</p>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="Where to find me">
+			<p>
+				I try to reduce my social media consumption as much as possible. That’s
+				why my current main hub is this website. If you want to reach out, have
+				a chat or create something together, you can also find me on <a
+					href="https://hoferdo.link/twitter"
+					target="_blank">Twitter/X</a
+				>, <a href="https://hoferdo.link/mastodon" target="_blank">Mastodon</a>,
+				or simply <a href="https://hoferdo.link/hi" target="_blank"
+					>write me an email</a
+				> (the old school way).
+			</p>
+			<p>
+				And don’t forget to subscribe to my <a
+					href="https://hoferdo.link/newsletter"
+					target="_blank">newsletter</a
+				> or <a href="/rss">RSS feed</a> to keep up to date with the things I put
+				out into this world!
+			</p>
+		</SectionMarginTitle>
+	</div>
 </BaseLayout>
+
+<style>
+	[data-hover-word] {
+		transition: all 0.3s ease-out 0s;
+	}
+
+	[data-hover-group]:has([data-hover-word]:hover) [data-hover-word] {
+		opacity: 0.25;
+	}
+
+	[data-hover-group]:has([data-hover-word='curious']:hover)
+		[data-hover-word='curious'],
+	[data-hover-group]:has([data-hover-word='creative']:hover)
+		[data-hover-word='creative'],
+	[data-hover-group]:has([data-hover-word='coder']:hover)
+		[data-hover-word='coder'] {
+		opacity: 1;
+	}
+</style>
