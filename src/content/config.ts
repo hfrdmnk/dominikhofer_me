@@ -7,10 +7,11 @@ const posts = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		type: z.enum(['post', 'essay', 'note']).default('post'),
+		tags: z.array(z.string()).default([]),
 		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
+		date: z.coerce.date(),
+		lastUpdated: z.coerce.date().optional(),
+		visual: z.string().optional(),
 	}),
 });
 

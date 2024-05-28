@@ -12,8 +12,7 @@ import signature from '../images/pages/signature.png';
 
 const posts = await getCollection('posts');
 posts.sort(
-	(a, b) =>
-		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 const latestPostSlug = posts[0].slug;
 ---
@@ -28,13 +27,16 @@ const latestPostSlug = posts[0].slug;
 				</span><span data-hover-word="coder">Coder.</span>
 			</h1>
 			<div class="space-y-4">
-				<p>That’s me, Dominik :)</p>
+				<p class="font-medium">That’s me, Dominik :)</p>
 				<p>
 					<span data-hover-word="curious"
-						>I like to learn & understand more about the world we live in.</span
+						>I like to learn <span class="font-serif italic">&</span> understand
+						more about the world we live in.</span
 					>
 					<span data-hover-word="creative">
-						While coming up with cool ideas & designing beautiful things.
+						While coming up with cool ideas <span class="font-serif italic"
+							>&</span
+						> designing beautiful things.
 					</span>
 					<span data-hover-word="coder">
 						And bringing them to life with fancy symbols.

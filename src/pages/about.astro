@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FancyImage from '../components/FancyImage.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
-import Socials from '../components/Socials.astro';
 
 import bubbles from '../images/pages/bubbles.jpg';
 import nocco from '../images/pages/nocco.jpg';
@@ -16,7 +15,7 @@ import photography from '../images/pages/photography.jpg';
 				Who <span class="line-through text-gray-400">let the dogs out</span> is Dominik?
 			</h1>
 			<div class="space-y-4">
-				<p>
+				<p class="font-medium">
 					I’m an early 20s guy from Switzerland. So naturally, I’m still trying
 					to find my place in the world. Figuring out who I am and what I want
 					to do. And this website serves as a time capsule for preserving and
@@ -120,22 +119,3 @@ import photography from '../images/pages/photography.jpg';
 		</SectionMarginTitle>
 	</div>
 </BaseLayout>
-
-<style>
-	[data-hover-word] {
-		transition: all 0.3s ease-out 0s;
-	}
-
-	[data-hover-group]:has([data-hover-word]:hover) [data-hover-word] {
-		opacity: 0.25;
-	}
-
-	[data-hover-group]:has([data-hover-word='curious']:hover)
-		[data-hover-word='curious'],
-	[data-hover-group]:has([data-hover-word='creative']:hover)
-		[data-hover-word='creative'],
-	[data-hover-group]:has([data-hover-word='coder']:hover)
-		[data-hover-word='coder'] {
-		opacity: 1;
-	}
-</style>

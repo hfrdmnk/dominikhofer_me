@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+---
+
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<div class="content-stretch space-y-12">
+			<h1>Now</h1>
+			<div class="space-y-12">
+				<p class="font-medium">
+					(This is a <a href="https://nownownow.com/" target="_blank"
+						>now page</a
+					>, and if you have your own site, <a
+						href="https://nownownow.com/about"
+						target="_blank">you should make one</a
+					>, too.)
+				</p>
+				<div class="prose">
+					<h2>Location</h2>
+					<p>Bern, Switzerland</p>
+					<h2>What I'm up to</h2>
+					<ul>
+						<li>
+							Launching this website &ndash; if you can read this, I achieved it
+							:)
+						</li>
+						<li>
+							Training for my next 10k race (Lausanne, in October 2024). Will do
+							a few races in between as well.
+						</li>
+						<li>
+							Working on a tool, that automates quality assurance on your
+							website: <a href="https://inspectthis.site" target="_blank"
+								>inspecthis.site</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="space-y-16"></div>
+</BaseLayout>
