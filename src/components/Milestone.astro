@@ -4,7 +4,6 @@ import { Image } from 'astro:assets';
 import { default as cn } from 'classnames';
 
 const { milestone, hideBadge, showImage } = Astro.props;
-const { Content } = await milestone.render();
 ---
 
 <article class="p-6 border rounded-lg flex flex-col gap-8">
@@ -17,7 +16,7 @@ const { Content } = await milestone.render();
 			/>
 		)
 	}
-	<div class="flex flex-col gap-2 relative">
+	<div class="flex flex-col items-start gap-2 relative">
 		<a
 			href={milestone.data.link}
 			target="_blank"
@@ -94,13 +93,20 @@ const { Content } = await milestone.render();
 					</>
 				)
 			}
+			{
+				milestone.data.dateEnd && (
+					<>
+						<span>&#8901;</span>
+
+						<div class="rounded-full bg-gray-50 text-gray-600 transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
+							<Icon name="ph:calendar-dots" class="w-4 h-4" />
+							<span>
+								until {new Date(milestone.data.dateEnd).getFullYear()}
+							</span>
+						</div>
+					</>
+				)
+			}
 		</div>
 	</div>
-	{
-		milestone.body !== '\n' && (
-			<div class="text-sm prose">
-				<Content />
-			</div>
-		)
-	}
 </article>

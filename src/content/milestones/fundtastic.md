@@ -1,6 +1,6 @@
 ---
 title: Fundtastic
-shortDescription: New Webflow site for an NPO.
+shortDescription: Webflow site for an NPO.
 type: project
 tags:
   - Webdesign
@@ -10,4 +10,3 @@ link: https://www.fundtastic.ch/
 date: 2022-11-03
 visual: ../../assets/milestones/fundtastic/fundtastic-d9ec046e82.jpg
 ---
-

@@ -1,5 +1,5 @@
 ---
-title: Content manager/Designer
+title: Content Manager/Designer
 shortDescription: Bern
 type: cv
 tags:

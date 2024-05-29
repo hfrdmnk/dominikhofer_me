@@ -23,7 +23,10 @@ body {
 }
 
 h1,
-.h1,
+.h1 {
+	@apply text-gray-950 leading-tight;
+}
+
 h2,
 .h2,
 h3,
@@ -34,36 +37,31 @@ h5,
 .h5,
 h6,
 .h6 {
-	@apply font-serif font-semibold text-gray-950 leading-tight;
+	@apply font-semibold text-gray-950 leading-tight;
 }
 
 h1,
 .h1 {
-	@apply text-4xl italic;
+	@apply font-serif font-semibold text-4xl italic;
 }
 
 h2,
 .h2 {
-	@apply text-3xl italic;
+	@apply text-2xl;
 }
 
 h3,
 .h3 {
-	@apply text-2xl;
+	@apply text-xl;
 }
 
 h4,
 .h4 {
-	@apply text-xl font-medium;
+	@apply text-lg font-medium;
 }
 
 h5,
 .h5 {
-	@apply text-lg font-medium;
-}
-
-h6,
-.h6 {
 	@apply font-medium;
 }
 

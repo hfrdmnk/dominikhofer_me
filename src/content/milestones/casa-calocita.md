@@ -1,6 +1,6 @@
 ---
 title: Casa Calocita
-shortDescription: New Webflow site for a co-living location in Costa Rica.
+shortDescription: Webflow site for a co-living location in Costa Rica.
 type: project
 tags:
   - Webflow Development
@@ -9,4 +9,3 @@ link: https://www.casacalocita.com/
 date: 2024-03-29
 visual: ../../assets/milestones/casa-calocita/calocita-99f077fbcb.jpg
 ---
-

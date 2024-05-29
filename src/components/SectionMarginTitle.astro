@@ -1,11 +1,16 @@
 ---
-const { title } = Astro.props;
+const { title, isH3 } = Astro.props;
+const titleClass =
+	'col-[2_/_-2] md:col-[3_/-3] xl:col-[2_/_span_1] font-mono text-base font-normal not-italic text-gray-500 xl:sticky top-24 self-start';
 ---
 
 <section class="main-grid">
-	<h2
-		class="col-[2_/_-2] md:col-[3_/-3] xl:col-[2_/_span_1] font-mono text-base font-normal not-italic text-gray-500">
-		{title}
-	</h2>
+	{
+		!isH3 ? (
+			<h2 class={titleClass}>{title}</h2>
+		) : (
+			<h3 class={titleClass}>{title}</h3>
+		)
+	}
 	<div class="content-stretch space-y-4"><slot /></div>
 </section>

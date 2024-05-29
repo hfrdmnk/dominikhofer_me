@@ -1,13 +1,54 @@
 ---
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import Milestone from '../components/Milestone.astro';
+
+const milestones = await getCollection('milestones');
+type Milestones = (typeof milestones)[number][];
+
+const groupedMilestones = groupMilestonesByYear(milestones);
+
+function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
+	const years: { [key: number]: Milestones } = {};
+
+	milestones.forEach((milestone) => {
+		const year = new Date(milestone.data.date).getFullYear();
+
+		if (!years[year]) {
+			years[year] = [] as Milestones;
+		}
+
+		years[year].push(milestone);
+	});
+
+	Object.keys(years).forEach((year) => {
+		years[Number(year)].sort(
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+		);
+	});
+
+	// Convert the years object to an array of [year, milestones] tuples
+	const sortedYears: [number, Milestones][] = Object.entries(years).map(
+		([year, milestones]) => [Number(year), milestones]
+	);
+
+	// Sort the years in descending order (newest to oldest)
+	sortedYears.sort((a, b) => b[0] - a[0]);
+
+	return sortedYears;
+}
+
+console.log(groupedMilestones);
 ---
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
 		<div class="content-stretch space-y-12">
 			<h1>Now</h1>
-			<div class="space-y-12">
+			<div class="space-y-8">
 				<p class="font-medium">
 					(This is a <a href="https://nownownow.com/" target="_blank"
 						>now page</a
@@ -16,11 +57,13 @@ import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 						target="_blank">you should make one</a
 					>, too.)
 				</p>
-				<div class="prose">
+				<div class="space-y-4">
 					<h2>Location</h2>
 					<p>Bern, Switzerland</p>
+				</div>
+				<div class="space-y-4">
 					<h2>What I'm up to</h2>
-					<ul>
+					<ul class="list-disc space-y-2">
 						<li>
 							Launching this website &ndash; if you can read this, I achieved it
 							:)
@@ -32,12 +75,43 @@ import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 						<li>
 							Working on a tool, that automates quality assurance on your
 							website: <a href="https://inspectthis.site" target="_blank"
-								>inspecthis.site</a>
+								>inspecthis.site</a
+							>
+						</li>
+						<li>
+							Planning a SaaS and some Framer plugins with <a
+								href="https://cedric.design"
+								target="_blank">Cédric</a
+							>.
+						</li>
+						<li>
+							Working as the Lead Webflow Developer @<a
+								href="https://bloqlabs.ch"
+								target="_blank">Bloq Labs</a
+							>.
 						</li>
 					</ul>
 				</div>
+				<p class="font-medium">Last updated: 29/05/24</p>
 			</div>
 		</div>
 	</header>
-	<div class="space-y-16"></div>
+	<div class="main-grid mb-8">
+		<div class="content-stretch">
+			<h2>Previously on “Now”… (a timeline)</h2>
+		</div>
+	</div>
+	<div class="space-y-16">
+		{
+			groupedMilestones.map(([year, milestones]) => (
+				<>
+					<SectionMarginTitle title={year.toString()}>
+						{milestones.map((milestone) => (
+							<Milestone milestone={milestone} />
+						))}
+					</SectionMarginTitle>
+				</>
+			))
+		}
+	</div>
 </BaseLayout>

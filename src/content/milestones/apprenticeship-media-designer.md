@@ -1,5 +1,5 @@
 ---
-title: Apprenticeship media designer
+title: Apprenticeship Media Designer
 shortDescription: Bern
 type: cv
 tags:

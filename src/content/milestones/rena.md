@@ -1,6 +1,6 @@
 ---
 title: RENA
-shortDescription: New Webflow site for an e-commerce jewlery store.
+shortDescription: Webflow site for an e-commerce jewlery store.
 type: project
 tags:
   - Webflow Development
@@ -10,4 +10,3 @@ link: https://www.rena.diamonds/
 date: 2023-10-27
 visual: ../../assets/milestones/rena/rena-f271f0519f.jpg
 ---
-

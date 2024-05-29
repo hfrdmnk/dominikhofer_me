@@ -1,6 +1,6 @@
 ---
 title: Verkehrsfachschule
-shortDescription: New Webflow site for a training and education company.
+shortDescription: Webflow site for a training and education company.
 type: project
 tags:
   - Webdesign
@@ -10,4 +10,3 @@ link: https://www.verkehrsfachschule.ch/
 date: 2022-12-15
 visual: ../../assets/milestones/verkehrsfachschule/vfs-a7a7391b16.jpg
 ---
-
