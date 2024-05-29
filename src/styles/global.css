@@ -24,11 +24,14 @@ body {
 
 h1,
 .h1 {
-	@apply text-gray-950 leading-tight;
+	@apply text-gray-950 leading-tight font-serif font-semibold text-4xl italic;
 }
 
 h2,
-.h2,
+.h2 {
+	@apply text-gray-950 leading-tight font-serif text-2xl;
+}
+
 h3,
 .h3,
 h4,
@@ -38,16 +41,6 @@ h5,
 h6,
 .h6 {
 	@apply font-semibold text-gray-950 leading-tight;
-}
-
-h1,
-.h1 {
-	@apply font-serif font-semibold text-4xl italic;
-}
-
-h2,
-.h2 {
-	@apply text-2xl;
 }
 
 h3,
@@ -117,8 +110,9 @@ a:not(.no-highlight, :has(svg), :has(img)) {
 	transition: all 0.3s ease-in-out;
 }
 
-a:not(nav a) {
-	@apply text-gray-950 underline underline-offset-2 decoration-gray-300;
+a:not(nav a),
+.prose a {
+	@apply text-gray-950 underline underline-offset-2 decoration-gray-300 font-normal;
 }
 
 a:hover,

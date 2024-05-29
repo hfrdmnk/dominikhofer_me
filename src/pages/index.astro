@@ -93,36 +93,34 @@ const latestFeaturedMilestone = featuredMilestones[0];
 				<Milestone milestone={latestFeaturedMilestone} hideBadge={true} />
 			</div>
 			<p>
-				A list of many of my projects is available here: <a href="/now">/now</a
-				>.
-			</p>
-			<p>
 				And since touching grass is also important from time to time, I’m an
 				avid <a href="/races">runner</a> as well.
 			</p>
 		</SectionMarginTitle>
 		<SectionMarginTitle title="What you can do on this website">
-			<ul class="space-y-2 list-disc">
-				<li>
-					Read my latest blog post: <a href={`/${latestPostSlug}`}
-						>/{latestPostSlug}</a
-					>
-				</li>
-				<li>
-					Scroll through my digital photo album: <a href="/pics">/pics</a>
-				</li>
-				<li>
-					Take a look at some fleeting thoughts: <a href="/posts?t=notes"
-						>/posts?t=notes</a
-					>
-				</li>
-				<li>Check out the latest races I ran: <a href="/races">/races</a></li>
-				<li>
-					Or again, simply <a href="https://hoferdo.link/hi" target="_blank"
-						>say hi</a
-					> :)
-				</li>
-			</ul>
+			<div class="prose prose-li:first:mt-0">
+				<ul>
+					<li>
+						Read my latest blog post: <a href={`/${latestPostSlug}`}
+							>/{latestPostSlug}</a
+						>
+					</li>
+					<li>
+						Scroll through my digital photo album: <a href="/pics">/pics</a>
+					</li>
+					<li>
+						Take a look at some fleeting thoughts: <a href="/posts?t=notes"
+							>/posts?t=notes</a
+						>
+					</li>
+					<li>Check out the latest races I ran: <a href="/races">/races</a></li>
+					<li>
+						Or again, simply <a href="https://hoferdo.link/hi" target="_blank"
+							>say hi</a
+						> :)
+					</li>
+				</ul>
+			</div>
 		</SectionMarginTitle>
 		<SectionMarginTitle>
 			<p>Have a wonderful day, week, month, year!</p>
