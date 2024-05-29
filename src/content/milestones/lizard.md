@@ -12,7 +12,9 @@ link: https://hoferdo.link/lemon
 ---
 
 Creation of three plug-and-play Framer code components/overrides: 
+
 - CMDK
 - Shortcuts
 - Snazzy Maps
+
 Originally launched on [canvas.supply](https://www.canvas.supply/).

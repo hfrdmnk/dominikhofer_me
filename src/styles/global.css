@@ -10,6 +10,10 @@ Misc
 	background-color: var(--color-brand-primary);
 }
 
+img {
+	@apply select-none;
+}
+
 /***
 Base Styles
 ***/

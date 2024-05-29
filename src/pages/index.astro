@@ -9,12 +9,23 @@ import Socials from '../components/Socials.astro';
 
 import mainImage from '../images/pages/view.jpg';
 import signature from '../images/pages/signature.png';
+import Milestone from '../components/Milestone.astro';
 
 const posts = await getCollection('posts');
 posts.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 const latestPostSlug = posts[0].slug;
+
+const milestones = await getCollection('milestones');
+const featuredMilestones = milestones.filter(
+	(milestone) => milestone.data.featured
+);
+featuredMilestones.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const latestFeaturedMilestone = featuredMilestones[0];
+console.log(latestFeaturedMilestone);
 ---
 
 <BaseLayout>
@@ -79,6 +90,9 @@ const latestPostSlug = posts[0].slug;
 				>.
 			</p>
 			<p>Here’s a recent project I am proud of:</p>
+			<div class="py-4">
+				<Milestone milestone={latestFeaturedMilestone} hideBadge={true} />
+			</div>
 			<p>
 				A list of all project is available here: <a href="/now?t=project"
 					>/now?t=project</a
