@@ -1,6 +1,6 @@
 ---
 title: 'First Post'
-description: 'This is my first post'
+excerpt: 'This is my first post'
 type: 'post'
 date: '2020-01-01'
 ---
