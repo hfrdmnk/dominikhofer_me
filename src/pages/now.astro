@@ -1,12 +1,21 @@
 ---
+// opt out of prerendering
+export const prerender = false;
+
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import Milestone from '../components/Milestone.astro';
 
-const milestones = await getCollection('milestones');
+const type = Astro.url.searchParams.get('t') || '';
+
+let milestones = await getCollection('milestones');
 type Milestones = (typeof milestones)[number][];
+
+if (type === 'cv' || type === 'personal' || type === 'project') {
+	milestones = milestones.filter((milestone) => milestone.data.type === type);
+}
 
 const groupedMilestones = groupMilestonesByYear(milestones);
 
@@ -40,8 +49,6 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 
 	return sortedYears;
 }
-
-console.log(groupedMilestones);
 ---
 
 <BaseLayout>
@@ -72,6 +79,11 @@ console.log(groupedMilestones);
 							<li>
 								Training for my next 10k race (Lausanne, in October 2024). Will
 								do a few races in between as well.
+							</li>
+							<li>
+								Learning <a href="https://laravel.com" target="_blank"
+									>Laravel</a
+								> (once again, but this time for real &ndash; I hope).
 							</li>
 							<li>
 								Working on a tool, that automates quality assurance on your
@@ -109,7 +121,10 @@ console.log(groupedMilestones);
 				<>
 					<SectionMarginTitle title={year.toString()}>
 						{milestones.map((milestone) => (
-							<Milestone milestone={milestone} />
+							<Milestone
+								milestone={milestone}
+								showImage={milestone.data.featured ? true : false}
+							/>
 						))}
 					</SectionMarginTitle>
 				</>

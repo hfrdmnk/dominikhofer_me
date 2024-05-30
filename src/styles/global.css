@@ -18,20 +18,30 @@ img {
 Base Styles
 ***/
 
+.text-body {
+	@apply text-gray-700;
+}
+
+.text-body-lighter {
+	@apply text-gray-600;
+}
+
+.text-body-darker {
+	@apply text-gray-800;
+}
+
+.text-heading {
+	@apply text-gray-950;
+}
+
 body {
-	@apply font-sans antialiased bg-white text-gray-700 leading-normal font-light;
+	@apply font-sans antialiased bg-white text-gray-700 leading-relaxed font-light;
 }
 
 h1,
-.h1 {
-	@apply text-gray-950 leading-tight font-serif font-semibold text-4xl italic;
-}
-
+.h1,
 h2,
-.h2 {
-	@apply text-gray-950 leading-tight font-serif text-2xl;
-}
-
+.h2,
 h3,
 .h3,
 h4,
@@ -40,7 +50,17 @@ h5,
 .h5,
 h6,
 .h6 {
-	@apply font-semibold text-gray-950 leading-tight;
+	@apply text-heading leading-tight font-semibold;
+}
+
+h1,
+.h1 {
+	@apply font-serif font-bold text-4xl italic;
+}
+
+h2,
+.h2 {
+	@apply text-2xl;
 }
 
 h3,

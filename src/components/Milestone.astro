@@ -4,11 +4,18 @@ import { Image } from 'astro:assets';
 import { default as cn } from 'classnames';
 
 const { milestone, hideBadge, showImage } = Astro.props;
+
+let formattedEndDate = '';
+
+if (milestone.data.dateEnd) {
+	const endDate = new Date(milestone.data.dateEnd);
+	formattedEndDate = `${(endDate.getMonth() + 1).toString().padStart(2, '0')}/${endDate.getFullYear().toString().slice(-2)}`;
+}
 ---
 
 <article class="p-6 border rounded-lg flex flex-col gap-8">
 	{
-		showImage && (
+		showImage && milestone.data.visual && (
 			<Image
 				src={milestone.data.visual}
 				alt="Visual"
@@ -17,12 +24,16 @@ const { milestone, hideBadge, showImage } = Astro.props;
 		)
 	}
 	<div class="flex flex-col items-start gap-2 relative">
-		<a
-			href={milestone.data.link}
-			target="_blank"
-			class="absolute top-0 right-0 select-none text-gray-600 hover:text-gray-800">
-			<Icon name="ph:link" class="w-5 h-5" />
-		</a>
+		{
+			milestone.data.link && (
+				<a
+					href={milestone.data.link}
+					target="_blank"
+					class="absolute top-0 right-0 select-none text-body-lighter hover:text-gray-800">
+					<Icon name="ph:link" class="w-5 h-5" />
+				</a>
+			)
+		}
 		{
 			!hideBadge && (
 				<div
@@ -73,19 +84,26 @@ const { milestone, hideBadge, showImage } = Astro.props;
 			)
 		}
 		<h3 class="text-lg font-medium">{milestone.data.title}</h3>
-		<p class="text-sm">{milestone.data.shortDescription}</p>
+		<p>{milestone.data.shortDescription}</p>
 		<div class="flex items-center gap-2 mt-2 select-none">
-			<div
-				class="rounded-full bg-gray-50 text-gray-600 transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
-				<Icon name="ph:at" class="w-4 h-4" />
-				{milestone.data.company}
-			</div>
+			{
+				milestone.data.company && (
+					<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
+						<Icon name="ph:at" class="w-4 h-4" />
+						{milestone.data.company}
+					</div>
+				)
+			}
+			{
+				milestone.data.company && milestone.data.tags.length > 0 && (
+					<span>&#8901;</span>
+				)
+			}
 			{
 				milestone.data.tags.length > 0 && (
 					<>
-						<span>&#8901;</span>
 						{milestone.data.tags.map((tag: string) => (
-							<div class="rounded-full bg-gray-50 text-gray-600 transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
+							<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
 								<Icon name="ph:tag" class="w-4 h-4" />
 								<span>{tag}</span>
 							</div>
@@ -94,15 +112,16 @@ const { milestone, hideBadge, showImage } = Astro.props;
 				)
 			}
 			{
+				milestone.data.dateEnd && milestone.data.tags.length > 0 && (
+					<span>&#8901;</span>
+				)
+			}
+			{
 				milestone.data.dateEnd && (
 					<>
-						<span>&#8901;</span>
-
-						<div class="rounded-full bg-gray-50 text-gray-600 transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
+						<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
 							<Icon name="ph:calendar-dots" class="w-4 h-4" />
-							<span>
-								until {new Date(milestone.data.dateEnd).getFullYear()}
-							</span>
+							<span>until {formattedEndDate}</span>
 						</div>
 					</>
 				)

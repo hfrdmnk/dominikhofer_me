@@ -6,9 +6,10 @@ tags:
   - Framer
   - React
 company: Linea
+link: https://hoferdo.link/lemon
 date: 2023-07-28
 visual: ../../assets/milestones/lizard/lizard-924aa219a1.jpg
-link: https://hoferdo.link/lemon
+featured: true
 ---
 
 Creation of three plug-and-play Framer code components/overrides: 

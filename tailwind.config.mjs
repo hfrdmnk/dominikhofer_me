@@ -5,9 +5,22 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		fontFamily: {
-			sans: ['Inter', ...defaultTheme.fontFamily.sans],
+			sans: ['Switzer', 'Inter', ...defaultTheme.fontFamily.sans],
 			serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
 			mono: ['"Space Grotesk"', ...defaultTheme.fontFamily.mono],
+		},
+		fontSize: {
+			xs: '0.69rem',
+			sm: '0.83rem',
+			base: '1rem',
+			lg: '1.2rem',
+			xl: '1.44rem',
+			'2xl': '1.73rem',
+			'3xl': '2.07rem',
+			'4xl': '2.49rem',
+			'5xl': '2.99rem',
+			'6xl': '3.58rem',
+			'7xl': '4.3rem',
 		},
 		extend: {
 			colors: {
