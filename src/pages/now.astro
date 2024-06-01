@@ -7,6 +7,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import Milestone from '../components/Milestone.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+import { Icon } from 'astro-icon/components';
 
 const type = Astro.url.searchParams.get('t') || '';
 
@@ -53,9 +57,17 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
-		<div class="content-stretch space-y-12">
-			<h1>Now</h1>
-			<div class="space-y-8">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>On my mind.</h1>
+				<!-- TODO: Extract this tag -->
+				<div
+					class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm self-start">
+					<Icon name="ph:calendar-dots" class="w-4 h-4" />
+					Last updated: 29/05/24
+				</div>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
 				<p class="font-medium">
 					(This is a <a href="https://nownownow.com/" target="_blank"
 						>now page</a
@@ -64,58 +76,53 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 						target="_blank">you should make one</a
 					>, too.)
 				</p>
-				<div class="space-y-4">
-					<h2>Location</h2>
-					<p>Bern, Switzerland</p>
-				</div>
-				<div class="space-y-4">
-					<h2>What I'm up to</h2>
-					<div class="prose">
-						<ul>
-							<li>
-								Launching this website &ndash; if you can read this, I achieved
-								it :)
-							</li>
-							<li>
-								Training for my next 10k race (Lausanne, in October 2024). Will
-								do a few races in between as well.
-							</li>
-							<li>
-								Learning <a href="https://laravel.com" target="_blank"
-									>Laravel</a
-								> (once again, but this time for real &ndash; I hope).
-							</li>
-							<li>
-								Working on a tool, that automates quality assurance on your
-								website: <a href="https://inspectthis.site" target="_blank"
-									>inspecthis.site</a
-								>
-							</li>
-							<li>
-								Planning a SaaS and some Framer plugins with <a
-									href="https://cedric.design"
-									target="_blank">Cédric</a
-								>.
-							</li>
-							<li>
-								Working as the Lead Webflow Developer @<a
-									href="https://bloqlabs.ch"
-									target="_blank">Bloq Labs</a
-								>.
-							</li>
-						</ul>
-					</div>
-				</div>
-				<p class="font-medium">Last updated: 29/05/24</p>
 			</div>
-		</div>
+		</HeaderContainer>
 	</header>
-	<div class="main-grid mb-8">
-		<div class="content-stretch">
-			<h2>Previously on “Now”… (a timeline)</h2>
-		</div>
-	</div>
-	<div class="space-y-16">
+	<MainContainer>
+		<SectionMarginTitle title="Right now">
+			<div class="flex flex-col gap-2">
+				<h2 class="h3">Location</h2>
+				<p>Bern, Switzerland</p>
+			</div>
+			<div class="flex flex-col gap-2">
+				<h2 class="h3">What I'm up to</h2>
+				<div class="prose">
+					<ul>
+						<li>
+							Launching this website &ndash; if you can read this, I achieved it
+							:)
+						</li>
+						<li>
+							Training for my next 10k race (Lausanne, in October 2024). Will do
+							a few races in between as well.
+						</li>
+						<li>
+							Learning <a href="https://laravel.com" target="_blank">Laravel</a>
+							(once again, but this time for real &ndash; I hope).
+						</li>
+						<li>
+							Working on a tool, that automates quality assurance on your
+							website: <a href="https://inspectthis.site" target="_blank"
+								>inspecthis.site</a
+							>
+						</li>
+						<li>
+							Planning a SaaS and some Framer plugins with <a
+								href="https://cedric.design"
+								target="_blank">Cédric</a
+							>.
+						</li>
+						<li>
+							Working as the Lead Webflow Developer @<a
+								href="https://bloqlabs.ch"
+								target="_blank">Bloq Labs</a
+							>.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</SectionMarginTitle>
 		{
 			groupedMilestones.map(([year, milestones]) => (
 				<>
@@ -130,5 +137,5 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 				</>
 			))
 		}
-	</div>
+	</MainContainer>
 </BaseLayout>

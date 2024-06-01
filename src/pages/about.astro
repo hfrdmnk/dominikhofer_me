@@ -6,15 +6,21 @@ import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import bubbles from '../images/pages/bubbles.jpg';
 import nocco from '../images/pages/nocco.jpg';
 import happy from '../images/pages/happy.jpg';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
 ---
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
-		<div class="content-stretch space-y-12">
-			<h1>
-				Who <span class="line-through text-gray-400">let the dogs out</span> is Dominik?
-			</h1>
-			<div class="space-y-4">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>
+					Who <span class="line-through text-gray-400">let the dogs out</span> is
+					Dominik?
+				</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
 				<p class="font-medium">
 					I’m an early 20s guy from Switzerland. So naturally, I’m still trying
 					to find my place in the world. Figuring out who I am and what I want
@@ -72,9 +78,9 @@ import happy from '../images/pages/happy.jpg';
 					/>
 				</div>
 			</div>
-		</div>
+		</HeaderContainer>
 	</header>
-	<div class="space-y-16">
+	<MainContainer>
 		<SectionMarginTitle title="A list of things I like">
 			<p>
 				This is not exhaustive, but should get you a pretty good overview of who
@@ -117,5 +123,5 @@ import happy from '../images/pages/happy.jpg';
 				out into this world!
 			</p>
 		</SectionMarginTitle>
-	</div>
+	</MainContainer>
 </BaseLayout>

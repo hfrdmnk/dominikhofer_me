@@ -10,6 +10,9 @@ import Socials from '../components/Socials.astro';
 import mainImage from '../images/pages/view.jpg';
 import signature from '../images/pages/signature.png';
 import Milestone from '../components/Milestone.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
 
 const posts = await getCollection('posts');
 posts.sort(
@@ -29,14 +32,17 @@ const latestFeaturedMilestone = featuredMilestones[0];
 
 <BaseLayout>
 	<header slot="header" class="main-grid">
-		<div class="content-stretch space-y-12" data-hover-group>
-			<h1>
-				<span data-hover-word="curious">Curious. </span><span
-					data-hover-word="creative"
-					>Creative.
-				</span><span data-hover-word="coder">Coder.</span>
-			</h1>
-			<div class="space-y-4">
+		<HeaderContainer data-hover-group>
+			<HeaderTitle>
+				<h1>
+					<span data-hover-word="curious">Curious. </span><span
+						data-hover-word="creative"
+						>Creative.
+					</span><span data-hover-word="coder">Coder.</span>
+				</h1>
+			</HeaderTitle>
+
+			<div class="flex flex-col gap-4">
 				<p class="font-medium">That’s me, Dominik :)</p>
 				<p>
 					<span data-hover-word="curious"
@@ -66,9 +72,9 @@ const latestFeaturedMilestone = featuredMilestones[0];
 				display-name="view.jpg"
 				location="Lyon, FR"
 			/>
-		</div>
+		</HeaderContainer>
 	</header>
-	<div class="space-y-16">
+	<MainContainer>
 		<SectionMarginTitle title="Where to reach me">
 			<p>
 				Wanna share an idea, show me your project, talk about everything under
@@ -113,7 +119,9 @@ const latestFeaturedMilestone = featuredMilestones[0];
 							>/posts?t=notes</a
 						>
 					</li>
-					<li>Check out the latest races I ran: <a href="/races">/races</a></li>
+					<li>
+						Check out the latest races I ran: <a href="/races">/races</a>
+					</li>
 					<li>
 						Or again, simply <a href="https://hoferdo.link/hi" target="_blank"
 							>say hi</a
@@ -127,7 +135,7 @@ const latestFeaturedMilestone = featuredMilestones[0];
 			<p>Cheers,</p>
 			<Image src={signature} alt="Dominik's Signature" class="w-48" />
 		</SectionMarginTitle>
-	</div>
+	</MainContainer>
 </BaseLayout>
 
 <style>

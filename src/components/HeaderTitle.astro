@@ -1,0 +1,8 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<div class="flex flex-col gap-2">
+	<div class="font-mono">{pathname}</div>
+	<slot />
+</div>
