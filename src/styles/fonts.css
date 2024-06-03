@@ -38,7 +38,7 @@
 
 @font-face {
 	font-family: 'Switzer';
-	src: url('/fonts/switzer/Switzer-SemiBold.woff2') format('woff2');
+	src: url('/fonts/switzer/Switzer-Semibold.woff2') format('woff2');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -46,7 +46,7 @@
 
 @font-face {
 	font-family: 'Switzer';
-	src: url('/fonts/switzer/Switzer-SemiBoldItalic.woff2') format('woff2');
+	src: url('/fonts/switzer/Switzer-SemiboldItalic.woff2') format('woff2');
 	font-weight: 600;
 	font-style: italic;
 	font-display: swap;
@@ -70,7 +70,7 @@
 
 @font-face {
 	font-family: 'Switzer';
-	src: url('/fonts/switzer/Switzer-ExtraBold.woff2') format('woff2');
+	src: url('/fonts/switzer/Switzer-Extrabold.woff2') format('woff2');
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
@@ -78,7 +78,7 @@
 
 @font-face {
 	font-family: 'Switzer';
-	src: url('/fonts/switzer/Switzer-ExtraBoldItalic.woff2') format('woff2');
+	src: url('/fonts/switzer/Switzer-ExtraboldItalic.woff2') format('woff2');
 	font-weight: 800;
 	font-style: italic;
 	font-display: swap;

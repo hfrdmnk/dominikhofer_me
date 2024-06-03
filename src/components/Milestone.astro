@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import { default as cn } from 'classnames';
+import SimpleTag from './SimpleTag.astro';
 
 const { milestone, hideBadge, showImage } = Astro.props;
 
@@ -88,10 +89,7 @@ if (milestone.data.dateEnd) {
 		<div class="flex items-center gap-2 mt-2 select-none flex-wrap">
 			{
 				milestone.data.company && (
-					<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
-						<Icon name="ph:at" class="w-4 h-4" />
-						{milestone.data.company}
-					</div>
+					<SimpleTag icon="at">{milestone.data.company}</SimpleTag>
 				)
 			}
 			{
@@ -103,10 +101,7 @@ if (milestone.data.dateEnd) {
 				milestone.data.tags.length > 0 && (
 					<>
 						{milestone.data.tags.map((tag: string) => (
-							<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
-								<Icon name="ph:tag" class="w-4 h-4" />
-								<span>{tag}</span>
-							</div>
+							<SimpleTag icon="tag">{tag}</SimpleTag>
 						))}
 					</>
 				)
@@ -119,10 +114,7 @@ if (milestone.data.dateEnd) {
 			{
 				milestone.data.dateEnd && (
 					<>
-						<div class="rounded-full bg-gray-50 text-body-lighter transition-all items-center gap-2 no-underline px-2 py-1 inline-flex font-mono text-sm">
-							<Icon name="ph:calendar-dots" class="w-4 h-4" />
-							<span>until {formattedEndDate}</span>
-						</div>
+						<SimpleTag icon="calendar-dots">until {formattedEndDate}</SimpleTag>
 					</>
 				)
 			}
