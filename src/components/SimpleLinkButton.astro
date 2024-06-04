@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+import { default as cn } from 'classnames';
+const {
+	isSimple = false,
+	isActive = false,
+	icon: iconName,
+	...props
+} = Astro.props;
+---
+
+<a
+	{...props}
+	class={cn(
+		'rounded transition-all flex items-center gap-2 no-underline select-none flex-shrink-0',
+		{
+			'p-2 bg-gray-50 hover:bg-gray-100': !isSimple,
+			'bg-gray-900 hover:bg-gray-700 text-gray-100 hover:text-gray-50':
+				isActive,
+			'text-body-lighter hover:text-gray-800': !isActive,
+		}
+	)}>
+	<Icon name=`ph:${iconName}` class="w-5 h-5" />
+	<slot />
+</a>

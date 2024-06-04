@@ -11,6 +11,7 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SimpleTag from '../components/SimpleTag.astro';
+import SimpleLinkButton from '../components/SimpleLinkButton.astro';
 
 const type = Astro.url.searchParams.get('t') || '';
 
@@ -116,6 +117,35 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 						</li>
 					</ul>
 				</div>
+			</div>
+		</SectionMarginTitle>
+		<SectionMarginTitle id="timeline">
+			<div class="flex items-center font-mono gap-2">
+				<SimpleLinkButton
+					href="/now#timeline"
+					icon="diamonds-four"
+					isActive={!type}>
+					All
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/now?t=personal#timeline"
+					icon="heart"
+					isActive={type === 'personal'}>
+					Personal
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/now?t=cv#timeline"
+					icon="read-cv-logo"
+					isActive={type === 'cv'}>
+					CV
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/now?t=project#timeline"
+					icon="laptop"
+					isActive={type === 'project'}>
+					Project
+				</SimpleLinkButton>
+				<div class="h-[1px] bg-gray-200 w-full"></div>
 			</div>
 		</SectionMarginTitle>
 		{

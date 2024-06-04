@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { default as cn } from 'classnames';
+import SimpleLinkButton from './SimpleLinkButton.astro';
 const { isFooter } = Astro.props;
 ---
 
@@ -9,49 +9,30 @@ const { isFooter } = Astro.props;
 		'flex items-center font-mono',
 		isFooter ? 'gap-4 text-sm' : 'gap-2'
 	)}>
-	<a
+	<SimpleLinkButton
 		href="https://hoferdo.link/twitter"
 		target="_blank"
-		class={cn(
-			'rounded transition-all text-body-lighter hover:text-gray-800 flex items-center gap-2 no-underline select-none',
-			{
-				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
-			}
-		)}>
-		<Icon name="ph:x-logo" class="w-5 h-5" />
-	</a>
-	<a
+		isSimple={isFooter}
+		icon="x-logo"
+	/>
+	<SimpleLinkButton
 		href="https://hoferdo.link/mastodon"
 		target="_blank"
-		class={cn(
-			'rounded transition-all text-body-lighter hover:text-gray-800 flex items-center gap-2 no-underline select-none',
-			{
-				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
-			}
-		)}>
-		<Icon name="ph:mastodon-logo" class="w-5 h-5" />
-	</a>
-	<a
+		isSimple={isFooter}
+		icon="mastodon-logo"
+	/>
+	<SimpleLinkButton
 		href="https://hoferdo.link/hi"
 		target="_blank"
-		class={cn(
-			'rounded transition-all text-body-lighter hover:text-gray-800 flex items-center gap-2 no-underline select-none',
-			{
-				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
-			}
-		)}>
-		<Icon name="ph:envelope" class="w-5 h-5" />
-	</a>
-	<a
+		isSimple={isFooter}
+		icon="envelope"
+	/>
+	<SimpleLinkButton
 		href="https://hoferdo.link/newsletter"
 		target="_blank"
-		class={cn(
-			'rounded transition-all text-body-lighter hover:text-gray-800 flex items-center gap-2 no-underline select-none',
-			{
-				'p-2 bg-gray-50 hover:bg-gray-100': !isFooter,
-			}
-		)}>
-		<Icon name="ph:mailbox" class="w-5 h-5" />
+		isSimple={isFooter}
+		icon="mailbox">
 		{!isFooter && <span>Personal newsletter</span>}
-	</a>
+	</SimpleLinkButton>
+	{!isFooter && <div class="h-[1px] bg-gray-200 w-full" />}
 </div>
