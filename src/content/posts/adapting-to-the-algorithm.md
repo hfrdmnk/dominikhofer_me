@@ -1,9 +1,7 @@
 ---
 title: Adapting to the algorithm
-excerpt: 'It’s really weird when you discover that you have developed a
-  behaviour, that you despise in others, unconsciously yourself. The “oh, I am
-  susceptible to this tactic that is designed to influence me, not like this
-  dude” kind of habit. '
+excerpt: "It’s really weird when you discover that you have developed a
+  behaviour, that you despise in others, unconsciously yourself. "
 type: note
 tags:
   - Social Media

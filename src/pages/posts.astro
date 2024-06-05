@@ -1,0 +1,127 @@
+---
+// opt out of prerendering
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+import SimpleLinkButton from '../components/SimpleLinkButton.astro';
+import { Icon } from 'astro-icon/components';
+import SimpleTag from '../components/SimpleTag.astro';
+
+const type = Astro.url.searchParams.get('t') || '';
+
+let posts = await getCollection('posts');
+type Posts = (typeof posts)[number][];
+
+if (type === 'note' || type === 'post' || type === 'essay') {
+	posts = posts.filter((post) => post.data.type === type);
+}
+
+const groupedPosts = groupPostsByYear(posts);
+
+function groupPostsByYear(posts: Posts): [number, Posts][] {
+	const years: { [key: number]: Posts } = {};
+
+	posts.forEach((post) => {
+		const year = new Date(post.data.date).getFullYear();
+
+		if (!years[year]) {
+			years[year] = [] as Posts;
+		}
+
+		years[year].push(post);
+	});
+
+	Object.keys(years).forEach((year) => {
+		years[Number(year)].sort(
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+		);
+	});
+
+	// Convert the years object to an array of [year, milestones] tuples
+	const sortedYears: [number, Posts][] = Object.entries(years).map(
+		([year, posts]) => [Number(year), posts]
+	);
+
+	// Sort the years in descending order (newest to oldest)
+	sortedYears.sort((a, b) => b[0] - a[0]);
+
+	return sortedYears;
+}
+---
+
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>Thinking out loud.</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium">
+					This is my personal blog, a space where I share my thoughts, ideas and
+					other interesting things I come across. I view it as some sort of a
+					timecapsule, where I document my journey and see how I evolve over
+					time.
+				</p>
+				<p>
+					On here, you will find <a href="/posts?t=note">notes</a> (aka fleeting
+					thoughts), regular <a href="/posts?t=post">posts</a>
+					and more elaborate <a href="/posts?t=essay">essays</a>.
+				</p>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		<SectionMarginTitle id="archive">
+			<div class="flex items-center gap-2 font-mono">
+				<SimpleLinkButton
+					href="/posts#archive"
+					icon="diamonds-four"
+					isActive={!type}>
+					All
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/posts?t=note#archive"
+					icon="notepad"
+					isActive={type === 'note'}>
+					Notes
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/posts?t=post#archive"
+					icon="article"
+					isActive={type === 'post'}>
+					Posts
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/posts?t=essay#archive"
+					icon="books"
+					isActive={type === 'essay'}>
+					Essays
+				</SimpleLinkButton>
+				<div class="h-[1px] bg-gray-200 w-full"></div>
+			</div>
+		</SectionMarginTitle>
+		{
+			groupedPosts.map(([year, posts]) => (
+				<>
+					<SectionMarginTitle title={year.toString()} gap="3">
+						{posts.map((post) => (
+							<article class="flex flex-col gap-1">
+								<h2 class="h5">
+									<a href={`/${post.slug}`}>{post.data.title}</a>
+								</h2>
+								<p>{post.data.excerpt}</p>
+							</article>
+						))}
+					</SectionMarginTitle>
+				</>
+			))
+		}
+	</MainContainer>
+</BaseLayout>

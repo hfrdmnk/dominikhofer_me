@@ -1,7 +1,9 @@
 ---
-const { title, isH3, ...props } = Astro.props;
+const { title, isH3, gap = 1, ...props } = Astro.props;
 const titleClass =
 	'col-[2_/_-2] md:col-[3_/-3] xl:col-[2_/_span_1] font-mono text-base font-normal not-italic text-gray-500 xl:sticky top-24 self-start';
+
+const gapFactor = Number(gap);
 ---
 
 <section class="main-grid scroll-mt-32" {...props}>
@@ -12,5 +14,7 @@ const titleClass =
 			<h3 class={titleClass}>{title}</h3>
 		)
 	}
-	<div class="content-stretch flex flex-col gap-4"><slot /></div>
+	<div class={`flex flex-col gap-${4 * gapFactor} content-stretch`}>
+		<slot />
+	</div>
 </section>

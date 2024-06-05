@@ -75,7 +75,7 @@ h4,
 
 h5,
 .h5 {
-	@apply font-medium;
+	@apply text-base font-medium;
 }
 
 /***

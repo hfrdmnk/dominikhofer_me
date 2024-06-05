@@ -14,7 +14,8 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 
-const posts = await getCollection('posts');
+let posts = await getCollection('posts');
+posts = posts.filter((post) => post.data.type === 'post');
 posts.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
@@ -115,8 +116,8 @@ const latestFeaturedMilestone = featuredMilestones[0];
 						Scroll through my digital photo album: <a href="/pics">/pics</a>
 					</li>
 					<li>
-						Take a look at some fleeting thoughts: <a href="/posts?t=notes"
-							>/posts?t=notes</a
+						Take a look at some fleeting thoughts: <a href="/posts?t=note"
+							>/posts?t=note</a
 						>
 					</li>
 					<li>
