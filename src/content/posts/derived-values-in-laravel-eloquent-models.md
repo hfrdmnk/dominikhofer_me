@@ -1,11 +1,11 @@
 ---
 title: Derived values in Laravel Eloquent Models
-type: post
+excerpt: How to derive a value from another one in Laravel Eloquent.
+type: note
 tags:
   - Programming
   - Laravel
 date: 2024-03-07
-excerpt: How to derive a value from another one in Laravel Eloquent.
 ---
 
 Coming from Svelte, I appreciated the availability of [derived/reactive values](https://learn.svelte.dev/tutorial/reactive-declarations). They work like this:

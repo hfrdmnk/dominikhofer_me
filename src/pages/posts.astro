@@ -3,6 +3,7 @@
 export const prerender = false;
 
 import { getCollection } from 'astro:content';
+import readingTime from 'reading-time';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
@@ -10,8 +11,6 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SimpleLinkButton from '../components/SimpleLinkButton.astro';
-import { Icon } from 'astro-icon/components';
-import SimpleTag from '../components/SimpleTag.astro';
 
 const type = Astro.url.searchParams.get('t') || '';
 
@@ -110,13 +109,16 @@ function groupPostsByYear(posts: Posts): [number, Posts][] {
 		{
 			groupedPosts.map(([year, posts]) => (
 				<>
-					<SectionMarginTitle title={year.toString()} gap="3">
+					<SectionMarginTitle title={year.toString()} gap="2">
 						{posts.map((post) => (
 							<article class="flex flex-col gap-1">
 								<h2 class="h5">
 									<a href={`/${post.slug}`}>{post.data.title}</a>
 								</h2>
 								<p>{post.data.excerpt}</p>
+								<div class="font-mono text-sm text-gray-500">
+									{readingTime(post.body).text}
+								</div>
 							</article>
 						))}
 					</SectionMarginTitle>
