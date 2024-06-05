@@ -1,5 +1,5 @@
 ---
-title: 'On: Going Zero'
+title: "On: Going Zero"
 type: note
 tags:
   - Book
@@ -24,6 +24,6 @@ If that already intrigued you, definitely give it a read. And without wanting to
 
 Last but not least, since I’m a sucker for beautiful book covers, look at the cover art for the German edition I read:
 
-![[going-zero.jpg]]
+![going-zero-cover.jpg](../../assets/posts/going-zero/going-zero-cover-26e917da92.jpg)
 
 Perfection!

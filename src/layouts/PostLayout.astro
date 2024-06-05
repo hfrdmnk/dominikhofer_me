@@ -1,0 +1,60 @@
+---
+import readingTime from 'reading-time';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import SimpleTag from '../components/SimpleTag.astro';
+import BaseLayout from './BaseLayout.astro';
+
+const { title, type, date, lastUpdated } = Astro.props;
+
+const content = await Astro.slots.render('default');
+---
+
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>{title}</h1>
+				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
+					{type === 'note' && <SimpleTag icon="notepad">Note</SimpleTag>}
+					{type === 'post' && <SimpleTag icon="article">Post</SimpleTag>}
+					{type === 'essay' && <SimpleTag icon="books">NoEssayte</SimpleTag>}
+					<span>&#8901;</span>
+					<SimpleTag icon="calendar-dots"
+						>{
+							new Date(date).toLocaleDateString('ch-DE', {
+								year: 'numeric',
+								month: '2-digit',
+								day: '2-digit',
+							})
+						}</SimpleTag
+					>
+					{
+						lastUpdated && (
+							<>
+								<span>&#8901;</span>
+								<SimpleTag icon="clock-clockwise">
+									Last updated:
+									{new Date(lastUpdated).toLocaleDateString('ch-DE', {
+										year: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
+									})}
+								</SimpleTag>
+							</>
+						)
+					}
+					<span>&#8901;</span>
+					<SimpleTag icon="timer">{readingTime(content).text}</SimpleTag>
+				</div>
+			</HeaderTitle>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		<SectionMarginTitle>
+			<slot />
+		</SectionMarginTitle>
+	</MainContainer>
+</BaseLayout>

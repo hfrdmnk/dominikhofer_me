@@ -1,12 +1,12 @@
 ---
 title: Running in the rain
+excerpt: Yesterday, I rated a run on my Garmin with a 5/5 feeling (“very
+  strong”) for the first time in a long time. And all this even when it rained.
+  Or because it rained because it felt great.
 type: note
 tags:
   - Running
 date: 2024-05-07
-excerpt: Yesterday, I rated a run on my Garmin with a 5/5 feeling (“very
-  strong”) for the first time in a long time. And all this even when it rained.
-  Or because it rained because it felt great.
 ---
 
 Yesterday, I rated a run on my Garmin with a 5/5 feeling (“very strong”) for the first time in a long time. And all this even when it rained. Or because it rained because it felt great.

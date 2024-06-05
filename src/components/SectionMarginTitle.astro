@@ -8,11 +8,12 @@ const gapFactor = Number(gap);
 
 <section class="main-grid scroll-mt-32" {...props}>
 	{
-		!isH3 ? (
-			<h2 class={titleClass}>{title}</h2>
-		) : (
-			<h3 class={titleClass}>{title}</h3>
-		)
+		title &&
+			(!isH3 ? (
+				<h2 class={titleClass}>{title}</h2>
+			) : (
+				<h3 class={titleClass}>{title}</h3>
+			))
 	}
 	<div class={`flex flex-col gap-${4 * gapFactor} content-stretch`}>
 		<slot />
