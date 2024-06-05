@@ -1,0 +1,85 @@
+---
+title: Derived values in Laravel Eloquent Models
+type: post
+tags:
+  - Programming
+  - Laravel
+date: 2024-03-07
+lastUpdated: 2024-06-05
+excerpt: How to derive a value from another one in Laravel Eloquent.
+---
+
+Coming from Svelte, I appreciated the availability of [derived/reactive values](https://learn.svelte.dev/tutorial/reactive-declarations). They work like this:
+
+```js
+let count = 0;
+$: doubled = count * 2;
+```
+
+This essentially means that whenever `count` changes, `doubled` would change as well (obviously, hence the name).
+
+For a current project, I needed similar behaviour in a Laravel Eloquent Model.
+
+This model has a one-to-many relationship. For the sake of this tutorial, let’s say it’s a task-list that has many tasks. Apart from returning all tasks (via the tasks attribute), I also wanted to add a `filtered_tasks` attribute. If there are `from` and `to` query params in the request, it should only return the tasks in the specified timeframe.
+
+There are two steps for accomplishing this:
+
+## 1. Create the new attribute with an accessor
+
+From the [docs](https://laravel.com/docs/10.x/eloquent-mutators#accessors-and-mutators):
+> An accessor transforms an Eloquent attribute value when it is accessed.
+
+The cool thing is, you can also “define” new attributes that are not even available in the original model. For example, if you want to derive them from an existing attribute (like we want).
+
+Quick heads up, I’m using the older syntax with `getXYAttribute` here, as I find it easier to use.
+
+Here’s how you can do it:
+
+```php
+public function getFilteredTasksAttribute()
+{
+	// Get query params
+    $from = request()->query('from');
+    $to = request()->query('to');
+
+    // Validate date format
+    try {
+        $from = Carbon::createFromFormat('Y-m-d', $from);
+        $to = Carbon::createFromFormat('Y-m-d', $to);
+    } catch (Exception $e) {
+        $from = null;
+        $to = null;
+    }
+
+    // Build the query
+    $query = $this->revenue_events();
+
+    // Filter items, if params are available
+    if ($from && $to) {
+        $query = $query->whereBetween('created_at', [$from, $to]);
+    }
+
+    // Return data
+    return $query->get();
+}
+```
+
+Note that I’m using the `request()` helper for accessing the query parameters. You can’t pass the request into the accessor via a parameter, like you would in a controller method.
+
+The only thing left now is to append this new attribute to the model.
+
+## 2. Append the attribute
+
+This one is pretty easy. Just use the `appends` property of the model and add the new attribute in snake case to it:
+
+```php
+protected $appends = [
+    'filtered_tasks',
+];
+```
+
+More info on that part [in the docs as well](https://laravel.com/docs/10.x/eloquent-serialization#appending-values-to-json).
+
+That’s it already! You can now access the new attribute like normal: `$taskList->filtered_tasks`.
+
+I hope this tutorial helped you. If you know a better or more efficient way to do this inside an Eloquent Model, please reach out!

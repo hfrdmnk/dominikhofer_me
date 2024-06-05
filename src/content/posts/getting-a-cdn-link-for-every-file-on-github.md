@@ -1,0 +1,22 @@
+---
+title: Getting a CDN link for every file on Github
+type: note
+tags:
+  - Programming
+date: 2024-03-09
+lastUpdated: 2024-06-05
+excerpt: Sometimes, you want to load a file into your web project via a CDN. But
+  what do you do, if the docs don’t give you that CDN link?
+---
+
+Sometimes, you want to load a file into your web project via a CDN. But what do you do, if the docs don’t give you that CDN link?
+
+There is a very easy solution to this problem that uses a service called “JSDelivr”. Just go to the projects Github page and locate the file you want to use. 
+
+Then, copy its url (just the one you see in the browser). Remove everything up to (and including) /blob/main. You should end up with a path like this: `/path/to/file/script.js`.
+
+Your final step is to add `https://cdn.jsdelivr.net/gh/{username}/{reponame}`in front of the path and voilà. You got yourself a blazing fast CDN link!
+
+## An even easier solution
+
+While writing this note, I came across this handy tool on JSDelivr’s own website: https://www.jsdelivr.com/github. It automatically converts your Github links into CDN ones. Just paste the Github url and you’re good to go!

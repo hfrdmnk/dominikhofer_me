@@ -1,0 +1,23 @@
+---
+title: Running in the rain
+type: note
+tags:
+  - Running
+date: 2024-05-07
+lastUpdated: 2024-06-05
+excerpt: Yesterday, I rated a run on my Garmin with a 5/5 feeling (“very
+  strong”) for the first time in a long time. And all this even when it rained.
+  Or because it rained because it felt great.
+---
+
+Yesterday, I rated a run on my Garmin with a 5/5 feeling (“very strong”) for the first time in a long time. And all this even when it rained. Or because it rained because it felt great.
+
+This thought came about two thirds into my run: “I love running in summer rain!”. [This song](https://open.spotify.com/track/6RUKPb4LETWmmr3iAEQktW?si=978352061061438e) was playing at that moment, the pace was steady and pretty high for a foundation run, and everything felt great.
+
+Just before starting the run, I really had to convince myself that it would be a good idea to go. Because my weather app told me, that it wouldn’t be. But since it only rained very lightly, I just went anyway and simply trusted that this wouldn’t turn into a full-on downpour. Which it – spoiler-alert – didn’t. Lucky me :)
+
+Light summer rain means everything is calmer, fewer people are on the streets, things _feel_ easier. It brings me more into the moment, I truly appreciate being able to run right at that moment (try doing that with 35 °C outside and the sun burning) and just the next step matters. The pace isn’t relevant anymore (although it often rises since the run feels easier) and I just run how I feel. 
+
+It’s like this never-ending cycle of happiness and good vibes, just because there is water dripping from the sky.
+
+If your next run happens to also be a rainy one, and you contemplate skipping it – don’t. Just go out and enjoy it. You won’t regret it – promise!

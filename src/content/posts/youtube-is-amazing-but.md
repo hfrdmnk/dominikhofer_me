@@ -1,0 +1,38 @@
+---
+title: YouTube is amazing, but…
+type: note
+tags:
+  - Social Media
+date: 2024-03-14
+lastUpdated: 2024-06-05
+excerpt: …it’s so f*cking addictive.
+---
+
+# YouTube is amazing, but…
+…it’s so f*cking addictive.
+
+In the past few weeks, I’ve significantly reduced my social media usage. The only social media apps remaining on my phone are Snapchat (still a great way to communicate with a few friends for me), Mastodon and YouTube. And it works great. I don’t miss anything and I don’t check these apps very often (turning notifications off is a game changer here).
+
+But I have one problem: When I end up on YouTube, I stay there _way_ longer than I would on another platform. It’s even worse on my Mac and the worst on my iPad and TV. There is a constant stream of content I’m interested in and that I want to watch. The FOMO is real here; I regularly have multiple tabs open in my browser for videos I want to watch. Because if I don’t, they’ll be lost. _Forever_. Sounds stupid, but that’s how I feel in that moment.
+
+Now, I would say that I watch pretty good content for the most part. “Good” in the sense that it’s something, where I might learn something new, gain an interesting perspective, or get inspired. But that’s the crux. I feel like I’m doing something “productive” in the moment. When I think about it later however, I recognise, that I’m moving between the same 3-4 things, just packaged differently. A little bit of programming news, a sprinkle of self-help/improvement content and maybe something about books, or a [Kurzgesagt video about the universe and how life is essentially meaningless (and why that’s a good thing)](https://youtu.be/dZmLL6fHb9Q?si=dDXu3mIvTwZzhTLm).
+
+If I were doing this for, say, an hour max a day, I wouldn’t consider this a problem. But if I sum up all my YouTube consumption over all my devices, I’m averaging about 2-3 hours daily I’d guess. And that’s way too much.
+
+You could argue that other people watch Netflix for that same amount of time every evening. I think that’s a better alternative though. Because you have to stay with a piece of content longer (e.g. a series) and thus don’t experience this constant switching and FOMO on the next video that will _definitely_ change my life.
+
+The absolute worst part about all this is however, that watching YouTube has become my default activity when I’m eating alone. The reasons why this is bad are self-explanatory.
+
+## What I’m going to do about it.
+
+I don’t have a masterplan yet, but here are a few ideas:
+- Uninstalling YouTube on my iPhone (doing it right now as I’m writing this) to prevent on-the-go use. Reading on my Kindle should become the new default.
+- No YouTube on my TV unless I’m ready to go to bed and when I have read for at least 5 minutes that day.
+- No YouTube while eating alone. Make reading the newspaper or listening to a podcast the new default. Or doing nothing at all except enjoying the meal (but that’s hard mode for now).
+- Using Focus for YouTube to remove the addicting parts of YouTube on my Mac (already doing that for a few days, works great so far).
+
+Don’t get me wrong, YouTube is awesome and I’m still gonna use it regularly. Mainly on my MacBook and more intentionally (for researching purposes). But I could do so many other great things with my time that I’m not spending on deciding what video to watch next: Read, write, code, draw, exercise, meditate, …
+
+## What about you?
+
+Now I’m intrigued to hear what your YouTube consumption looks like. And let me know if you have any other tips, that worked for you!
