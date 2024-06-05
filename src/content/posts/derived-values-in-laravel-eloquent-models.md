@@ -5,7 +5,6 @@ tags:
   - Programming
   - Laravel
 date: 2024-03-07
-lastUpdated: 2024-06-05
 excerpt: How to derive a value from another one in Laravel Eloquent.
 ---
 
@@ -27,6 +26,7 @@ There are two steps for accomplishing this:
 ## 1. Create the new attribute with an accessor
 
 From the [docs](https://laravel.com/docs/10.x/eloquent-mutators#accessors-and-mutators):
+
 > An accessor transforms an Eloquent attribute value when it is accessed.
 
 The cool thing is, you can also “define” new attributes that are not even available in the original model. For example, if you want to derive them from an existing attribute (like we want).

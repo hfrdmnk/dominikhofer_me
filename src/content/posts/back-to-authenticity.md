@@ -4,16 +4,16 @@ excerpt: This is a recent discovery. And I don’t know if it’s just because o
   change in my consumption behaviour. But I think, YouTube is finally starting
   to heal.
 type: note
-tags: []
+tags:
+  - Social Media
 date: 2024-03-08
-lastUpdated: 2024-06-05
 ---
 
 This is a recent discovery. And I don’t know if it’s just because of a change in my consumption behaviour. But I think, YouTube is finally starting to heal.
 
 I get recommended way more videos that have this raw, authentic feeling to it. Just a person talking to a camera without fancy equipment or someone filming their everyday life with a phone. And these are frequently videos with under 1000 views. Since more views does not equal quality on YouTube, I would have this sense of feeling lucky to have found these gems when I do.
 
-Two recent channels I discovered recently are 
+Two recent channels I discovered recently are
 [lrnjulie](https://www.youtube.com/@lrnjulie) and [geezatrix](https://www.youtube.com/@geezatrix). The former creates study livestreams and video essays with an almost philosophical touch, underlined with hand-drawn presentations (I especially liked her “[I deleted all my social media and made a website](https://youtu.be/r0RqucKwIcw?si=A2PYxeNY83N5svTT)” video, that’s how I discovered here when going down the SmallWeb rabbit hole). The latter makes cozy a-day-in-my-life videos (a “digital diary”) you can leave on in the background and create something yourself.
 
 More prominent examples of this new trend are [Life Of Riza](https://www.youtube.com/@LifeOfRiza) and [Colt Kirwan](https://www.youtube.com/@ColtKirwan). Although their production value is immensely high (while using minimal equipment, they are simply great filmmakers and storytellers), the videos themselves still have a very down-to-earth vibe. Some even call them the main creators of the YouTube “[New Wave](https://youtu.be/Ty_vUvHCMRE?si=k-c3vXsQDsWwGm__)”.

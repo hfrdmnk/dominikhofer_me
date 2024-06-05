@@ -1,17 +1,16 @@
 ---
 title: Adapting to the algorithm
-excerpt: "It’s really weird when you discover that you have developed a
+excerpt: 'It’s really weird when you discover that you have developed a
   behaviour, that you despise in others, unconsciously yourself. The “oh, I am
   susceptible to this tactic that is designed to influence me, not like this
-  dude” kind of habit. "
+  dude” kind of habit. '
 type: note
 tags:
   - Social Media
 date: 2024-02-29
-lastUpdated: 2024-06-05
 ---
 
-It’s really weird when you discover that you have developed a behaviour, that you despise in others, unconsciously yourself. The “oh, I am susceptible to this tactic that is designed to influence me, not like this dude” kind of habit. 
+It’s really weird when you discover that you have developed a behaviour, that you despise in others, unconsciously yourself. The “oh, I am susceptible to this tactic that is designed to influence me, not like this dude” kind of habit.
 
 One example: I always considered myself to be someone who wouldn’t adapt his writing style and submit to X’s algorithm. If you’ve spent any time lately on the platform, you probably know what I’m talking about. These over optimised tweets and threads, that are written for maximum reach and engagement.
 

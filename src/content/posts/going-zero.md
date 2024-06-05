@@ -1,10 +1,9 @@
 ---
-title: "On: Going Zero"
+title: 'On: Going Zero'
 type: note
 tags:
   - Book
 date: 2024-03-22
-lastUpdated: 2024-06-05
 excerpt: Going Zero by Anthony McCarten is a book that has been on my TBR list
   for the longest time. Recently, I finally got to read it.
 ---

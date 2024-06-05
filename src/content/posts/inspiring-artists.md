@@ -4,10 +4,9 @@ type: note
 tags:
   - Inspiration
 date: 2024-03-12
-lastUpdated: 2024-06-05
-excerpt: "Do you know that feeling when you watch someone do something they’re
+excerpt: 'Do you know that feeling when you watch someone do something they’re
   really good (like really really good) at and you think to yourself: “I wish I
-  could do this as well!”"
+  could do this as well!”'
 ---
 
 Do you know that feeling when you watch someone do something they’re really good (like really _really_ good) at and you think to yourself: “I wish I could do this as well!”

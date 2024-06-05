@@ -4,14 +4,13 @@ type: note
 tags:
   - Programming
 date: 2024-03-09
-lastUpdated: 2024-06-05
 excerpt: Sometimes, you want to load a file into your web project via a CDN. But
   what do you do, if the docs don’t give you that CDN link?
 ---
 
 Sometimes, you want to load a file into your web project via a CDN. But what do you do, if the docs don’t give you that CDN link?
 
-There is a very easy solution to this problem that uses a service called “JSDelivr”. Just go to the projects Github page and locate the file you want to use. 
+There is a very easy solution to this problem that uses a service called “JSDelivr”. Just go to the projects Github page and locate the file you want to use.
 
 Then, copy its url (just the one you see in the browser). Remove everything up to (and including) /blob/main. You should end up with a path like this: `/path/to/file/script.js`.
 

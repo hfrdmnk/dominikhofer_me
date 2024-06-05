@@ -4,12 +4,12 @@ type: note
 tags:
   - Social Media
 date: 2024-03-14
-lastUpdated: 2024-06-05
 excerpt: …it’s so f*cking addictive.
 ---
 
 # YouTube is amazing, but…
-…it’s so f*cking addictive.
+
+…it’s so f\*cking addictive.
 
 In the past few weeks, I’ve significantly reduced my social media usage. The only social media apps remaining on my phone are Snapchat (still a great way to communicate with a few friends for me), Mastodon and YouTube. And it works great. I don’t miss anything and I don’t check these apps very often (turning notifications off is a game changer here).
 
@@ -26,6 +26,7 @@ The absolute worst part about all this is however, that watching YouTube has bec
 ## What I’m going to do about it.
 
 I don’t have a masterplan yet, but here are a few ideas:
+
 - Uninstalling YouTube on my iPhone (doing it right now as I’m writing this) to prevent on-the-go use. Reading on my Kindle should become the new default.
 - No YouTube on my TV unless I’m ready to go to bed and when I have read for at least 5 minutes that day.
 - No YouTube while eating alone. Make reading the newspaper or listening to a podcast the new default. Or doing nothing at all except enjoying the meal (but that’s hard mode for now).

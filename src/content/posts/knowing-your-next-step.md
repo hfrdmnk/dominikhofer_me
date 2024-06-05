@@ -4,7 +4,6 @@ type: note
 tags:
   - Life Advice
 date: 2024-03-06
-lastUpdated: 2024-06-05
 excerpt: Ernest Hemingway had this habit of finishing working mid-sentence in
   the evening. Therefore, he immediately knew in the morning, what he should be
   working on next. Finishing that sentence.

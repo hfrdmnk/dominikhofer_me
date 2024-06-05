@@ -7,7 +7,6 @@ type: note
 tags:
   - Life Advice
 date: 2024-03-01
-lastUpdated: 2024-06-05
 ---
 
 I was listening to a [Deep Dive episode with Nathan Berry](https://open.spotify.com/episode/4ybpRD02MyT76tCyHnOQYj?si=f54e7ff5cd084b38) (CEO of ConvertKit) as a guest. And there was this one quote by him, that really resonated with me[^1]:
@@ -28,6 +27,5 @@ He was saying this in the context of writing 1000 words every day[^2]. But I tho
 
 It’s simple, not easy.
 
-[^1]:	Around the 01:20:00 mark
-
-[^2]:	He did this for 600 days a couple of years back.
+[^1]: Around the 01:20:00 mark
+[^2]: He did this for 600 days a couple of years back.

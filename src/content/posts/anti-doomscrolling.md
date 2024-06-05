@@ -4,7 +4,6 @@ type: note
 tags:
   - Social Media
 date: 2024-03-02
-lastUpdated: 2024-06-05
 excerpt: Do you know this feeling when you discover a new word, that immediately
   resonates with you?
 ---
@@ -14,9 +13,9 @@ excerpt: Do you know this feeling when you discover a new word, that immediately
 
 Do you know this feeling when you discover a new word, that immediately resonates with you? That’s how I felt when I read the Toot above.
 
-Finally, I have a word for these moments, where you just get lost in a random rabbit hole. You scroll through blogpost after blogpost, and your browser history suddenly looks like you’re doing some serious research. 
+Finally, I have a word for these moments, where you just get lost in a random rabbit hole. You scroll through blogpost after blogpost, and your browser history suddenly looks like you’re doing some serious research.
 
-I’ve begun to associate this kind of behaviour with me procrastinating “productively”. But the weird thing always was, that it didn’t feel like wasted time at all. I even remember writing down one evening in my journal in a side note, that I had taken a roundtrip down a rabbit hole that day (forgot the topic unfortunately), and that I felt delighted at that moment. 
+I’ve begun to associate this kind of behaviour with me procrastinating “productively”. But the weird thing always was, that it didn’t feel like wasted time at all. I even remember writing down one evening in my journal in a side note, that I had taken a roundtrip down a rabbit hole that day (forgot the topic unfortunately), and that I felt delighted at that moment.
 
 I don’t know about you, but discovering something new always sparks a precious feeling. Discovering something, that you haven’t come across yet during your time on this earth. Or that you now see in a different light than you used to. You immediately want to know _everything_ about it. And you want to read other people’s opinions on it.
 

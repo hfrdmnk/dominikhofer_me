@@ -1,10 +1,9 @@
 ---
-title: "On: Beef"
+title: 'On: Beef'
 type: note
 tags:
   - Entertainment
 date: 2024-02-28
-lastUpdated: 2024-06-05
 excerpt: I finally finished watching Beef on Netflix yesterday. And wow, what a
   great show!
 ---

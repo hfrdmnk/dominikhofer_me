@@ -4,9 +4,8 @@ excerpt: This is a question I would always ask myself in the past. And I know it
   sounds stupid, but hear me out.
 type: note
 tags:
-  - Note-Taking
+  - Productivity
 date: 2024-02-27
-lastUpdated: 2024-06-05
 ---
 
 This is a question I would always ask myself in the past. And I know it sounds stupid, but hear me out.
@@ -23,6 +22,6 @@ It is the place for “messy” thoughts, and I will throw it away if it’s ful
 
 Saving the split second thought of “where do I put this thing I want to write down?” is what enables me to stay in my flow. Which is great.
 
-And on a meta-level, this is precisely the reason for this fleeting notes section on my website where you’re reading this text right now. This is my place for those “where do I put this not-yet-fleshed-out thought of mine that I want to publish regardless?”. 
+And on a meta-level, this is precisely the reason for this fleeting notes section on my website where you’re reading this text right now. This is my place for those “where do I put this not-yet-fleshed-out thought of mine that I want to publish regardless?”.
 
 A mouthful of a question, so I’m glad for every time I don’t have to ask myself.

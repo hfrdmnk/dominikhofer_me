@@ -1,11 +1,10 @@
 ---
-title: "From the Shelf: Feel Good Productivity by Ali Abdaal"
+title: 'From the Shelf: Feel Good Productivity by Ali Abdaal'
 type: post
 tags:
   - Book
   - Productivity
 date: 2024-03-18
-lastUpdated: 2024-06-05
 excerpt: Feel Good Productivity by Ali Abdaal (2023) is a book about how to live
   a healthy and productive life without all the stress.
 ---
@@ -36,7 +35,7 @@ You should see the people you work with as colleagues, not competition. Because 
 
 ### Unblock
 
-Before we can get unstuck, we need to figure out, why we’re stuck in the first place. Find your “Why”, your “What” and your “When” (probably the most important one). Instead of defining SMART goals, you should [switch to the NICE framework](https://share.snipd.com/snip/befd9880-16a7-4160-8fcb-49d562112bf5): Near-term, input-based, controllable and energising (see above). Then, plan your concrete steps and add them to your calendar. 
+Before we can get unstuck, we need to figure out, why we’re stuck in the first place. Find your “Why”, your “What” and your “When” (probably the most important one). Instead of defining SMART goals, you should [switch to the NICE framework](https://share.snipd.com/snip/befd9880-16a7-4160-8fcb-49d562112bf5): Near-term, input-based, controllable and energising (see above). Then, plan your concrete steps and add them to your calendar.
 
 Fear is a powerful productivity blocker. To combat it, recognise it and apply the 10/10/10 rule. Will this hypothetical worst-case scenario still hurt in 10 minutes/weeks/years? Probably not. Also remember the [spotlight effect](https://en.wikipedia.org/wiki/Spotlight_effect): Everyone is busier with their own life than with what embarrassing thing you did yesterday. If knowing this doesn’t help, having an [Alter Ego](https://alteregoeffect.com/what/) that you can tap into might do the trick.
 

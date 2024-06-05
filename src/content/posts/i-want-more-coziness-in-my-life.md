@@ -4,7 +4,6 @@ type: note
 tags:
   - Personal
 date: 2024-03-10
-lastUpdated: 2024-06-05
 excerpt: As I type these lines, it is 8pm and dark outside. The rain is dripping
   on my skylight and I’m sitting here in front of my MacBook. A warm tea is
   standing by my side and a chill Spotify playlist playing in the background.
@@ -16,7 +15,7 @@ I want more moments like this in my life. Moments that feel cozy and where I don
 
 I’ve noticed that my everyday life often feels time-boxed. In 20 minutes I have to do X, in 1 hour my alarm clock goes off, by 10pm I need to be in bed so I get my 8 hours of sleep (which [is important](https://www.amazon.com/Why-We-Sleep-Unlocking-Dreams/dp/1501144316), don’t get me wrong.).
 
-But on the other hand, I also observed that the moments where I *feel* the happiest, are the ones where I don’t have this sense of urgency and “rushing” things. Thus, I want to embrace and integrate them more frequently in my life.
+But on the other hand, I also observed that the moments where I _feel_ the happiest, are the ones where I don’t have this sense of urgency and “rushing” things. Thus, I want to embrace and integrate them more frequently in my life.
 
 For instance, I want to finally pick up playing the piano. I bought one during the pandemic but never got into learning it. Because I always felt there was something better to do. But that’s the problem. Sometimes you have to do things simply because you like doing them, not because there is a clear goal attached.
 
