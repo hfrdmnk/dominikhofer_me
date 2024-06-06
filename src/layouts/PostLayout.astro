@@ -1,19 +1,21 @@
 ---
 import readingTime from 'reading-time';
+import { formatDistanceToNow } from 'date-fns';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import SimpleTag from '../components/SimpleTag.astro';
 import BaseLayout from './BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 
-const { title, type, date, lastUpdated } = Astro.props;
+const { title, type, date, lastUpdated, tags } = Astro.props;
 
 const content = await Astro.slots.render('default');
 ---
 
 <BaseLayout>
-	<header slot="header" class="main-grid">
+	<header slot="header" class="main-grid -mb-12">
 		<HeaderContainer>
 			<HeaderTitle>
 				<h1>{title}</h1>
@@ -21,39 +23,45 @@ const content = await Astro.slots.render('default');
 					{type === 'note' && <SimpleTag icon="notepad">Note</SimpleTag>}
 					{type === 'post' && <SimpleTag icon="article">Post</SimpleTag>}
 					{type === 'essay' && <SimpleTag icon="books">NoEssayte</SimpleTag>}
-					<span>&#8901;</span>
-					<SimpleTag icon="calendar-dots"
-						>{
-							new Date(date).toLocaleDateString('ch-DE', {
-								year: 'numeric',
-								month: '2-digit',
-								day: '2-digit',
-							})
-						}</SimpleTag
-					>
 					{
-						lastUpdated && (
+						tags.length > 0 && (
 							<>
 								<span>&#8901;</span>
-								<SimpleTag icon="clock-clockwise">
-									Last updated:
-									{new Date(lastUpdated).toLocaleDateString('ch-DE', {
-										year: 'numeric',
-										month: '2-digit',
-										day: '2-digit',
-									})}
-								</SimpleTag>
+								{tags.map((tag: string) => (
+									<SimpleTag icon="tag">{tag}</SimpleTag>
+								))}
 							</>
 						)
 					}
 					<span>&#8901;</span>
-					<SimpleTag icon="timer">{readingTime(content).text}</SimpleTag>
+					<SimpleTag icon="calendar-dots"
+						>{formatDistanceToNow(new Date(date))} ago</SimpleTag
+					>
+					{
+						lastUpdated && (
+							<SimpleTag icon="clock-clockwise">
+								Last updated:
+								{formatDistanceToNow(new Date(date))} ago
+							</SimpleTag>
+						)
+					}
+					<span>&#8901;</span>
+					<span class="font-mono text-sm text-gray-500"
+						>{readingTime(content).text}</span
+					>
 				</div>
 			</HeaderTitle>
 		</HeaderContainer>
 	</header>
 	<MainContainer>
 		<SectionMarginTitle>
+			<a
+				href="/posts"
+				class="flex items-center gap-2 no-highlight no-underline text-gray-500"
+				slot="aside">
+				<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
+				<span>Back to all posts</span>
+			</a>
 			<slot />
 		</SectionMarginTitle>
 	</MainContainer>

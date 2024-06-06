@@ -9,7 +9,7 @@ excerpt: Feel Good Productivity by Ali Abdaal (2023) is a book about how to live
   a healthy and productive life without all the stress.
 ---
 
-_From the Shelf is a series where I distill my favourite books in an enjoyable and quick to read format. _
+_From the Shelf is a series where I distill my favourite books in an enjoyable and quick to read format._
 
 Feel Good Productivity by Ali Abdaal (2023) is a book about how to live a healthy and productive life without all the stress.
 
