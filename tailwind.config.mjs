@@ -6,7 +6,7 @@ export default {
 	theme: {
 		fontFamily: {
 			sans: ['Switzer', 'Inter', ...defaultTheme.fontFamily.sans],
-			serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+			serif: ['Sentient', ...defaultTheme.fontFamily.serif],
 			mono: ['"Space Grotesk"', ...defaultTheme.fontFamily.mono],
 		},
 		fontSize: {

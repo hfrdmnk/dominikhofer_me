@@ -55,7 +55,7 @@ h6,
 
 h1,
 .h1 {
-	@apply font-serif font-bold text-4xl italic;
+	@apply font-serif font-bold text-4xl;
 }
 
 h2,
