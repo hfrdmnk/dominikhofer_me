@@ -99,7 +99,7 @@ Grid
 
 @media (min-width: 768px) {
 	.main-grid {
-		grid-template-columns: 0 1fr repeat(4, 180px) 1fr 0;
+		grid-template-columns: 0 1fr repeat(4, 148px) 1fr 0;
 	}
 
 	.content-stretch {
@@ -109,7 +109,7 @@ Grid
 
 @media (min-width: 1280px) {
 	.main-grid {
-		grid-template-columns: 1fr 224px repeat(4, 180px) 224px 1fr;
+		grid-template-columns: 1fr 304px repeat(4, 148px) 304px 1fr;
 	}
 }
 
