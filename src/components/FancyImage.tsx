@@ -31,6 +31,8 @@ const FancyImage = ({
   displayName: string;
   date?: string;
 }) => {
+  // Lightbox
+  // Adapted from https://codesandbox.io/p/sandbox/framer-motion-image-lightbox-3fix0
   const [isOpen, setOpen] = useState(false);
 
   if (typeof window !== "undefined") {

@@ -151,7 +151,6 @@ Components
 ***/
 
 /* Fancy Image */
-/* Adapted from: https://codesandbox.io/p/sandbox/framer-motion-image-lightbox-3fix0 */
 
 .image-container {
   @apply cursor-zoom-in;
