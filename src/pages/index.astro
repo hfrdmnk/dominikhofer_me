@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FancyImage from '../components/FancyImage.astro';
+import FancyImage from '../components/FancyImage.tsx';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import Socials from '../components/Socials.astro';
 
@@ -68,10 +68,10 @@ const latestFeaturedMilestone = featuredMilestones[0];
 			</div>
 			<div class="md:-mx-16">
 				<FancyImage
-					image={mainImage}
+					image={mainImage.src}
 					alt="B&W picture of me looking at Lyon."
-					class="aspect-[1.85/1]"
-					display-name="view.jpg"
+					className="aspect-[1.85/1]"
+					displayName="view.jpg"
 					location="Lyon, FR"
 				/>
 			</div>

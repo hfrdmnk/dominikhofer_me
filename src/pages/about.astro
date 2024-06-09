@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FancyImage from '../components/FancyImage.astro';
+import FancyImage from '../components/FancyImage.tsx';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 
 import bubbles from '../images/pages/bubbles.jpg';
 import nocco from '../images/pages/nocco.jpg';
 import happy from '../images/pages/happy.jpg';
+
 import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
@@ -52,28 +53,28 @@ import MainContainer from '../components/MainContainer.astro';
 			<div class="flex gap-2 md:-mx-16">
 				<div class="flex-1">
 					<FancyImage
-						image={bubbles}
+						image={bubbles.src}
 						alt="Me watching some soap bubbles and looking fascinated."
-						class="aspect-square"
-						display-name="bubbles.jpg"
+						className="aspect-square"
+						displayName="bubbles.jpg"
 						location="Barcelona, ES"
 					/>
 				</div>
 				<div class="flex-1">
 					<FancyImage
-						image={nocco}
+						image={nocco.src}
 						alt="My favorite drink, a can of NOCCO."
-						class="aspect-square"
-						display-name="nocco.jpg"
+						className="aspect-square"
+						displayName="nocco.jpg"
 						location="Stockholm, SE"
 					/>
 				</div>
 				<div class="flex-1">
 					<FancyImage
-						image={happy}
+						image={happy.src}
 						alt="Happy times."
-						class="aspect-square"
-						display-name="happy.jpg"
+						className="aspect-square"
+						displayName="happy.jpg"
 						location="Milan, IT"
 					/>
 				</div>
