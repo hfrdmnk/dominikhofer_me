@@ -7,8 +7,8 @@ import { default as cn } from "classnames";
 
 const openTransition = {
   type: "spring",
-  damping: 20,
-  stiffness: 250,
+  damping: 22,
+  stiffness: 200,
 };
 
 const closeTransition = {
