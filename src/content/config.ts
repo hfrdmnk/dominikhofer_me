@@ -28,6 +28,20 @@ const pics = defineCollection({
     }),
 });
 
+const runs = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      // Transform string to Date object
+      date: z.coerce.date(),
+      location: z.string(),
+      distance: z.number(),
+      time: z.string(),
+      pace: z.string(),
+    }),
+});
+
 const milestones = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -46,4 +60,4 @@ const milestones = defineCollection({
     }),
 });
 
-export const collections = { posts, pics, milestones };
+export const collections = { posts, pics, runs, milestones };
