@@ -29,7 +29,7 @@ const FancyImage = ({
   alt: string;
   location: string;
   displayName: string;
-  date?: string;
+  date?: Date;
 }) => {
   // Lightbox
   // Adapted from https://codesandbox.io/p/sandbox/framer-motion-image-lightbox-3fix0
