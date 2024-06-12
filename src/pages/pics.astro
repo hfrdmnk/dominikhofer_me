@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+import FancyImage from '../components/FancyImage';
+
+let pics = await getCollection('pics');
+pics.sort(
+	(a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime()
+);
+---
+
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>My world through a lens.</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">
+					These are all my official races and personal bests since taking
+					running more seriously in 2022.
+				</p>
+				<p>
+					Looking for a great running playlist? <a
+						href="https://hoferdo.link/esc"
+						target="_blank">Look now further</a
+					>!
+				</p>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		<section class="main-grid scroll-mt-32">
+			<div class="flex flex-col gap-4 margin-stretch">
+				<div class="grid grid-cols-3 gap-x-4 gap-y-8">
+					{
+						pics.map((pic) => (
+							<FancyImage
+								image={pic.data.visual.src}
+								alt={pic.data.title}
+								className="aspect-square"
+								displayName={pic.data.title}
+								location={pic.data.location!}
+								date={pic.data.date!}
+								client:visible
+							/>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</MainContainer>
+</BaseLayout>
