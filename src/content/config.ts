@@ -28,7 +28,7 @@ const pics = defineCollection({
     }),
 });
 
-const runs = defineCollection({
+const races = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -60,4 +60,4 @@ const milestones = defineCollection({
     }),
 });
 
-export const collections = { posts, pics, runs, milestones };
+export const collections = { posts, pics, races, milestones };

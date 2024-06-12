@@ -10,7 +10,7 @@ let formattedEndDate = '';
 
 if (milestone.data.dateEnd) {
 	const endDate = new Date(milestone.data.dateEnd);
-	formattedEndDate = `${(endDate.getMonth() + 1).toString().padStart(2, '0')}/${endDate.getFullYear().toString().slice(-2)}`;
+	formattedEndDate = `${(endDate.getMonth() + 1).toString().padStart(2, '0')}.${endDate.getFullYear().toString().slice(-2)}`;
 }
 ---
 
