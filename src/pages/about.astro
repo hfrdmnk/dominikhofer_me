@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FancyImage from '../components/FancyImage.tsx';
+import FancyImage from '../components/FancyImage.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 
 import bubbles from '../images/pages/bubbles.jpg';
@@ -53,32 +53,29 @@ import MainContainer from '../components/MainContainer.astro';
 			<div class="flex gap-2 md:-mx-16">
 				<div class="flex-1">
 					<FancyImage
-						image={bubbles.src}
+						image={bubbles}
 						alt="Me watching some soap bubbles and looking fascinated."
-						className="aspect-square"
+						class="aspect-square"
 						displayName="bubbles.jpg"
 						location="Barcelona, ES"
-                        client:visible
 					/>
 				</div>
 				<div class="flex-1">
 					<FancyImage
-						image={nocco.src}
+						image={nocco}
 						alt="My favorite drink, a can of NOCCO."
-						className="aspect-square"
+						class="aspect-square"
 						displayName="nocco.jpg"
 						location="Stockholm, SE"
-                        client:visible
 					/>
 				</div>
 				<div class="flex-1">
 					<FancyImage
-						image={happy.src}
+						image={happy}
 						alt="Happy times."
-						className="aspect-square"
+						class="aspect-square"
 						displayName="happy.jpg"
 						location="Milan, IT"
-                        client:visible
 					/>
 				</div>
 			</div>
@@ -111,8 +108,10 @@ import MainContainer from '../components/MainContainer.astro';
 			<p>
 				I try to reduce my social media consumption as much as possible. That’s
 				why my current main hub is this website. If you want to reach out, have
-				a chat or create something together, you can also find me on <a href="https://hoferdo.link/mastodon" target="_blank">Mastodon</a>,
-				or simply <a href="https://hoferdo.link/hi" target="_blank"
+				a chat or create something together, you can also find me on <a
+					href="https://hoferdo.link/mastodon"
+					target="_blank">Mastodon</a
+				>, or simply <a href="https://hoferdo.link/hi" target="_blank"
 					>write me an email</a
 				> (the old school way).
 			</p>

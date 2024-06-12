@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
-import FancyImage from '../components/FancyImage';
+import FancyImage from '../components/FancyImage.astro';
 
 let pics = await getCollection('pics');
 pics.sort(
@@ -40,13 +40,12 @@ pics.sort(
 					{
 						pics.map((pic) => (
 							<FancyImage
-								image={pic.data.visual.src}
+								image={pic.data.visual}
 								alt={pic.data.title}
-								className="aspect-square"
+								class="aspect-square"
 								displayName={pic.data.title}
 								location={pic.data.location!}
 								date={pic.data.date!}
-								client:visible
 							/>
 						))
 					}
