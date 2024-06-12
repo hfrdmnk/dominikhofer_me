@@ -6,8 +6,12 @@ import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
+import SimpleTag from '../components/SimpleTag.astro';
 
 let races = await getCollection('races');
+races.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <BaseLayout>
@@ -31,12 +35,66 @@ let races = await getCollection('races');
 		</HeaderContainer>
 	</header>
 	<MainContainer>
-		<SectionMarginTitle title="Races" />
+		<SectionMarginTitle title="Races">
+			{
+				races.map((race) => (
+					<article class="flex flex-col gap-8 p-6 border rounded-lg">
+						<div class="flex flex-col items-start gap-2">
+							<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
+								<SimpleTag icon="calendar-dots">
+									{(() => {
+										const d = new Date(race.data.date);
+										const day = String(d.getDate()).padStart(2, '0');
+										const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are zero indexed
+										const year = String(d.getFullYear()).slice(-2); // Get last 2 digits of year
+										return `${day}.${month}.${year}`;
+									})()}
+								</SimpleTag>
+								<span>&#8901;</span>
+								<SimpleTag icon="map-pin">{race.data.location}</SimpleTag>
+							</div>
+							<h3 class="text-lg font-medium">{race.data.title}</h3>
+						</div>
+						<div class="grid grid-cols-3 gap-4">
+							<div class="flex flex-col items-center gap-2 py-4 px-2 bg-gray-50 rounded">
+								<div class="text-xl font-medium text-heading">
+									{race.data.distance}km
+								</div>
+								<h4 class="font-mono font-normal text-base text-gray-500">
+									Distance
+								</h4>
+							</div>
+							<div class="flex flex-col items-center gap-2 py-4 px-2 bg-gray-50 rounded">
+								<div class="text-xl font-medium text-heading">
+									{race.data.time}
+								</div>
+								<h4 class="font-mono font-normal text-base text-gray-500">
+									Time
+								</h4>
+							</div>
+							<div class="flex flex-col items-center gap-2 py-4 px-2 bg-gray-50 rounded">
+								<div class="text-xl font-medium text-heading">
+									{race.data.pace}min/km
+								</div>
+								<h4 class="font-mono font-normal text-base text-gray-500">
+									Pace
+								</h4>
+							</div>
+						</div>
+					</article>
+				))
+			}
+			<p class="font-mono text-sm text-gray-500">
+				These are the official finisher times and might differ from my personal
+				bests.
+			</p>
+		</SectionMarginTitle>
 		<SectionMarginTitle title="Personal Bests">
 			<div class="prose">
 				<ul>
 					<li class="mt-0">
-						<span class="font-medium">5k:</span> 22:57 (16.03.24)
+						<span class="font-medium">5k:</span>
+						{Number(22)}:57 (16.03.24)
 					</li>
 					<li><span class="font-medium">10k:</span> 47:13 (09.03.24)</li>
 					<li><span class="font-medium">10 mile:</span> 1:19:13 (18.05.24)</li>
@@ -47,6 +105,9 @@ let races = await getCollection('races');
 						<span class="font-medium">Longest Run:</span> 21.22km (11.05.24)
 					</li>
 				</ul>
+				<p class="font-mono text-sm text-gray-500">
+					These are tracked by myself and might differ from official race times.
+				</p>
 			</div>
 		</SectionMarginTitle>
 	</MainContainer>
