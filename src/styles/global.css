@@ -160,19 +160,11 @@ Components
   @apply cursor-zoom-out;
 }
 
-.image-container .shade {
-  @apply pointer-events-none fixed inset-0 bg-white/50 opacity-0 backdrop-blur-lg;
-}
-
-.image-container.open .meta,
-.image-container.open .meta-gradient {
-  @apply opacity-0;
-}
-
 .image-container.open .shade {
-  @apply pointer-events-auto z-[80] opacity-100;
+  @apply pointer-events-auto fixed inset-0 z-[80] flex items-center justify-center bg-white/50 opacity-100 backdrop-blur-lg;
 }
 
 .image-container.open img {
-  @apply fixed z-[90] m-auto h-auto max-h-[90%] w-auto max-w-[90%];
+  @apply aspect-auto w-auto rounded;
+  height: min(90vh, 1280px);
 }

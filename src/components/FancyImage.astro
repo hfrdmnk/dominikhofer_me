@@ -18,9 +18,16 @@ if (date) {
 }
 ---
 
-<figure class="space-y-2 select-none">
-	<div class="relative rounded overflow-hidden">
-		<Picture src={image} alt={alt} class:list={[className, 'object-cover']} />
+<figure class="space-y-2 select-none" x-data="{ open: false }">
+	<div
+		class="relative rounded overflow-hidden image-container"
+		:class="open && 'open'"
+		@click="open = !open"
+		x-init="$watch('open', value => value ? window.addEventListener('wheel', () => open = false) : window.removeEventListener('wheel', () => open = false))"
+		x-on:remove="window.removeEventListener('wheel', () => open = false)">
+		<div class="shade">
+			<Picture src={image} alt={alt} class:list={[className, 'object-cover']} />
+		</div>
 		<div
 			class="absolute z-20 left-0 bottom-0 right-0 px-4 py-6 text-gray-300 text-sm font-mono flex items-center justify-end">
 			<div class="flex items-center gap-2">
