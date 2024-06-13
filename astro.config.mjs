@@ -6,11 +6,13 @@ import icon from "astro-icon";
 import vercel from "@astrojs/vercel/serverless";
 import compress from "astro-compress";
 
+import alpinejs from "@astrojs/alpinejs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
   // TODO: Configure only icons in use: https://www.astroicon.dev/reference/configuration#include
-  integrations: [mdx(), sitemap(), tailwind(), icon(), compress()],
+  integrations: [mdx(), sitemap(), tailwind(), icon(), compress(), alpinejs()],
   output: "hybrid",
-  adapter: vercel(),
+  adapter: vercel()
 });
