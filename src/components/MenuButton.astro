@@ -1,0 +1,47 @@
+<!-- From: https://tailwindcomponents.com/component/animated-hamburger-menu-icon -->
+<div
+	class="menu-btn__wrapper relative z-50 flex items-center sm:hidden"
+	:class="open && 'open'">
+	<button class="relative group menu-btn" @click="open = !open">
+		<div
+			class="flex flex-col justify-around w-6 h-6 transform transition-all duration-300 origin-center overflow-hidden">
+			<div
+				class="bg-gray-800 h-[2px] w-7 transform transition-all duration-300 origin-left menu-btn__bar">
+			</div>
+			<div
+				class="bg-gray-800 h-[2px] w-7 rounded transform transition-all duration-300 delay-75 menu-btn__bar">
+			</div>
+			<div
+				class="bg-gray-800 h-[2px] w-7 transform transition-all duration-300 origin-left delay-150 menu-btn__bar">
+			</div>
+
+			<div
+				class="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 flex w-0 menu-btn__x">
+				<div
+					class="absolute bg-gray-800 h-[2px] w-6 transform transition-all duration-500 rotate-0 delay-300 menu-btn__x-bar">
+				</div>
+				<div
+					class="absolute bg-gray-800 h-[2px] w-6 transform transition-all duration-500 -rotate-0 delay-300 menu-btn__x-bar">
+				</div>
+			</div>
+		</div>
+	</button>
+</div>
+
+<style>
+	.open .menu-btn__bar {
+		@apply translate-x-10;
+	}
+
+	.open .menu-btn__x {
+		@apply translate-x-0;
+	}
+
+	.open .menu-btn__x-bar:first-child {
+		@apply rotate-45;
+	}
+
+	.open .menu-btn__x-bar:last-child {
+		@apply -rotate-45;
+	}
+</style>
