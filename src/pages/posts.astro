@@ -79,7 +79,8 @@ function groupPostsByYear(posts: Posts): [number, Posts][] {
 	</header>
 	<MainContainer>
 		<SectionMarginTitle id="archive">
-			<div class="flex items-center gap-2 font-mono">
+			<div
+				class="flex flex-wrap sm:flex-nowrap sm:justify-normal items-center gap-2 font-mono">
 				<SimpleLinkButton
 					href="/posts#archive"
 					icon="diamonds-four"
@@ -104,7 +105,7 @@ function groupPostsByYear(posts: Posts): [number, Posts][] {
 					isActive={type === 'essay'}>
 					Essays
 				</SimpleLinkButton>
-				<div class="h-[1px] bg-gray-200 w-full"></div>
+				<div class="h-[1px] bg-gray-200 flex-1"></div>
 			</div>
 		</SectionMarginTitle>
 		{

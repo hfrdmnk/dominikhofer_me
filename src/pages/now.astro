@@ -120,7 +120,8 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 			</div>
 		</SectionMarginTitle>
 		<SectionMarginTitle id="timeline">
-			<div class="flex items-center gap-2 font-mono">
+			<div
+				class="flex flex-wrap sm:flex-nowrap sm:justify-normal items-center gap-2 font-mono">
 				<SimpleLinkButton
 					href="/now#timeline"
 					icon="diamonds-four"
@@ -145,7 +146,7 @@ function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
 					isActive={type === 'project'}>
 					Project
 				</SimpleLinkButton>
-				<div class="h-[1px] bg-gray-200 w-full"></div>
+				<div class="h-[1px] bg-gray-200 flex-1"></div>
 			</div>
 		</SectionMarginTitle>
 		{
