@@ -1,0 +1,75 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Picture } from 'astro:assets';
+import SimpleTag from './SimpleTag.astro';
+import Badge from './Badge.astro';
+
+const { milestone, hideBadge, showImage } = Astro.props;
+
+let formattedEndDate = '';
+
+if (milestone.data.dateEnd) {
+	const endDate = new Date(milestone.data.dateEnd);
+	formattedEndDate = `${(endDate.getMonth() + 1).toString().padStart(2, '0')}.${endDate.getFullYear().toString().slice(-2)}`;
+}
+---
+
+<article class="flex flex-col gap-8 border rounded-lg">
+	{
+		showImage && milestone.data.visual && (
+			<Picture
+				src={milestone.data.visual}
+				alt="Visual"
+				class="block rounded-md"
+			/>
+		)
+	}
+	<div class="relative flex flex-col items-start gap-2 p-6">
+		{
+			milestone.data.link && (
+				<a
+					href={milestone.data.link}
+					target="_blank"
+					class="absolute top-6 right-6 select-none text-body-lighter hover:text-gray-800">
+					<Icon name="ph:link" class="w-5 h-5" />
+				</a>
+			)
+		}
+		{!hideBadge && <Badge type={milestone.data.type} />}
+		<h3 class="text-lg font-medium">{milestone.data.title}</h3>
+		<p>{milestone.data.shortDescription}</p>
+		<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
+			{
+				milestone.data.company && (
+					<SimpleTag icon="at">{milestone.data.company}</SimpleTag>
+				)
+			}
+			{
+				milestone.data.company && milestone.data.tags.length > 0 && (
+					<span>&#8901;</span>
+				)
+			}
+			{
+				milestone.data.tags.length > 0 && (
+					<>
+						{milestone.data.tags.map((tag: string) => (
+							<SimpleTag icon="tag">{tag}</SimpleTag>
+						))}
+					</>
+				)
+			}
+			{
+				milestone.data.dateEnd && milestone.data.tags.length > 0 && (
+					<span>&#8901;</span>
+				)
+			}
+			{
+				milestone.data.dateEnd && (
+					<>
+						<SimpleTag icon="calendar-dots">until {formattedEndDate}</SimpleTag>
+					</>
+				)
+			}
+		</div>
+	</div>
+</article>

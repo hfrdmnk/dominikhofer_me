@@ -1,0 +1,163 @@
+---
+import { Picture } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FancyImage from '../components/FancyImage.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import Socials from '../components/Socials.astro';
+
+import mainImage from '../images/pages/view.jpg';
+import signature from '../images/pages/signature.png';
+import Milestone from '../components/Milestone.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+
+let posts = await getCollection('posts');
+posts = posts.filter((post) => post.data.type === 'post');
+posts.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const latestPostSlug = posts[0].slug;
+
+const milestones = await getCollection('milestones');
+const featuredMilestones = milestones.filter(
+	(milestone) => milestone.data.featured
+);
+featuredMilestones.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const latestFeaturedMilestone = featuredMilestones[0];
+
+const title = 'Curious. Creative. Coder.';
+---
+
+<BaseLayout title={title}>
+	<header slot="header" class="main-grid">
+		<HeaderContainer data-hover-group>
+			<HeaderTitle>
+				<h1>
+					<span data-hover-word="curious">Curious. </span><span
+						data-hover-word="creative"
+						>Creative.
+					</span><span data-hover-word="coder">Coder.</span>
+				</h1>
+			</HeaderTitle>
+
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">That’s me, Dominik :)</p>
+				<p>
+					<span data-hover-word="curious"
+						>I like to learn <span class="font-serif italic">&</span> understand
+						more about the world we live in.</span
+					>
+					<span data-hover-word="creative">
+						While coming up with cool ideas <span class="font-serif italic"
+							>&</span
+						> designing beautiful things.
+					</span>
+					<span data-hover-word="coder">
+						And bringing them to life with fancy symbols.
+					</span>
+				</p>
+				<p>
+					That’s the most important stuff. If that peaked your interest, you can
+					find the extended edition of my personal profile over at <a
+						href="/about">/about</a
+					>.
+				</p>
+			</div>
+			<div class="md:-mx-16">
+				<FancyImage
+					image={mainImage}
+					alt="B&W picture of me looking at Lyon."
+					className="aspect-[1.85/1]"
+					displayName="view.jpg"
+					location="Lyon, FR"
+				/>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		<SectionMarginTitle title="Where to reach me">
+			<p>
+				Wanna share an idea, show me your project, talk about everything under
+				the sun or just say hi? You can reach me on <a
+					href="https://hoferdo.link/twitter"
+					target="_blank">Twitter/X</a
+				>, <a href="https://hoferdo.link/mastodon" target="_blank">Mastodon</a> or
+				via <a href="https://hoferdo.link/hi" target="_blank">email</a>.
+			</p>
+			<p>Looking forward to your message ✌️</p>
+			<Socials />
+		</SectionMarginTitle>
+		<SectionMarginTitle title="What I do">
+			<p>
+				I craft things with code and try to create more analog stuff. A more
+				accurate description of my current endeavours is listed over at <a
+					href="/now">/now</a
+				>.
+			</p>
+			<p>Here’s a recent project I am proud of:</p>
+			<div class="py-4">
+				<Milestone milestone={latestFeaturedMilestone} hideBadge={true} />
+			</div>
+			<p>
+				And since touching grass is also important from time to time, I’m an
+				avid <a href="/races">runner</a> as well.
+			</p>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="What you can do on this website">
+			<div class="prose prose-li:first:mt-0">
+				<ul>
+					<li>
+						Read my latest blog post: <a href={`/${latestPostSlug}`}
+							>/{latestPostSlug}</a
+						>
+					</li>
+					<li>
+						Scroll through my digital photo album: <a href="/pics">/pics</a>
+					</li>
+					<li>
+						Take a look at some fleeting thoughts: <a href="/posts?t=note"
+							>/posts?t=note</a
+						>
+					</li>
+					<li>
+						Check out the latest races I ran: <a href="/races">/races</a>
+					</li>
+					<li>
+						Or again, simply <a href="https://hoferdo.link/hi" target="_blank"
+							>say hi</a
+						> :)
+					</li>
+				</ul>
+			</div>
+		</SectionMarginTitle>
+		<SectionMarginTitle>
+			<p>Have a wonderful day, week, month, year!</p>
+			<p>Cheers,</p>
+			<Picture src={signature} alt="Dominik's Signature" class="w-48" />
+		</SectionMarginTitle>
+	</MainContainer>
+</BaseLayout>
+
+<style>
+	[data-hover-word] {
+		transition: all 0.3s ease-out 0s;
+	}
+
+	[data-hover-group]:has([data-hover-word]:hover) [data-hover-word] {
+		opacity: 0.25;
+	}
+
+	[data-hover-group]:has([data-hover-word='curious']:hover)
+		[data-hover-word='curious'],
+	[data-hover-group]:has([data-hover-word='creative']:hover)
+		[data-hover-word='creative'],
+	[data-hover-group]:has([data-hover-word='coder']:hover)
+		[data-hover-word='coder'] {
+		opacity: 1;
+	}
+</style>

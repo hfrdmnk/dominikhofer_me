@@ -1,0 +1,46 @@
+---
+import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+const {
+	class: className,
+	image,
+	alt,
+	location,
+	displayName,
+	date,
+} = Astro.props;
+import { formatDistanceToNow } from 'date-fns';
+
+let displayDate;
+
+if (date) {
+	displayDate = formatDistanceToNow(new Date(date));
+}
+---
+
+<figure class="space-y-2 select-none" x-data="{ open: false }">
+	<div
+		class="relative rounded overflow-hidden image-container"
+		:class="open && 'open'"
+		@click="open = !open"
+		x-init="$watch('open', value => value ? window.addEventListener('wheel', () => open = false) : window.removeEventListener('wheel', () => open = false))"
+		x-on:remove="window.removeEventListener('wheel', () => open = false)">
+		<div class="shade">
+			<Picture src={image} alt={alt} class:list={[className, 'object-cover']} />
+		</div>
+		<div
+			class="absolute z-20 left-0 bottom-0 right-0 px-4 py-6 text-gray-300 text-sm font-mono flex items-center justify-end">
+			<div class="flex items-center gap-2">
+				<Icon name="ph:map-pin" class="text-brand-400 h-5 w-5" />
+				<span>{location}</span>
+			</div>
+		</div>
+		<div
+			class="absolute left-0 bottom-0 right-0 top-2/3 bg-gradient-to-b from-transparent to-black z-10">
+		</div>
+	</div>
+	<figcaption class="flex justify-between font-mono text-sm">
+		<span>{date && `${displayDate} ago`}</span>
+		<span>{displayName}</span>
+	</figcaption>
+</figure>

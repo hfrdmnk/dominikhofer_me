@@ -1,0 +1,169 @@
+/***
+Misc
+***/
+
+:root {
+  --color-brand-primary: #c9ff00;
+}
+
+::selection {
+  background-color: var(--color-brand-primary);
+}
+
+img {
+  @apply select-none;
+}
+
+/***
+Base Styles
+***/
+
+.text-body {
+  @apply text-gray-700;
+}
+
+.text-body-lighter {
+  @apply text-gray-600;
+}
+
+.text-body-darker {
+  @apply text-gray-800;
+}
+
+.text-heading {
+  @apply text-gray-950;
+}
+
+body {
+  @apply bg-white font-sans font-light leading-relaxed text-gray-700 antialiased;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @apply text-heading font-semibold leading-tight;
+}
+
+h1,
+.h1 {
+  @apply font-serif text-4xl font-bold;
+}
+
+h2,
+.h2 {
+  @apply text-2xl;
+}
+
+h3,
+.h3 {
+  @apply text-xl;
+}
+
+h4,
+.h4 {
+  @apply text-lg font-medium;
+}
+
+h5,
+.h5 {
+  @apply text-base font-medium;
+}
+
+/***
+Grid
+***/
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 0 repeat(4, 1fr) 0;
+  gap: 1rem;
+  width: 100%;
+}
+
+.margin-stretch {
+  grid-column: 2 / -2;
+}
+
+.content-stretch {
+  grid-column: 2 / -2;
+}
+
+@media (min-width: 768px) {
+  .main-grid {
+    grid-template-columns: 0 1fr repeat(4, 148px) 1fr 0;
+  }
+
+  .content-stretch {
+    grid-column: 3 / -3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-grid {
+    grid-template-columns: 1fr 304px 3rem repeat(4, 148px) 3rem 304px 1fr;
+  }
+
+  .content-stretch {
+    grid-column: 4 / -4;
+  }
+}
+
+/***
+Links
+***/
+
+/* Modified from:  https://dannyguo.medium.com/animated-multiline-link-underlines-with-css-abe07f3d6aee */
+
+a:not(.no-highlight, :has(svg), :has(img)) {
+  background-position: 0% 100%;
+  background-image: linear-gradient(
+    var(--color-brand-primary),
+    var(--color-brand-primary)
+  );
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background 0.3s ease-in-out;
+}
+
+a:not(nav a),
+.prose a {
+  @apply font-normal text-gray-950 underline decoration-gray-300 underline-offset-2;
+}
+
+a:hover,
+a:focus,
+nav a.is-active {
+  background-size: 100% 100%;
+  @apply decoration-transparent;
+}
+
+/***
+Components
+***/
+
+/* Fancy Image */
+
+.image-container {
+  @apply cursor-zoom-in;
+}
+
+.image-container.open {
+  @apply cursor-zoom-out;
+}
+
+.image-container.open .shade {
+  @apply pointer-events-auto fixed inset-0 z-[80] flex items-center justify-center bg-white/50 opacity-100 backdrop-blur-lg;
+}
+
+.image-container.open img {
+  @apply aspect-auto h-auto max-h-[90vh] w-auto max-w-[90vw] rounded;
+}
