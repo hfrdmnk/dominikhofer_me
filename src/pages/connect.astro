@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+import SimpleLinkButton from '../components/SimpleLinkButton.astro';
+---
+
+<BaseLayout>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>How to get in touch.</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">
+					Here are all the places where you can reach me online.
+				</p>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		<SectionMarginTitle title="The best way">
+			<p>
+				Simply send me an email and tell me your idea, what you're up, where I
+				can help you out &ndash; or simply say hi. I'll get back to you as soon
+				as possible.
+			</p>
+			<div class="self-start">
+				<SimpleLinkButton
+					href="https://hoferdo.link/hi"
+					target="_blank"
+					icon="envelope">
+					<span>Email</span>
+				</SimpleLinkButton>
+			</div>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="Stay up to date">
+			<div class="prose">
+				<p>
+					Every week, I send out a personal newsletter called <span
+						class="font-medium">
+						“Tiny Sparks”
+					</span>. With (but not limited to):
+				</p>
+				<ul>
+					<li>
+						Personal updates, what I'm working on, other behind the scenes
+					</li>
+					<li>
+						Sharing my struggles and where I need feedback (you can help me
+						shape the products I'm building!)
+					</li>
+					<li>Content piece of the week (video, article, book, …)</li>
+					<li>Tool of the week (website or app)</li>
+				</ul>
+				<p>
+					If that sounds like something you'd be interested in, sign up below:
+				</p>
+			</div>
+			<div class="self-start">
+				<SimpleLinkButton
+					href="https://hoferdo.link/newsletter"
+					target="_blank"
+					icon="mailbox">
+					<span>Personal newsletter</span>
+				</SimpleLinkButton>
+			</div>
+		</SectionMarginTitle>
+		<SectionMarginTitle title="On the socials">
+			<p>
+				I try to limit my social media consumption as much as possible. That's
+				why you'll only really find me on Mastodon (albeit just semi-regularly).
+				I might share some product updates on there, so feel free to join me on
+				the Fediverse:
+			</p>
+			<div class="self-start">
+				<SimpleLinkButton
+					href="https://hoferdo.link/mastodon"
+					target="_blank"
+					icon="mastodon-logo">
+					<span>Mastodon</span>
+				</SimpleLinkButton>
+			</div>
+		</SectionMarginTitle>
+	</MainContainer>
+</BaseLayout>
