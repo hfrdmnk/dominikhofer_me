@@ -10,12 +10,12 @@ import SimpleTag from '../components/SimpleTag.astro';
 import BaseLayout from './BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 
-const { title, type, date, lastUpdated, tags, visual } = Astro.props;
+const { title, excerpt, type, date, lastUpdated, tags, visual } = Astro.props;
 
 const content = await Astro.slots.render('default');
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={excerpt} image={visual?.src}>
 	<header slot="header" class="main-grid -mb-12">
 		<HeaderContainer>
 			{

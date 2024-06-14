@@ -12,9 +12,13 @@ let races = await getCollection('races');
 races.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+
+const title = 'Races & PBs';
+
+const description = 'These are my recent race results & personal bests.';
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>

@@ -29,9 +29,11 @@ featuredMilestones.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 const latestFeaturedMilestone = featuredMilestones[0];
+
+const title = 'Curious. Creative. Coder.';
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer data-hover-group>
 			<HeaderTitle>

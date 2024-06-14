@@ -3,12 +3,24 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+let { title, description, image } = Astro.props;
+
+if (!title) {
+	title = SITE_TITLE;
+} else {
+	title = `${title} | ${SITE_TITLE}`;
+}
+
+if (!description) {
+	description = SITE_DESCRIPTION;
+}
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={title} description={description} image={image} />
 	</head>
 	<body>
 		<Navbar />

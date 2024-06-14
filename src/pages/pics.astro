@@ -11,9 +11,14 @@ let pics = await getCollection('pics');
 pics.sort(
 	(a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime()
 );
+
+const title = 'Life through my viewfinder';
+
+const description =
+	'I love documenting my life & the world around me with my cameras. These are some of my favorite shots.';
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>
