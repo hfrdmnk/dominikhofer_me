@@ -8,5 +8,4 @@ tags:
 company: By The Way
 link: https://www.verkehrsfachschule.ch/
 date: 2022-12-15
-visual: ../../assets/milestones/verkehrsfachschule/vfs-a7a7391b16.jpg
 ---

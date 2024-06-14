@@ -7,5 +7,4 @@ tags:
 company: Bloq Labs
 link: https://www.raw-labs.com/
 date: 2024-02-08
-visual: ../../assets/milestones/raw/raw-23aa3f4efd.jpg
 ---

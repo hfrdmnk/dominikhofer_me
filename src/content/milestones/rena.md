@@ -8,5 +8,4 @@ tags:
 company: Bloq Labs
 link: https://www.rena.diamonds/
 date: 2023-10-27
-visual: ../../assets/milestones/rena/rena-f271f0519f.jpg
 ---

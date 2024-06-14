@@ -8,5 +8,4 @@ tags:
 company: By The Way
 link: https://www.fundtastic.ch/
 date: 2022-11-03
-visual: ../../assets/milestones/fundtastic/fundtastic-d9ec046e82.jpg
 ---

@@ -1,6 +1,7 @@
 ---
 import readingTime from 'reading-time';
 import { formatDistanceToNow } from 'date-fns';
+import { Picture } from 'astro:assets';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
@@ -9,7 +10,7 @@ import SimpleTag from '../components/SimpleTag.astro';
 import BaseLayout from './BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 
-const { title, type, date, lastUpdated, tags } = Astro.props;
+const { title, type, date, lastUpdated, tags, visual } = Astro.props;
 
 const content = await Astro.slots.render('default');
 ---
@@ -17,6 +18,17 @@ const content = await Astro.slots.render('default');
 <BaseLayout>
 	<header slot="header" class="main-grid -mb-12">
 		<HeaderContainer>
+			{
+				visual && (
+					<div class="md:-mx-16">
+						<Picture
+							src={visual}
+							alt={`Visual for: ${title}`}
+							class="rounded-lg"
+						/>
+					</div>
+				)
+			}
 			<HeaderTitle>
 				<h1>{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
