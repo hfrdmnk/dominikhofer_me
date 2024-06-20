@@ -64,8 +64,8 @@ const isProd = import.meta.env.PROD;
 <link
 	rel="alternate"
 	type="application/rss+xml"
-	href="/rss.xml"
-	title="RSS Feed"
+	title={SITE_TITLE}
+	href={`${Astro.site}rss.xml`}
 />
 
 <!-- Redirect -->
