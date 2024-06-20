@@ -60,6 +60,14 @@ const isProd = import.meta.env.PROD;
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
 
+<!-- RSS Feed -->
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	href="/rss.xml"
+	title="RSS Feed"
+/>
+
 <!-- Redirect -->
 {redirect ? <meta http-equiv="refresh" content={`0; url=${redirect}`} /> : null}
 
