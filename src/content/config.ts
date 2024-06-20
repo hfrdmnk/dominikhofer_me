@@ -60,4 +60,11 @@ const milestones = defineCollection({
     }),
 });
 
-export const collections = { posts, pics, races, milestones };
+const redirects = defineCollection({
+  type: "content",
+  schema: z.object({
+    to: z.string(),
+  }),
+});
+
+export const collections = { posts, pics, races, milestones, redirects };

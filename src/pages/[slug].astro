@@ -1,22 +1,33 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Post from '../layouts/PostLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+type Props = CollectionEntry<'posts'> | CollectionEntry<'redirects'>;
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
+	const entries = [
+		...(await getCollection('posts')),
+		...(await getCollection('redirects')),
+	];
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: entry,
 	}));
 }
-type Props = CollectionEntry<'posts'>;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const entry = Astro.props as Props;
+const { Content } = await entry.render();
 ---
 
-<Post {...post.data}>
-	<div class="prose prose-img:rounded max-w-none">
-		<Content />
-	</div>
-</Post>
+{
+	entry.collection === 'posts' && (
+		<Post {...entry.data}>
+			<div class="prose prose-img:rounded max-w-none">
+				<Content />
+			</div>
+		</Post>
+	)
+}
+
+{entry.collection === 'redirects' && <BaseLayout redirect={entry.data.to} />}
