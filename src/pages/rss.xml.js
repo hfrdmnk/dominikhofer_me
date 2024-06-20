@@ -31,7 +31,7 @@ export async function GET(context) {
       width="${post.data.visual.width}"
       height="${post.data.visual.height}"
       medium="image"
-      url="${context.site + "_astro" + post.data.visual.src.replace(/^(\.\.\/)*/, "/")}" />
+      url="${context.site + post.data.visual.src.replace(/^(\.\.\/)*/, "/")}" />
   `
         : undefined,
     })),
