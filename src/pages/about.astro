@@ -1,8 +1,11 @@
 ---
+// opt out of prerendering
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FancyImage from '../components/FancyImage.astro';
-import SectionMarginTitle from '../components/SectionMarginTitle.astro';
-import SimpleTag from '../components/SimpleTag.astro';
 
 import bubbles from '../images/pages/bubbles.jpg';
 import nocco from '../images/pages/nocco.jpg';
@@ -13,6 +16,52 @@ import og from '../images/og/about.jpg';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import SimpleTag from '../components/SimpleTag.astro';
+import SimpleLinkButton from '../components/SimpleLinkButton.astro';
+import Milestone from '../components/Milestone.astro';
+
+const type = Astro.url.searchParams.get('t') || '';
+
+let milestones = await getCollection('milestones');
+type Milestones = (typeof milestones)[number][];
+
+if (type === 'cv' || type === 'personal' || type === 'project') {
+	milestones = milestones.filter((milestone) => milestone.data.type === type);
+}
+
+const groupedMilestones = groupMilestonesByYear(milestones);
+
+function groupMilestonesByYear(milestones: Milestones): [number, Milestones][] {
+	const years: { [key: number]: Milestones } = {};
+
+	milestones.forEach((milestone) => {
+		const year = new Date(milestone.data.date).getFullYear();
+
+		if (!years[year]) {
+			years[year] = [] as Milestones;
+		}
+
+		years[year].push(milestone);
+	});
+
+	Object.keys(years).forEach((year) => {
+		years[Number(year)].sort(
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+		);
+	});
+
+	// Convert the years object to an array of [year, milestones] tuples
+	const sortedYears: [number, Milestones][] = Object.entries(years).map(
+		([year, milestones]) => [Number(year), milestones]
+	);
+
+	// Sort the years in descending order (newest to oldest)
+	sortedYears.sort((a, b) => b[0] - a[0]);
+
+	return sortedYears;
+}
 
 const title = 'Let me introduce myself.';
 
@@ -132,5 +181,50 @@ const description =
 				up to date with the things I put out into this world!
 			</p>
 		</SectionMarginTitle>
+		<SectionMarginTitle id="timeline" title="What I did in the past">
+			<div
+				class="flex flex-wrap sm:flex-nowrap sm:justify-normal items-center gap-2 font-mono">
+				<SimpleLinkButton
+					href="/about#timeline"
+					icon="diamonds-four"
+					isActive={!type}>
+					All
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/about?t=personal#timeline"
+					icon="heart"
+					isActive={type === 'personal'}>
+					Personal
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/about?t=cv#timeline"
+					icon="read-cv-logo"
+					isActive={type === 'cv'}>
+					CV
+				</SimpleLinkButton>
+				<SimpleLinkButton
+					href="/about?t=project#timeline"
+					icon="laptop"
+					isActive={type === 'project'}>
+					Project
+				</SimpleLinkButton>
+				<div class="h-[1px] bg-gray-200 flex-1"></div>
+			</div>
+		</SectionMarginTitle>
+		{
+			groupedMilestones.map(([year, milestones]) => (
+				<>
+					<SectionMarginTitle title={year.toString()}>
+						{milestones.map((milestone) => (
+							<Milestone
+								milestone={milestone}
+								showImage={milestone.data.featured ? true : false}
+								hideBadge={true}
+							/>
+						))}
+					</SectionMarginTitle>
+				</>
+			))
+		}
 	</MainContainer>
 </BaseLayout>
