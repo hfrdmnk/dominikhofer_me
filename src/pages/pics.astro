@@ -7,6 +7,8 @@ import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 import FancyImage from '../components/FancyImage.astro';
 
+import og from '../images/og/pics.jpg';
+
 let pics = await getCollection('pics');
 pics.sort(
 	(a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime()
@@ -18,7 +20,7 @@ const description =
 	'I love documenting my life & the world around me with my cameras. These are some of my favorite shots.';
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={og.src}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>

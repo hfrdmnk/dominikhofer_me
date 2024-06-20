@@ -14,6 +14,8 @@ import MainContainer from '../components/MainContainer.astro';
 import SimpleLinkButton from '../components/SimpleLinkButton.astro';
 import SimpleTag from '../components/SimpleTag.astro';
 
+import og from '../images/og/posts.jpg';
+
 const type = Astro.url.searchParams.get('t') || '';
 
 let posts = await getCollection('posts');
@@ -62,7 +64,7 @@ const description =
 	'Preserving my thoughts, ideas and other interesting things I come across.';
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={og.src}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>

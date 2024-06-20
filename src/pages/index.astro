@@ -14,6 +14,8 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 
+import og from '../images/og/index.jpg';
+
 let posts = await getCollection('posts');
 posts = posts.filter((post) => post.data.type === 'post');
 posts.sort(
@@ -33,7 +35,7 @@ const latestFeaturedMilestone = featuredMilestones[0];
 const title = 'Curious. Creative. Coder.';
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} image={og.src}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer data-hover-group>
 			<HeaderTitle>

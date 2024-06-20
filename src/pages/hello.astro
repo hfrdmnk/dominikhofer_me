@@ -6,12 +6,14 @@ import HeaderContainer from '../components/HeaderContainer.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SimpleLinkButton from '../components/SimpleLinkButton.astro';
 
+import og from '../images/og/hello.jpg';
+
 const title = 'Nice to meet you!';
 
 const description = 'Here are all the places where you can reach me online.';
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={og.src}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>

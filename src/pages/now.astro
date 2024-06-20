@@ -13,6 +13,8 @@ import MainContainer from '../components/MainContainer.astro';
 import SimpleTag from '../components/SimpleTag.astro';
 import SimpleLinkButton from '../components/SimpleLinkButton.astro';
 
+import og from '../images/og/now.jpg';
+
 const type = Astro.url.searchParams.get('t') || '';
 
 let milestones = await getCollection('milestones');
@@ -61,7 +63,7 @@ const description =
 	"A now page is a simple, effective way to share what you're up to right now. Here's what I'm doing at the moment.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={og.src}>
 	<header slot="header" class="main-grid">
 		<HeaderContainer>
 			<HeaderTitle>
