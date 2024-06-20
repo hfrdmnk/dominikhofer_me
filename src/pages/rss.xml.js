@@ -12,6 +12,11 @@ export async function GET(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     trailingSlash: false,
+    xmlns: {
+      media: "http://search.yahoo.com/mrss/",
+      atom: "http://www.w3.org/2005/Atom",
+    },
+    customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
