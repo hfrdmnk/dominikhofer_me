@@ -1,7 +1,7 @@
 ---
 const { title, isH3, gap = 1, ...props } = Astro.props;
 const titleClass =
-	'col-[2_/_-2] md:col-[3_/-3] xl:col-[2_/_span_1] font-mono text-base font-normal not-italic text-gray-500 leading-normal xl:sticky top-24 self-start xl:text-right';
+	'col-[2_/_-2] md:col-[3_/-3] xl:col-[2_/_span_1] font-mono font-light text-base not-italic text-gray-500 leading-normal xl:sticky top-24 self-start xl:text-right';
 
 const gapFactor = Number(gap);
 const asideSlot = Astro.slots.aside;
