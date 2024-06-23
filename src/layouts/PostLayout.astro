@@ -38,14 +38,14 @@ const content = await Astro.slots.render('default');
 					{
 						tags.length > 0 && (
 							<>
-								<span>&#8901;</span>
+								<span>&#215;</span>
 								{tags.map((tag: string) => (
 									<SimpleTag icon="tag">{tag}</SimpleTag>
 								))}
 							</>
 						)
 					}
-					<span>&#8901;</span>
+					<span>&#215;</span>
 					<SimpleTag icon="calendar-dots"
 						>{formatDistanceToNow(new Date(date))} ago</SimpleTag
 					>
@@ -57,7 +57,7 @@ const content = await Astro.slots.render('default');
 							</SimpleTag>
 						)
 					}
-					<span>&#8901;</span>
+					<span>&#215;</span>
 					<span class="font-mono text-sm text-gray-500"
 						>{readingTime(content).text}</span
 					>

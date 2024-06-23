@@ -1,7 +1,4 @@
 ---
-// opt out of prerendering
-export const prerender = false;
-
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import readingTime from 'reading-time';
@@ -16,7 +13,7 @@ import SimpleTag from '../components/SimpleTag.astro';
 
 import og from '../images/og/posts.jpg';
 
-const type = Astro.url.searchParams.get('t') || '';
+const { type } = Astro.props;
 
 let posts = await getCollection('posts');
 type Posts = (typeof posts)[number][];
@@ -78,9 +75,9 @@ const description =
 					time.
 				</p>
 				<p>
-					On here, you will find <a href="/posts?t=note">notes</a> (aka fleeting
-					thoughts), regular <a href="/posts?t=post">posts</a>
-					and more elaborate <a href="/posts?t=essay">essays</a>.
+					On here, you will find <a href="/posts/notes#archive">notes</a> (aka fleeting
+					thoughts), regular <a href="/posts/regular#archive">posts</a>
+					and more elaborate <a href="/posts/essays#archive">essays</a>.
 				</p>
 			</div>
 		</HeaderContainer>
@@ -96,19 +93,19 @@ const description =
 					All
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/posts?t=note#archive"
+					href="/posts/notes#archive"
 					icon="notepad"
 					isActive={type === 'note'}>
 					Notes
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/posts?t=post#archive"
+					href="/posts/regular#archive"
 					icon="article"
 					isActive={type === 'post'}>
 					Posts
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/posts?t=essay#archive"
+					href="/posts/essays#archive"
 					icon="books"
 					isActive={type === 'essay'}>
 					Essays
@@ -141,7 +138,7 @@ const description =
 									</div>
 									{post.data.tags.length > 0 && (
 										<>
-											<span>&#8901;</span>
+											<span>&#215;</span>
 											{post.data.tags.map((tag: string) => (
 												<SimpleTag icon="tag">{tag}</SimpleTag>
 											))}

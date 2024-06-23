@@ -1,7 +1,4 @@
 ---
-// opt out of prerendering
-export const prerender = false;
-
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -21,7 +18,7 @@ import SimpleTag from '../components/SimpleTag.astro';
 import SimpleLinkButton from '../components/Button.astro';
 import Milestone from '../components/Milestone.astro';
 
-const type = Astro.url.searchParams.get('t') || '';
+const { type } = Astro.props;
 
 let milestones = await getCollection('milestones');
 type Milestones = (typeof milestones)[number][];
@@ -191,22 +188,22 @@ const description =
 					All
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/about?t=personal#timeline"
+					href="/about/personal#timeline"
 					icon="heart"
 					isActive={type === 'personal'}>
 					Personal
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/about?t=cv#timeline"
+					href="/about/cv#timeline"
 					icon="read-cv-logo"
 					isActive={type === 'cv'}>
 					CV
 				</SimpleLinkButton>
 				<SimpleLinkButton
-					href="/about?t=project#timeline"
+					href="/about/projects#timeline"
 					icon="laptop"
 					isActive={type === 'project'}>
-					Project
+					Projects
 				</SimpleLinkButton>
 				<div class="h-[1px] bg-gray-200 flex-1"></div>
 			</div>
