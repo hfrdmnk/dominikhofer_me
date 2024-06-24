@@ -32,20 +32,6 @@ const content = await Astro.slots.render('default');
 			<HeaderTitle>
 				<h1>{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
-					{type === 'note' && <SimpleTag icon="notepad">Note</SimpleTag>}
-					{type === 'post' && <SimpleTag icon="article">Post</SimpleTag>}
-					{type === 'essay' && <SimpleTag icon="books">NoEssayte</SimpleTag>}
-					{
-						tags.length > 0 && (
-							<>
-								<span class="text-gray-500">&#183;</span>
-								{tags.map((tag: string) => (
-									<SimpleTag icon="tag">{tag}</SimpleTag>
-								))}
-							</>
-						)
-					}
-					<span class="text-gray-500">&#183;</span>
 					<SimpleTag icon="calendar-dots"
 						>{formatDistanceToNow(new Date(date))} ago</SimpleTag
 					>
@@ -61,6 +47,16 @@ const content = await Astro.slots.render('default');
 					<span class="font-mono text-sm text-gray-500"
 						>{readingTime(content).text}</span
 					>
+					{
+						tags.length > 0 && (
+							<>
+								<span class="text-gray-500">&#183;</span>
+								{tags.map((tag: string) => (
+									<SimpleTag icon="tag">{tag}</SimpleTag>
+								))}
+							</>
+						)
+					}
 				</div>
 			</HeaderTitle>
 		</HeaderContainer>
