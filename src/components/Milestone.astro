@@ -1,16 +1,35 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
+import { format } from 'date-fns';
 import SimpleTag from './SimpleTag.astro';
-import Badge from './Badge.astro';
 
-const { milestone, hideBadge, showImage } = Astro.props;
+const { milestone, showImage } = Astro.props;
 
 let formattedEndDate = '';
 
 if (milestone.data.dateEnd) {
-	const endDate = new Date(milestone.data.dateEnd);
-	formattedEndDate = `${(endDate.getMonth() + 1).toString().padStart(2, '0')}.${endDate.getFullYear().toString().slice(-2)}`;
+	formattedEndDate = format(new Date(milestone.data.dateEnd), 'MMMM yyyy');
+}
+
+let icon;
+
+switch (milestone.data.type) {
+	case 'personal':
+		icon = 'heart';
+		break;
+	case 'cv':
+		icon = 'read-cv-logo';
+		break;
+	case 'project':
+		icon = 'laptop';
+		break;
+	default:
+		icon = 'notepad';
+}
+
+if (milestone.data.isFeatured) {
+	icon = 'star-duotone';
 }
 ---
 
@@ -35,9 +54,19 @@ if (milestone.data.dateEnd) {
 				</a>
 			)
 		}
-		{!hideBadge && <Badge type={milestone.data.type} />}
-		<h3 class="text-lg font-medium">{milestone.data.title}</h3>
-		<p>{milestone.data.shortDescription}</p>
+		<div class="flex flex-col gap-1">
+			<div class="flex sm:flex-row sm:items-baseline xl:pt-1">
+				<Icon
+					name=`ph:${icon}`
+					class:list={[
+						'w-5 h-5 text-gray-500 flex-shrink-0 sm:self-center mr-2',
+						{ 'text-yellow-500': milestone.data.isFeatured },
+					]}
+				/>
+				<h3 class="h5">{milestone.data.title}</h3>
+			</div>
+			<p>{milestone.data.shortDescription}</p>
+		</div>
 		<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
 			{
 				milestone.data.company && (
@@ -46,7 +75,7 @@ if (milestone.data.dateEnd) {
 			}
 			{
 				milestone.data.company && milestone.data.tags.length > 0 && (
-					<span>&#215;</span>
+					<span class="text-gray-500">&#183;</span>
 				)
 			}
 			{
@@ -60,7 +89,7 @@ if (milestone.data.dateEnd) {
 			}
 			{
 				milestone.data.dateEnd && milestone.data.tags.length > 0 && (
-					<span>&#215;</span>
+					<span class="text-gray-500">&#183;</span>
 				)
 			}
 			{

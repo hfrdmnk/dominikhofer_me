@@ -53,7 +53,7 @@ const milestones = defineCollection({
       tags: z.array(z.string()).default([]),
       company: z.string().optional(),
       link: z.string().url().optional(),
-      featured: z.boolean().default(false),
+      isFeatured: z.boolean().default(false),
       // Transform string to Date object
       date: z.coerce.date(),
       dateEnd: z.coerce.date().optional(),

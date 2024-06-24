@@ -29,11 +29,11 @@ if (isFeatured) {
 const formattedDate = format(new Date(date), 'MMMM do');
 ---
 
-<article class="flex sm:flex-row sm:items-baseline xl:pt-1 gap-2 sm:gap-0">
+<article class="flex sm:flex-row sm:items-baseline xl:pt-1 gap-2">
 	<Icon
 		name=`ph:${icon}`
 		class:list={[
-			'w-5 h-5 text-gray-500 flex-shrink-0 sm:self-center mr-2 sm:-mt-1',
+			'w-5 h-5 text-gray-500 flex-shrink-0 sm:self-center sm:-mt-1',
 			{ 'text-yellow-500': isFeatured },
 		]}
 	/>

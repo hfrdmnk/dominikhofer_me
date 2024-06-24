@@ -25,7 +25,7 @@ const latestPostSlug = posts[0].slug;
 
 const milestones = await getCollection('milestones');
 const featuredMilestones = milestones.filter(
-	(milestone) => milestone.data.featured
+	(milestone) => milestone.data.isFeatured
 );
 featuredMilestones.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
@@ -102,7 +102,7 @@ const title = 'Curious. Creative. Coder.';
 			</p>
 			<p>Here’s a recent project I am proud of:</p>
 			<div class="py-4">
-				<Milestone milestone={latestFeaturedMilestone} hideBadge={true} />
+				<Milestone milestone={latestFeaturedMilestone} />
 			</div>
 			<p>
 				You can find a list of my past creative projects over on <a

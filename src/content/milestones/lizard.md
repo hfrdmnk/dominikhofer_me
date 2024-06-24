@@ -7,7 +7,7 @@ tags:
   - React
 company: Linea
 link: https://hoferdo.link/lemon
-featured: true
+isFeatured: true
 date: 2023-07-28
 visual: ../../assets/milestones/lizard/lizard-770bcbdbb5.jpg
 ---

@@ -74,7 +74,7 @@ const description =
 					Who <span class="line-through text-gray-400">let the dogs out</span> is
 					Dominik?
 				</h1>
-				<SimpleTag icon="calendar-dots">Last updated: 29.05.24</SimpleTag>
+				<SimpleTag icon="calendar-dots">Last updated: May 29th, 2024</SimpleTag>
 			</HeaderTitle>
 			<div class="flex flex-col gap-4">
 				<p class="font-medium text-pretty">
@@ -215,8 +215,7 @@ const description =
 						{milestones.map((milestone) => (
 							<Milestone
 								milestone={milestone}
-								showImage={milestone.data.featured ? true : false}
-								hideBadge={true}
+								showImage={milestone.data.isFeatured ? true : false}
 							/>
 						))}
 					</SectionMarginTitle>
