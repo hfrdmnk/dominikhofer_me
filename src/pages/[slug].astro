@@ -25,7 +25,7 @@ const { Content } = await entry.render();
 {
 	entry.collection === 'posts' && (
 		<Post {...entry.data}>
-			<div class="prose prose-img:rounded prose-headings:font-medium max-w-none">
+			<div class="prose prose-img:rounded prose-headings:font-medium prose-strong:font-medium max-w-none">
 				<Content />
 			</div>
 		</Post>
