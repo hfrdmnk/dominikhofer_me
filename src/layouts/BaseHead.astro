@@ -10,11 +10,12 @@ interface Props {
 	description?: string;
 	image?: string;
 	redirect?: string;
+	index?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-let { title, description, image, redirect } = Astro.props;
+let { title, description, image, redirect, index } = Astro.props;
 
 if (!title) {
 	title = SITE_TITLE;
@@ -70,6 +71,9 @@ const isProd = import.meta.env.PROD;
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Robots -->
+{index === false ? <meta name="robots" content="noindex, nofollow" /> : null}
 
 <!-- Redirect -->
 {redirect ? <meta http-equiv="refresh" content={`0; url=${redirect}`} /> : null}

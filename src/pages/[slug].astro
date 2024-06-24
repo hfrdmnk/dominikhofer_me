@@ -2,6 +2,8 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Post from '../layouts/PostLayout.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
 
 type Props = CollectionEntry<'posts'> | CollectionEntry<'redirects'>;
 
@@ -30,4 +32,17 @@ const { Content } = await entry.render();
 	)
 }
 
-{entry.collection === 'redirects' && <BaseLayout redirect={entry.data.to} />}
+{
+	entry.collection === 'redirects' && (
+		<BaseLayout redirect={entry.data.to} index={false}>
+			<header slot="header" class="main-grid">
+				<HeaderContainer>
+					<HeaderTitle>
+						<h1>This site will soon redirect you</h1>
+						<p>One moment please…</p>
+					</HeaderTitle>
+				</HeaderContainer>
+			</header>
+		</BaseLayout>
+	)
+}

@@ -3,7 +3,7 @@ import BaseHead from './BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 
-let { title, description, image, redirect } = Astro.props;
+let { title, description, image, redirect, index } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,6 +14,7 @@ let { title, description, image, redirect } = Astro.props;
 			description={description}
 			image={image}
 			redirect={redirect}
+			index={index}
 		/>
 	</head>
 	<body>
