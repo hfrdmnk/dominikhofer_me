@@ -7,6 +7,7 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import SimpleTag from '../components/SimpleTag.astro';
+import Callout from '../components/Callout.astro';
 import BaseLayout from './BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 
@@ -71,6 +72,19 @@ const content = await Astro.slots.render('default');
 				<span>Back to all posts</span>
 			</a>
 			<slot />
+			<div class="mt-6">
+				<Callout icon="envelope" title="What are your thoughts on this post?">
+					<div class="space-y-2">
+						<p>
+							I’d love to hear from you! Please write me an email by clicking <a
+								href="/hi"
+								target="_blank">this link</a
+							>.
+						</p>
+						<p>I reply to every email I receive!</p>
+					</div>
+				</Callout>
+			</div>
 		</SectionMarginTitle>
 	</MainContainer>
 </BaseLayout>

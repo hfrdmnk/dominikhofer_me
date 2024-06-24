@@ -1,0 +1,121 @@
+---
+draft: true
+title: My personal home on the internet
+type: post
+tags:
+  - Personal
+  - IndieWeb
+date: 2024-06-24
+excerpt: The why’s, what’s and how’s behind the creation of this website. After
+  reading this post, you’ll want to create your own – I hope.
+isFeatured: true
+visual: ../../assets/posts/personal-internet-home/personal-home-9dd9de81af.jpg
+---
+
+**The why’s, what’s and how’s behind the creation of this website. After reading this post, you’ll want to create your own – I hope.**
+
+On the evening of February 21st, I posted the [following Tweet](https://x.com/dominikhofer_/status/1760349869435224351):
+
+> I’ve been diving into the indie web world these past few days.  
+> Really like it so far, so I’ve decided to be more active on Mastodon (and probably less active on here – at least for now).  
+> Feel free to join me :D
+
+It took a tiny bit longer than I anticipated but now, I can officially announce: My first personal website is finally live!
+
+## But Dominik, what took you so long?
+
+Great question, I honestly don’t know. If I did, I would plug my anti-procrastination course instead of writing this section.
+
+Jokes aside, I do see the irony in the fact that I build websites for a living but never have made my own. At least if you don’t count the little [learning journal from my apprenticeship](https://mislernjournal.netlify.app/) (which is still online, thanks Netlify!) and the few one-pagers I put up in a desperate attempt to have somewhat of a personal brand online.
+
+You probably already know the big catch: Designing & building something for yourself is damn hard. You feel like the most competent but at the same time the most annoying client of all time. “What is enough for others is surely not enough for me. Like, I brand myself as a coder and _designer_, so my personal website has of course to be perfect!” Sounds a bit arrogant, I know – but these are actual thoughts that come up in the process (and I guarantee you, all designers have them).
+
+To [fight this perfectionism](/fighting-perfectionism), on March 4th, I posted a [Toot](https://mastodon.design/@dominik/112038783951972365) announcing, that I will launch the MVP of my personal website asap. [Task failed successfully](https://imgur.com/a/SdJaaJc), I’d say. It is the end of June now, and the site only launched last week. Plus, it doesn’t feel so MVP anymore. But it is online, and you are reading these words, that’s the most important part.
+
+_By the way, if you’re wondering why there are already a couple of posts on this site: Since having nothing to put on my blog when I launch only would’ve delayed things further, I went on a writing spree in spring to remove this excuse._
+
+## Why is building a personal website important? A couple of thoughts.
+
+Since rediscovering personal blogs at the start of this year, I really got into the IndieWeb.
+
+> The IndieWeb is a people-focused alternative to the “corporate web”.
+
+— [https://indieweb.org/](https://indieweb.org/)
+
+Basically, everything in this community comes down to a few basic [principles](https://indieweb.org/principles) that really resonate with me:
+
+- Own your own domain
+- Own your content
+- POSSE (“Publish (on your) Own Site, Syndicate Elsewhere”)
+- Document your stuff
+- Longevity
+- And many more
+
+To put it short, everything revolves around creation, autonomy, and authenticity. And connecting with other, similar-minded people – through email, the [Fediverse](https://indieweb.org/federation), [guestbooks](https://indieweb.org/guestbook), [Webmentions](https://indieweb.org/Webmention), etc.
+
+As someone born in the early 2000s, I only got a tiny glimpse into the internet-world before the rise of Social Media. With becoming more mature and seeing the downsides of these platforms, I became more and more jealous of the people who got to live through the early internet times. But now, with the IndieWeb, I partly feel like I’m travelling back in time and experiencing a calmer, more honest and authentic part of the web with less drama. It surely feels great!
+
+But all this philosophy aside, having a personal website does, of course, have many advantages and I truly think, everyone should have one. And no, a polished Insta profile doesn’t count.
+
+With this website, I have unlimited creative freedom:
+
+_“I want to share the photos from my latest trip? Sure, I’ll put them up on my [/pics](/pics) page.”_
+
+_“I want to create a page that shows others what I’m currently doing and holds me accountable? Great, I now have a [/now](/now) page.”_
+
+_“I should save my running results somewhere… [/races](/races) to the rescue.”_
+
+You’re getting the point. A personal website is and can become _anything_. For me, it’s equal parts:
+
+- portfolio
+- cv
+- brain dump
+- photo album
+- content hub
+- business card
+- creative outlet
+- public accountability
+- starting point of internet friendships
+- journal
+
+…and much more.
+
+Plus, it also serves as some sort of time capsule. In the IndieWeb, it’s not uncommon to visit blogs with posts that are nearly as old as I am. These are always especially great, since they feel like a look back in history. And I always imagine myself looking back at my blog in a couple of years and rediscovering things I thought, made and felt during that time.
+
+So, 40-year-old Dominik from 2041, if you are reading this – I hope you are happy, and thanks for preserving this document!
+
+## The tech
+
+Now, for all the nerdy people out there (like me, I truly enjoy reading these things on other people’s sites), here’s a quick rundown of the backbones of this website. I’ll probably create a /colophon page soon, but for now, here are the most important bits and pieces:
+
+Under the hood, this website is powered by [Astro](https://astro.build/). I briefly considered using [Eleventy](https://www.11ty.dev/) first, but Astro just felt easier to pick up for me. And it’s really great, I love it already!
+
+The interactive parts (essentially just the mobile menu) use a tiny bit of [Alpine.js](https://alpinejs.dev/).
+
+For styling things, I use [TailwindCSS](https://tailwindcss.com/). I’ve picked it up years ago and couldn’t imagine building websites without it anymore.
+
+The design was mainly done directly in code. But for the initial ideation, I used [Figma](https://figma.com).
+
+Visually, this site is a remix of many minimal sites I find stunning, first and foremost the one from [Paco Coursey](https://paco.me/). If you are looking for other similarly clean and simple sites, check out [deadsimplesites.com](https://deadsimplesites.com/).
+
+The site is currently hosted on [Vercel](https://vercel.com), but I’ll look into self-hosting it on my VPS in the future. It redeploys with every Git commit.
+
+All the collections (posts, images, …) are simply `*.md` or `*.mdx` files. To make editing them easier, I use [Darkmatter](https://getdarkmatter.dev/).
+
+If you would like to take a look at the code, just go to [/repo](/repo) and the site will redirect you to the GitHub repo. You are welcome to grab elements you like, tweak them if you need it and add them to your own, no credit necessary. Just don’t copy the whole website, but I think that should be obvious.
+
+## What should _you_ do now?
+
+If you take one thing away from this post, make sure it’s this: If you weren’t faster and more disciplined than me and haven’t already launched your own, **build your personal website now**! Just look up “How to build a website”, “Build Wordpress website”, “How to build a website without code” or something similar on Google. Or simply ask ChatGPT.
+
+One day, I’ll create a more detailed guide for this, but meanwhile, just write me an email, and I’ll do my best to help you out.
+
+Email is a good keyword: If you have a personal website, **please write me an email and send it to me**. I’d love to check it out!
+
+And no matter if you have a personal website or not, please write to me and let me know: Who you are, how you discovered my website, what you think of it and (optionally) one thing you learned today. Or anything else you want to tell me.
+
+You can find my email address below.
+
+I’m looking forward to hearing from you!
+
+✌️
