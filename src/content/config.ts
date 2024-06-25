@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { dateTime } from "darkmatter";
 
 const posts = defineCollection({
   type: "content",
@@ -10,8 +11,8 @@ const posts = defineCollection({
       type: z.enum(["post", "essay", "note"]).default("post"),
       tags: z.array(z.string()).default([]),
       // Transform string to Date object
-      date: z.coerce.date(),
-      lastUpdated: z.coerce.date().optional(),
+      date: dateTime(),
+      lastUpdated: dateTime().optional(),
       visual: image().optional(),
       isFeatured: z.boolean().default(false),
     }),
@@ -38,8 +39,8 @@ const races = defineCollection({
       date: z.coerce.date(),
       location: z.string(),
       distance: z.number(),
-      time: z.string(),
-      pace: z.string(),
+      time: z.coerce.string(),
+      pace: z.coerce.string(),
     }),
 });
 

@@ -24,6 +24,7 @@
     "astro-compress": "^2.2.27",
     "astro-icon": "^1.1.0",
     "classnames": "^2.5.1",
+    "darkmatter": "^2.0.3",
     "date-fns": "^3.6.0",
     "markdown-it": "^14.1.0",
     "reading-time": "^1.5.0",

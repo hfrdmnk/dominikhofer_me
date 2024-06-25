@@ -37,12 +37,14 @@ const content = await Astro.slots.render('default');
 						>{formatDistanceToNow(new Date(date))} ago</SimpleTag
 					>
 					{
-						lastUpdated && (
-							<SimpleTag icon="clock-clockwise">
-								Last updated:
-								{formatDistanceToNow(new Date(date))} ago
-							</SimpleTag>
-						)
+						lastUpdated &&
+							new Date(lastUpdated).toDateString() !==
+								new Date(date).toDateString() && (
+								<SimpleTag icon="clock-clockwise">
+									Last updated:
+									{formatDistanceToNow(new Date(lastUpdated))} ago
+								</SimpleTag>
+							)
 					}
 					<span class="text-gray-500">&#183;</span>
 					<span class="font-mono text-sm text-gray-500"
