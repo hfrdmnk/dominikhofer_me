@@ -1,0 +1,20 @@
+---
+const { post } = Astro.props;
+const { title, source } = post.data;
+
+const { Content } = await post.render();
+---
+
+<article>
+	<div class="flex items-baseline gap-2">
+		<h3 class="h5 leading-none">
+			{title}
+		</h3>
+		<a
+			href={source}
+			class="text-sm text-gray-500 font-mono whitespace-nowrap no-underline cursor-pointer ml-auto sm:ml-0"
+			target="_blank">Source</a
+		>
+	</div>
+	<Content />
+</article>

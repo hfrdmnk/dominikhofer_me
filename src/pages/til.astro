@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import { getWeek } from 'date-fns';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import MainContainer from '../components/MainContainer.astro';
+import TilLink from '../components/TilLink.astro';
+
+import og from '../images/og/til.jpg';
+
+const { type } = Astro.props;
+
+let posts = await getCollection('til');
+type Posts = (typeof posts)[number][];
+
+const groupedPosts = groupPostsByYearAndWeek(posts);
+
+function groupPostsByYearAndWeek(posts: Posts): [number, [number, Posts][]][] {
+	const years: { [key: number]: { [key: number]: Posts } } = {};
+
+	posts.forEach((post) => {
+		const date = new Date(post.data.date);
+		const year = date.getFullYear();
+		const weekNumber = getWeekNumber(date);
+
+		if (!years[year]) {
+			years[year] = {};
+		}
+
+		if (!years[year][weekNumber]) {
+			years[year][weekNumber] = [] as Posts;
+		}
+
+		years[year][weekNumber].push(post);
+	});
+
+	Object.entries(years).forEach(([year, weeks]) => {
+		Object.entries(weeks).forEach(([weekNumber, posts]) => {
+			posts.sort(
+				(a, b) =>
+					new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+			);
+		});
+	});
+
+	const sortedYears: [number, [number, Posts][]][] = Object.entries(years).map(
+		([year, weeks]) => [
+			Number(year),
+			Object.entries(weeks).map(([weekNumber, posts]) => [
+				Number(weekNumber),
+				posts,
+			]),
+		]
+	);
+
+	sortedYears.sort((a, b) => b[0] - a[0]);
+
+	sortedYears.forEach((yearEntry) => {
+		yearEntry[1].sort((a, b) => b[0] - a[0]);
+	});
+
+	return sortedYears;
+}
+
+// Helper function to get the week number of a date
+function getWeekNumber(date: Date): number {
+	return getWeek(date, { weekStartsOn: 1 });
+}
+
+console.log(groupedPosts);
+
+const title = 'Today I learned…';
+
+const description =
+	'Interesting things I picked up while going about my day. Or down another random rabbit hole.';
+---
+
+<BaseLayout title={title} description={description} image={og.src}>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>Today I learned…</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">
+					Here you can find interesting things I picked up while going about my
+					day. Or down another random rabbit hole.
+				</p>
+				<p>
+					Have something interesting to share with me? <a href="/hello"
+						>Please reach out</a
+					>!
+				</p>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		{
+			groupedPosts.map(([year, weeks]) => (
+				<>
+					{weeks.map(([week, posts]) => (
+						<SectionMarginTitle
+							title={`${year.toString()} / Week ${week}`}
+							gap="1.5">
+							{posts.map((post) => (
+								<TilLink key={post.id} post={post} />
+							))}
+						</SectionMarginTitle>
+					))}
+				</>
+			))
+		}
+	</MainContainer>
+</BaseLayout>

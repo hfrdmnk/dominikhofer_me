@@ -18,6 +18,17 @@ const posts = defineCollection({
     }),
 });
 
+const til = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      // Transform string to Date object
+      date: z.coerce.date(),
+      source: z.string().url(),
+    }),
+});
+
 const pics = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -69,4 +80,4 @@ const redirects = defineCollection({
   }),
 });
 
-export const collections = { posts, pics, races, milestones, redirects };
+export const collections = { posts, pics, races, milestones, redirects, til };
