@@ -1,0 +1,94 @@
+---
+title: Deciding on what to build next
+type: post
+tags:
+  - Code
+date: 2024-06-26T17:00:00
+excerpt: After finishing a Laravel course, I need some help deciding on what I
+  should build as my next project.
+---
+
+Yesterday, I finished the great “[30 Days to learn Laravel](https://laracasts.com/series/30-days-to-learn-laravel-11)”-Course on Laracasts. Although I have worked a bit with a previous version of the Framework before, I felt like I learned a ton. So if you’re keen to learning Laravel as well, definitely check out the course (it’s free)!
+
+But, as you probably know if you’ve learned to code, following tutorials is just one part of the equation. To make things actually stick, you have to keep going and exposing yourself to unknown problems to solve. That’s why I also feel like you can never really fully understand something in CS. There’s always more to learn.
+
+So, to stay on that learning path, I’m going to do two things now:
+
+In true [Aaron Francis](https://youtu.be/hDJ5vXRPZCE?si=9HC2d1ae1LwBD6hK) and [Josh Cirre](https://www.youtube.com/live/dxM6etLn4FE?si=fPn23VcwH093mQ_S) fashion, I’ve started to read the Laravel docs front to back. Yes, like _everything_. Sounds silly, I know, but RTFM[^1] isn’t just a saying. It’s true. And I’m lucky, cause the Laravel docs are actually written in a pretty logical, understandable and enjoyable way. I’m only currently in the [Views-Section](https://laravel.com/docs/11.x/views). But since I’ve done the Laracast course as well, many concepts make even more sense now. So I’ll keep going on that front.
+
+But reading the manual is of course not enough, you have to get your hands dirty. Create something with your newly acquired skills[^2]. And that’s where I’m kinda stuck right now.
+
+See, I would rather not fall into that trap again where I build 3 projects in parallel. Because doing that will lead to 0 launches. So I’ll decide beforehand and build and launch at least an MVP of that product before moving on to something else.
+
+That said, I need a bit of help with choosing what to create: I’ll quickly go over 3 project ideas that I have at the top of my mind. Two reasons for that:
+
+1. Maybe it helps me decide by just writing my thoughts down.
+2. You are very welcome to tell me your favorite (and why)! Just [shoot me an email](/hi).
+
+## The ideas
+### Calm content consumption app
+Kinda like a basic and minimal [Feedly](https://feedly.com/) or [Innoreader](https://www.inoreader.com/), but not with an RSS focus (at least in the beginning). The primary feature would be that you get your custom email address when signing up that you can then use to subscribe to newsletters. Afterward, the app collects all the issues, groups and presents them in a beautiful fashion. This way, your personal inbox doesn’t get clogged up and you’ll actually read your newsletters.
+
+The site would also have a /today (or /week) page, where all the issues from the past 24 hours are displayed. Kinda like a digital newspaper you can read in the morning while sipping your coffee. I could also send this to your _actual_ email, kinda like [Mailbrew](https://mailbrew.com/) does it.
+
+Later on, I’d also like to integrate YouTube channels and Fediverse profiles you can “subscribe” to (not actually subscribe, but the videos/posts would also show up in your feed). And maybe good ol’ RSS feeds as well.
+
+**Pros**
+- At the time of writing this, this is my favorite idea that I feel most excited about.
+- Feels very modular so that I can easily scope the MVP and not get lost in building tons of features.
+- Feels very IndieWeb-y with its RSS-like nature.
+- I would learn about email routing.
+- An app like this would help me move away from Social Media even more
+
+**Cons**
+- Similar apps already exist, although they don’t really work the way I envision my app to work.
+- Will be harder to monetize, I think (but that won’t be my no. 1 priority anyway in the beginning).
+
+### Site-monitoring app
+At work, I regularly have to do quality assurance for the websites we launch. I have to be honest, this part usually sucks because 80% of all these tasks could easily be automated. Things like checking all links, alt tags for images, meta tags for SEO (and generating them) and so on. So I’d like to build an app where I can just enter the url of the website, and it gives me a report with all the things I have to do in order to make the page launch-ready.
+
+I recently came across [ohdear](https://ohdear.app/) and really like the vibe and features of that app[^3]. Although for my use-case, it feels a bit overkill. So what I’m proposing is essentially just a stripped down version of that, focused on _launching_ marketing sites without any errors. Think of it like an automated launch checklist.
+
+**Pros**
+- I have already built a little prototype in Next.js, so it should be relatively easy to get started.
+- Since it’s more B2B, it should be easier to monetize.
+- It would strip away one of the most annoying tasks of my work.
+- It could be the starting-point of a powerful website monitoring tool (with automated checks, for example).
+- I have already bought the domain, don’t ask me why.
+
+**Cons**
+- Again, not the most unique idea out there.
+- I wouldn’t use it daily, unlike the other ideas.
+
+### Daily companion app
+I used [Punkt](https://punktapp.me/) (a journaling app) for a while and really liked the idea of just recording your day in one sentence. I’m also an occasional user of the Bullet Journal Method, meaning that I quite often take (ephemeral) notes in that fashion. That got me thinking, what if there was a simple daily companion app that you could use to quickly record things that are happening each day and have a log to look back over time?
+
+I’m thinking of things like:
+- What happened (journal)
+- Saving special photos from that day, so they don’t just get lost in your gallery
+- Locations you visited (holidays, trips, …)
+- Habit tracking
+- Emotion tracking
+- Quick notes, that self-archive after a certain time or can be copied to another notes app
+
+It would also be able to display things like: “This happened a year ago today” or “These are your most completed habits in the past 30 days”.
+
+**Pros**
+- If marketed well, it would have the biggest target audience of these apps.
+- It’s the oldest idea on this list, meaning it would solve my personal biggest need.
+- I think it’s a pretty unique idea, that’s not out there yet.
+- The earlier I build this, the longer back my personal log would reach (I love tracking things and analyzing them).
+
+**Cons**
+- Out of all these apps, it will be the hardest to monetize, since it’s the most “casual” one.
+- An app like this would need to be a mobile app (at least eventually). So it violates the initial purpose of building it: Getting better at Laravel.
+
+That’s it, these are the three ideas I’m most keen to build right now. I’ll take a few days to properly decide which one I’m gonna tackle first. But the good thing is, regardless of which one I’ll end up choosing, I feel an excitement for all of them to bring them alive.
+
+What do you think? Which app is your favorite and would you use them? Do you have any ideas how to make these ideas even better or unique? Please [let me know](/hi)!
+
+[^1]:	Read the f*cking Manual
+
+[^2]:	I sound like a motivational coach. Or a Nike ad: _“Just Do It”_.
+
+[^3]:	It’s even built in Laravel, by the guys at Spatie.
