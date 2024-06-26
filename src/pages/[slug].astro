@@ -39,7 +39,9 @@ const { Content } = await entry.render();
 				<HeaderContainer>
 					<HeaderTitle>
 						<h1>This page will soon redirect you!</h1>
-						<p>One moment please…</p>
+						<p>
+							If not, click on this <a href={entry.data.to}>link</a>!
+						</p>
 					</HeaderTitle>
 				</HeaderContainer>
 			</header>
