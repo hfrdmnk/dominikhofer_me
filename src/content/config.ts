@@ -29,7 +29,7 @@ const til = defineCollection({
     }),
 });
 
-const pics = defineCollection({
+const photos = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -80,4 +80,4 @@ const redirects = defineCollection({
   }),
 });
 
-export const collections = { posts, pics, races, milestones, redirects, til };
+export const collections = { posts, photos, races, milestones, redirects, til };
