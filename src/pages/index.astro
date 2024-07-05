@@ -2,17 +2,17 @@
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
 import FancyImage from '../components/FancyImage.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import Socials from '../components/Socials.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-import mainImage from '../images/pages/view.jpg';
-import signature from '../images/pages/signature.png';
-import Milestone from '../components/Milestone.astro';
-import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
+import Milestone from '../components/Milestone.astro';
+import signature from '../images/pages/signature.png';
+import mainImage from '../images/pages/view.jpg';
 
 import og from '../images/og/index.jpg';
 
@@ -129,6 +129,9 @@ const title = 'Curious. Creative. Coder.';
 						Take a look at some fleeting thoughts: <a
 							href="/posts/notes#archive">/posts/notes</a
 						>
+					</li>
+					<li>
+						See what I learned today: <a href="/til">/til</a>
 					</li>
 					<li>
 						Check out the latest races I ran: <a href="/races">/races</a>
