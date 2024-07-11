@@ -1,6 +1,7 @@
 ---
-import { Picture } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import { Picture } from 'astro:assets';
+import { formatDistanceToNow } from 'date-fns';
 const {
 	class: className,
 	image,
@@ -9,12 +10,13 @@ const {
 	displayName,
 	date,
 } = Astro.props;
-import { formatDistanceToNow } from 'date-fns';
 
 let displayDate;
 
 if (date) {
-	displayDate = formatDistanceToNow(new Date(date));
+	displayDate = formatDistanceToNow(new Date(date), {
+		addSuffix: true,
+	});
 }
 ---
 
@@ -40,7 +42,7 @@ if (date) {
 		</div>
 	</div>
 	<figcaption class="flex justify-between font-mono text-sm">
-		<span>{date && `${displayDate} ago`}</span>
+		<span>{date && displayDate}</span>
 		<span>{displayName}</span>
 	</figcaption>
 </figure>

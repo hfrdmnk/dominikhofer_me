@@ -1,17 +1,17 @@
 ---
-import readingTime from 'reading-time';
-import { formatDistanceToNow } from 'date-fns';
+import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
+import readingTime from 'reading-time';
+import Callout from '../components/Callout.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import SimpleTag from '../components/SimpleTag.astro';
-import Callout from '../components/Callout.astro';
+import { formatPostDate } from '../utils/helper';
 import BaseLayout from './BaseLayout.astro';
-import { Icon } from 'astro-icon/components';
 
-const { title, excerpt, type, date, lastUpdated, tags, visual } = Astro.props;
+const { title, excerpt, date, lastUpdated, tags, visual } = Astro.props;
 
 const content = await Astro.slots.render('default');
 ---
@@ -34,7 +34,7 @@ const content = await Astro.slots.render('default');
 				<h1>{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
 					<SimpleTag icon="calendar-dots"
-						>{formatDistanceToNow(new Date(date))} ago</SimpleTag
+						>{formatPostDate(new Date(date))}</SimpleTag
 					>
 					{
 						lastUpdated &&
@@ -42,7 +42,7 @@ const content = await Astro.slots.render('default');
 								new Date(date).toDateString() && (
 								<SimpleTag icon="clock-clockwise">
 									Last updated:
-									{formatDistanceToNow(new Date(lastUpdated))} ago
+									{formatPostDate(new Date(lastUpdated))}
 								</SimpleTag>
 							)
 					}
