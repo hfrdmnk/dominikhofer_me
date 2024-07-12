@@ -12,24 +12,28 @@ const { isFooter } = Astro.props;
 	<SimpleLinkButton
 		href="https://hoferdo.link/mastodon"
 		target="_blank"
+		rel="noopener"
 		isSimple={isFooter}
 		icon="mastodon-logo"
 	/>
 	<SimpleLinkButton
 		href="/hi"
 		target="_blank"
+		rel="noopener"
 		isSimple={isFooter}
 		icon="envelope"
 	/>
 	<SimpleLinkButton
 		href="/rss"
 		target="_blank"
+		rel="noopener"
 		isSimple={isFooter}
 		icon="rss"
 	/>
 	<SimpleLinkButton
 		href="https://hoferdo.link/newsletter"
 		target="_blank"
+		rel="noopener"
 		isSimple={isFooter}
 		icon="mailbox">
 		{!isFooter && <span>Personal newsletter</span>}

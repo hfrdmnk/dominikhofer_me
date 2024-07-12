@@ -1,22 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
 import FancyImage from '../components/FancyImage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import bubbles from '../images/pages/bubbles.jpg';
-import nocco from '../images/pages/nocco.jpg';
 import happy from '../images/pages/happy.jpg';
+import nocco from '../images/pages/nocco.jpg';
 
 import og from '../images/og/about.jpg';
 
-import HeaderTitle from '../components/HeaderTitle.astro';
+import SimpleLinkButton from '../components/Button.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
+import Milestone from '../components/Milestone.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import SimpleTag from '../components/SimpleTag.astro';
-import SimpleLinkButton from '../components/Button.astro';
-import Milestone from '../components/Milestone.astro';
 
 const { type } = Astro.props;
 
@@ -86,7 +86,8 @@ const description =
 				<p>
 					By day, I’m working as a Webflow developer @<a
 						href="https://bloqlabs.ch"
-						target="_blank">Bloq Labs</a
+						target="_blank"
+						rel="noopener">Bloq Labs</a
 					> and create my own things at night. Mostly by designing & coding stuff,
 					but I also got into <a href="/races">running</a> lately and I'm trying
 					to get better at articulating my thoughts (aka writing on <a
@@ -165,16 +166,19 @@ const description =
 				why my current main hub is this website. If you want to reach out, have
 				a chat or create something together, you can also find me on <a
 					href="https://hoferdo.link/mastodon"
-					target="_blank">Mastodon</a
-				>, or simply <a href="/hi" target="_blank">write me an email</a> (the old
-				school way).
+					target="_blank"
+					rel="noopener">Mastodon</a
+				>, or simply <a href="/hi" target="_blank" rel="noopener"
+					>write me an email</a
+				> (the old school way).
 			</p>
 			<p>
 				And don’t forget to subscribe to my <a
 					href="https://hoferdo.link/newsletter"
-					target="_blank">newsletter</a
-				> or <a href="/rss" target="_blank">RSS feed</a> to keep up to date with
-				the things I put out into this world!
+					target="_blank"
+					rel="noopener">newsletter</a
+				> or <a href="/rss" target="_blank" rel="noopener">RSS feed</a> to keep up
+				to date with the things I put out into this world!
 			</p>
 		</SectionMarginTitle>
 		<SectionMarginTitle id="timeline" title="What I did in the past">

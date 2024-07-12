@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeaderTitle from '../components/HeaderTitle.astro';
-import HeaderContainer from '../components/HeaderContainer.astro';
-import MainContainer from '../components/MainContainer.astro';
 import FancyImage from '../components/FancyImage.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import og from '../images/og/photos.jpg';
 
@@ -34,12 +34,17 @@ const description =
 				<p>
 					All pictures are shot on my <a
 						href="https://www.ricoh-imaging.co.jp/english/products/gr-3/"
-						target="_blank">Ricoh GR IIIx</a
-					> or my <a href="https://youtu.be/FT3ODSg1GFE" target="_blank"
-						>iPhone 14 Pro</a
+						target="_blank"
+						rel="noopener">Ricoh GR IIIx</a
+					> or my <a
+						href="https://youtu.be/FT3ODSg1GFE"
+						target="_blank"
+						rel="noopener">iPhone 14 Pro</a
 					> and edited in
-					<a href="https://www.pixelmator.com/photomator/" target="_blank"
-						>Photomator</a
+					<a
+						href="https://www.pixelmator.com/photomator/"
+						target="_blank"
+						rel="noopener">Photomator</a
 					>.
 				</p>
 			</div>

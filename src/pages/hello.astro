@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionMarginTitle from '../components/SectionMarginTitle.astro';
-import HeaderTitle from '../components/HeaderTitle.astro';
-import HeaderContainer from '../components/HeaderContainer.astro';
-import MainContainer from '../components/MainContainer.astro';
 import SimpleLinkButton from '../components/Button.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import og from '../images/og/hello.jpg';
 
@@ -34,7 +34,11 @@ const description = 'Here are all the places where you can reach me online.';
 				as possible and reply to every message :)
 			</p>
 			<div class="self-start">
-				<SimpleLinkButton href="/hi" target="_blank" icon="envelope">
+				<SimpleLinkButton
+					href="/hi"
+					target="_blank"
+					rel="noopener"
+					icon="envelope">
 					<span>Email</span>
 				</SimpleLinkButton>
 			</div>
@@ -48,7 +52,7 @@ const description = 'Here are all the places where you can reach me online.';
 				</p>
 			</div>
 			<div class="self-start">
-				<SimpleLinkButton href="/rss" target="_blank" icon="rss">
+				<SimpleLinkButton href="/rss" target="_blank" rel="noopener" icon="rss">
 					<span>RSS feed</span>
 				</SimpleLinkButton>
 			</div>
@@ -84,6 +88,7 @@ const description = 'Here are all the places where you can reach me online.';
 				<SimpleLinkButton
 					href="https://hoferdo.link/newsletter"
 					target="_blank"
+					rel="noopener"
 					icon="mailbox">
 					<span>Personal newsletter</span>
 				</SimpleLinkButton>
@@ -100,6 +105,7 @@ const description = 'Here are all the places where you can reach me online.';
 				<SimpleLinkButton
 					href="https://hoferdo.link/mastodon"
 					target="_blank"
+					rel="noopener"
 					icon="mastodon-logo">
 					<span>Mastodon</span>
 				</SimpleLinkButton>
