@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
-import { formatDistanceToNow } from 'date-fns';
+import { formatPostDate } from '../utils/helper';
 const {
 	class: className,
 	image,
@@ -14,9 +14,10 @@ const {
 let displayDate;
 
 if (date) {
-	displayDate = formatDistanceToNow(new Date(date), {
-		addSuffix: true,
-	});
+	// displayDate = formatDistanceToNow(new Date(date), {
+	// 	addSuffix: true,
+	// });
+	displayDate = formatPostDate(new Date(date));
 }
 ---
 
