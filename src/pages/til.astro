@@ -2,12 +2,12 @@
 import { getCollection } from 'astro:content';
 import { getWeek } from 'date-fns';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionMarginTitle from '../components/SectionMarginTitle.astro';
-import HeaderTitle from '../components/HeaderTitle.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import TilLink from '../components/TilLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import og from '../images/og/til.jpg';
 
@@ -69,8 +69,6 @@ function groupPostsByYearAndWeek(posts: Posts): [number, [number, Posts][]][] {
 function getWeekNumber(date: Date): number {
 	return getWeek(date, { weekStartsOn: 1 });
 }
-
-console.log(groupedPosts);
 
 const title = 'Today I learned…';
 
