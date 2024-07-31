@@ -6,7 +6,7 @@ const { Content } = await post.render();
 ---
 
 <article>
-	<div class="flex items-baseline gap-2">
+	<div class="flex items-baseline gap-2 mb-2">
 		<h3 class="h5 leading-none">
 			{title}
 		</h3>
@@ -17,5 +17,8 @@ const { Content } = await post.render();
 			rel="noopener">Source</a
 		>
 	</div>
-	<Content />
+	<div
+		class="prose prose-img:rounded prose-headings:font-medium prose-strong:font-medium max-w-none prose-li:my-0 prose-ul:mt-0 prose-ol:mt-0 prose-p:mb-2">
+		<Content />
+	</div>
 </article>
