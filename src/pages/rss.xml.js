@@ -72,7 +72,6 @@ export async function GET(context) {
 
         if (imagePath) {
           const optimizedImg = await getImage({ src: imagePath });
-          console.log(optimizedImg);
           if (!firstImage) {
             firstImage = optimizedImg;
           }

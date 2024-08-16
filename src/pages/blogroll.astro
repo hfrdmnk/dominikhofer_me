@@ -1,0 +1,81 @@
+---
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { feedCategories, parseOpmlFile, type Feed } from '../utils/parseOpml';
+
+import SimpleLinkButton from '../components/Button.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import SimpleTag from '../components/SimpleTag.astro';
+import og from '../images/og/blogroll.jpg';
+
+// Read an parse the OPML file
+await parseOpmlFile('src/assets/files/feeds.opml');
+
+const title = 'Blogs worth following.';
+
+const description =
+	'A list of blogs that I subscribed to via RSS, loosely organized by category.';
+---
+
+<BaseLayout title={title} description={description} image={og.src}>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>Blogs worth following.</h1>
+				<SimpleTag icon="calendar-dots"
+					>Last updated: August 16th, 2024</SimpleTag
+				>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">
+					Blogs are an amazing thing. But discovery is hard. That’s why I list
+					all the blogs I’m subscribed to via RSS on this page. I hope you find
+					something you like!
+				</p>
+				<p>
+					Your blog (or one you love to read) is missing? Please <a href="/hi"
+						>send it to me</a
+					>!
+				</p>
+				<div class="self-start">
+					<SimpleLinkButton
+						href="/rss"
+						target="_blank"
+						rel="noopener"
+						icon="rss">Follow my own RSS feed</SimpleLinkButton
+					>
+				</div>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		{
+			feedCategories &&
+				feedCategories.map((category: Feed) => (
+					<>
+						<SectionMarginTitle title={category.title} gap="1.5">
+							{category.subs.map((feed: any) => (
+								<div>
+									<div class="flex items-center gap-2">
+										<h3 class="h5 leading-none">{feed.title}</h3>
+										<SimpleLinkButton
+											href={feed.xmlUrl}
+											target="_blank"
+											rel="noopener"
+											isSimple={true}
+											icon="rss"
+										/>
+									</div>
+									<p>
+										<a href={feed.htmlUrl}>{feed.htmlUrl}</a>
+									</p>
+								</div>
+							))}
+						</SectionMarginTitle>
+					</>
+				))
+		}
+	</MainContainer>
+</BaseLayout>
