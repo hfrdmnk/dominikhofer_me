@@ -1,0 +1,52 @@
+---
+title: Diving into the Fediverse (once again…)
+excerpt: A list of interesting links from my recent trip into the Fediverse rabbit hole.
+type: note
+tags:
+  - Fediverse
+  - ActivityPub
+date: 2024-08-16T14:48:38+02:00
+visual: ../../assets/posts/diving-into-the-fediverse-once-again/fediverse-14430b5bf7.jpg
+---
+
+Every once in a while, I get this sudden urge to try to understand the Fediverse better. Like on a technical level. I already know quite a bit about it since I first joined Mastodon, but still feel like there are quite a few pieces of the puzzle missing.
+
+That’s why I dived down another rabbit hole earlier this week – inspired by the [similarly named podcast by the New York Times](https://www.nytimes.com/column/rabbit-hole). At its core, it’s a story about how big tech algorithms have shaped society over the past decade. You should definitely listen to it, whether or not you’re interested in the Fediverse per se, it’s very well-made.
+
+Anyway, hearing all of this prompted me to do some more research about ActivityPub, the protocol that powers the Fediverse. And I thought, I’d share some interesting links I found along the way with you. They are not exclusively about ActivityPub, but also about the IndieWeb/OpenWeb in general[^1]. Enjoy!
+
+## Link list
+
+- **[ActivityPub is the next big thing in social (Podcast)](https://pca.st/efpgt1tj)**  
+	An episode of The Vergecast, where the two hosts talk to the CEO of Flipboard about a more open Social Web.
+- **[Rewind: Can Mastodon seize the moment from Twitter? (Podcast)](https://pca.st/tmw7qiap)**  
+	A conversation between Nilay Patel and David Pierce from The Verge and the CEO of Mastodon, Eugen Rochko, about the Fediverse and Mastodon in particular after the whole “Twitter/X is now run by Elon”-saga.
+- **[Mastodon user with 2 files (YouTube)](https://youtu.be/pyB7AFsQoJs)**  
+	An interesting technical tutorial on how you can essentially create a “fake” Mastodon user with just two files.
+- **[ActivityPub vs AT Protocol (YouTube)](https://youtu.be/wJBCpzM1VfM)**  
+	A video by the same guy where he explains the difference between ActivityPub and the AT Protocol used by Bluesky.
+- **[The Fediverse Files (YouTube)](https://youtube.com/playlist?list=PL6nDc7ACvovJMt8MEiebpsXnlBuKp158j)**  
+	A playlist on the wordpress.com YouTube channel where they talk about all things Fediverse with various guests like the co-creator of the ActivityPub protocol.
+- **[Building an ActivityPub Server](https://rknight.me/blog/building-an-activitypub-server/)**  
+	I haven’t fully read and understood it yet, but this seems like a great introduction to building your own ActivityPub server. I plan to do that to understand the protocol even better.
+- **[Introducing astro-webfinger](https://tonysull.co/articles/introducing-astro-webfinger/)**  
+	A short tutorial on how to set up a webfinger endpoint in Astro for better discovery on the Fediverse. Bookmarked for later, will implement that on my own site.
+- **[Elk](https://elk.zone/)**  
+	Just a great web client for Mastodon that I’ve been using over the past couple of months.
+- **[StreetPass](https://streetpass.social/)**  
+	A really cool Chrome extension that helps you find the Mastodon profiles of the people whose websites you’ve visited in the past. It does this by looking for `rel="me"` links on the sites.
+- **[Followgraph for Mastodon](https://followgraph.vercel.app/)**  
+	This handy tool finds people for you to follow on Mastodon, based on what people the people _you_ follow follow. Sounds way more confusing than it actually is.
+- **[diagram.website](https://diagram.website/)**  
+	A very, _very_ cool link map (or whatever you call it) of different topics surrounding the best parts of the internet.
+- **[Get Started with RSS Feeds](https://aboutfeeds.com/)**  
+	This is the ideal site to send someone to who hasn’t heard of RSS Feeds before.
+- **[RSS Feeder Best Practices](https://kevincox.ca/2022/05/06/rss-feed-best-practices/)**  
+	A more technical post about RSS Feeds and how to improve them on your site. I’ll use this as a guide to improve mine.
+
+## & an idea from me
+While reading through all this stuff, I had an idea for a small little tool that I could build myself: An ActivityPub server that takes your existing RSS feed and makes it readable on the Fediverse (for example Mastodon). There are some existing projects that aim to do similar things on GitHub, but none of them seem to work or do what I envision.
+
+Would that be something you’d use as well, or does it sound like a pointless idea? If you’ve read this far, please tell me your opinion (regardless of what you think 😉)! You can find my Mastodon account or my email over at [/hello](/hello).
+
+[^1]:	I know it’s just a change in my perception, but once I was interested in researching the topic more, articles popped out left and right in my RSS reader.
