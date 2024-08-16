@@ -52,7 +52,7 @@ export async function GET(context) {
     // hold all img tags in variable images
     const images = html.querySelectorAll("img");
 
-    let firstImageUrl = null;
+    let firstImage = null;
 
     for (const img of images) {
       const src = img.getAttribute("src");
@@ -72,8 +72,9 @@ export async function GET(context) {
 
         if (imagePath) {
           const optimizedImg = await getImage({ src: imagePath });
-          if (!firstImageUrl) {
-            firstImageUrl = context.site.origin + optimizedImg.src;
+          console.log(optimizedImg);
+          if (!firstImage) {
+            firstImage = optimizedImg;
           }
           // set the correct path to the optimized image
           img.setAttribute("src", context.site.origin + optimizedImg.src);
@@ -106,11 +107,13 @@ export async function GET(context) {
     medium="image"
     url="${context.site.origin + post.data.visual.src}" />
   `
-        : firstImageUrl
+        : firstImage
           ? `<media:content
-    type="image/jpeg"
+    type="image/${firstImage.options.src.format == "jpg" ? "jpeg" : "png"}"
+    width="${firstImage.options.src.width}"
+    height="${firstImage.options.src.height}"
     medium="image"
-    url="${firstImageUrl}" />
+    url="${context.site.origin + firstImage.options.src.src}" />
   `
           : undefined,
     });
