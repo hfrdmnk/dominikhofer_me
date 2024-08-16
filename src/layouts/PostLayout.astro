@@ -11,12 +11,16 @@ import SimpleTag from '../components/SimpleTag.astro';
 import { formatPostDate } from '../utils/helper';
 import BaseLayout from './BaseLayout.astro';
 
+import og from '../images/og/posts.jpg';
+
 const { title, excerpt, date, lastUpdated, tags, visual } = Astro.props;
+
+const ogImage = visual ?? og;
 
 const content = await Astro.slots.render('default');
 ---
 
-<BaseLayout title={title} description={excerpt} image={visual?.src}>
+<BaseLayout title={title} description={excerpt} image={ogImage.src}>
 	<header slot="header" class="main-grid -mb-12">
 		<HeaderContainer>
 			{
