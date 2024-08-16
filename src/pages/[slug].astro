@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import HeaderContainer from '../components/HeaderContainer.astro';
 import HeaderTitle from '../components/HeaderTitle.astro';
+import PostImage from '../components/PostImage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Post from '../layouts/PostLayout.astro';
 
@@ -26,7 +27,7 @@ const { Content } = await entry.render();
 	entry.collection === 'posts' && (
 		<Post {...entry.data}>
 			<div class="prose prose-img:rounded prose-headings:font-medium prose-strong:font-medium max-w-none prose-code:before:hidden prose-code:after:hidden">
-				<Content />
+				<Content components={{ img: PostImage }} />
 			</div>
 		</Post>
 	)
