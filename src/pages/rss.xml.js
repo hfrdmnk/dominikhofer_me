@@ -52,8 +52,11 @@ export async function GET(context) {
     // hold all img tags in variable images
     const images = html.querySelectorAll("img");
 
+    let firstImage = null;
+
     for (const img of images) {
       const src = img.getAttribute("src");
+      const alt = img.getAttribute("alt");
 
       // Relative paths that are optimized by Astro build
       if (src.startsWith("../../")) {
@@ -69,9 +72,18 @@ export async function GET(context) {
 
         if (imagePath) {
           const optimizedImg = await getImage({ src: imagePath });
+          if (!firstImage) {
+            firstImage = optimizedImg;
+          }
           // set the correct path to the optimized image
           img.setAttribute("src", context.site.origin + optimizedImg.src);
         }
+
+        // Add figure and figcaption
+        const figure = htmlParser.parse(`<figure>${img.outerHTML}</figure>`);
+        const figcaption = htmlParser.parse(`<figcaption>${alt}</figcaption>`);
+        figure.appendChild(figcaption);
+        img.replaceWith(figure);
       } else {
         throw Error("src unknown");
       }
@@ -107,7 +119,7 @@ export async function GET(context) {
       media: "http://search.yahoo.com/mrss/",
       atom: "http://www.w3.org/2005/Atom",
     },
-    stylesheet: "/styles/rss.xsl",
+    // stylesheet: "/styles/rss.xsl",
     customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: feed,
   });
