@@ -44,6 +44,7 @@ export async function GET(context) {
         <p>Reply to this post via <a href="mailto:hi@dominikhofer.me?subject=${encodeURIComponent(`Reply to: ${post.data.title}`)}">email</a>.</p>
       </footer>`;
 
+    // Do all the image parsing stuff
     // Modify the post body
     const body = parser.render(post.body);
     // convert html string to DOM-like structure
@@ -69,10 +70,7 @@ export async function GET(context) {
         if (imagePath) {
           const optimizedImg = await getImage({ src: imagePath });
           // set the correct path to the optimized image
-          img.setAttribute(
-            "src",
-            context.site + optimizedImg.src.replace("/", ""),
-          );
+          img.setAttribute("src", context.site.origin + optimizedImg.src);
         }
       } else {
         throw Error("src unknown");
