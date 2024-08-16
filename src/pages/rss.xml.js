@@ -125,7 +125,7 @@ export async function GET(context) {
       media: "http://search.yahoo.com/mrss/",
       atom: "http://www.w3.org/2005/Atom",
     },
-    // stylesheet: "/styles/rss.xsl",
+    stylesheet: "/styles/rss.xsl",
     customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: feed,
   });
