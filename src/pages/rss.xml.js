@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import MarkdownIt from "markdown-it";
 import replaceLinkPlugin from "markdown-it-replace-link";
 import sanitizeHtml from "sanitize-html";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 export async function GET(context) {
   // Setup Link Parser
@@ -26,7 +26,7 @@ export async function GET(context) {
   console.log(sortedPosts[0].data.visual);
 
   return rss({
-    title: SITE_TITLE,
+    title: `All Posts | ${SITE_TITLE}`,
     description: SITE_DESCRIPTION,
     site: context.site,
     trailingSlash: false,
@@ -34,26 +34,33 @@ export async function GET(context) {
       media: "http://search.yahoo.com/mrss/",
       atom: "http://www.w3.org/2005/Atom",
     },
-    // stylesheet: "/styles/rss-styles.xsl",
+    stylesheet: "/styles/rss.xsl",
     customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
-    items: sortedPosts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.excerpt,
-      author: "Dominik Hofer",
-      link: `/${post.slug}`,
-      content: sanitizeHtml(parser.render(post.body), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-      }),
-      customData: post.data.visual
-        ? `<media:content
+    items: sortedPosts.map((post) => {
+      const footerContent = `
+      <footer style="margin-top: 32px;">
+        <p style="font-weight: bold;">Thanks for being an RSS subscriber!</p>
+        <p>Reply to this post via <a href="mailto:hi@dominikhofer.me?subject=${encodeURIComponent(`Reply to: ${post.data.title}`)}">email</a>.</p>
+      </footer>`;
+      return {
+        title: post.data.title,
+        pubDate: post.data.date,
+        description: post.data.excerpt,
+        author: SITE_AUTHOR,
+        link: `/${post.slug}`,
+        content: sanitizeHtml(parser.render(post.body) + footerContent, {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+        }),
+        customData: post.data.visual
+          ? `<media:content
       type="image/${post.data.visual.format == "jpg" ? "jpeg" : "png"}"
       width="${post.data.visual.width}"
       height="${post.data.visual.height}"
       medium="image"
       url="${context.site.origin + post.data.visual.src}" />
   `
-        : undefined,
-    })),
+          : undefined,
+      };
+    }),
   });
 }
