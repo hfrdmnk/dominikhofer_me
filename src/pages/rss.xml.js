@@ -52,7 +52,7 @@ export async function GET(context) {
     // hold all img tags in variable images
     const images = html.querySelectorAll("img");
 
-    let firstImage = null;
+    let firstImageUrl = null;
 
     for (const img of images) {
       const src = img.getAttribute("src");
@@ -72,8 +72,8 @@ export async function GET(context) {
 
         if (imagePath) {
           const optimizedImg = await getImage({ src: imagePath });
-          if (!firstImage) {
-            firstImage = optimizedImg;
+          if (!firstImageUrl) {
+            firstImageUrl = context.site.origin + optimizedImg.src;
           }
           // set the correct path to the optimized image
           img.setAttribute("src", context.site.origin + optimizedImg.src);
@@ -100,13 +100,19 @@ export async function GET(context) {
       }),
       customData: post.data.visual
         ? `<media:content
-      type="image/${post.data.visual.format == "jpg" ? "jpeg" : "png"}"
-      width="${post.data.visual.width}"
-      height="${post.data.visual.height}"
-      medium="image"
-      url="${context.site.origin + post.data.visual.src}" />
+    type="image/${post.data.visual.format == "jpg" ? "jpeg" : "png"}"
+    width="${post.data.visual.width}"
+    height="${post.data.visual.height}"
+    medium="image"
+    url="${context.site.origin + post.data.visual.src}" />
   `
-        : undefined,
+        : firstImageUrl
+          ? `<media:content
+    type="image/jpeg"
+    medium="image"
+    url="${firstImageUrl}" />
+  `
+          : undefined,
     });
   }
 
