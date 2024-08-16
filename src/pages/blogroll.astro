@@ -16,7 +16,7 @@ await parseOpmlFile('src/assets/files/feeds.opml');
 const title = 'Blogs worth following.';
 
 const description =
-	'A list of blogs that I subscribed to via RSS, loosely organized by category.';
+	'A list of blogs that I subscribe to via RSS, loosely organized by category.';
 ---
 
 <BaseLayout title={title} description={description} image={og.src}>
@@ -31,8 +31,12 @@ const description =
 			<div class="flex flex-col gap-4">
 				<p class="font-medium text-pretty">
 					Blogs are an amazing thing. But discovery is hard. That’s why I list
-					all the blogs I’m subscribed to via RSS on this page. I hope you find
-					something you like!
+					all the blogs I’m subscribed to via RSS on this page (directly parsed
+					from my OPML file). I hope you find something you like!
+				</p>
+				<p>
+					The blogs are only loosely categorized, but I hope what you want to
+					find regardless :)
 				</p>
 				<p>
 					Your blog (or one you love to read) is missing? Please <a href="/hi"
