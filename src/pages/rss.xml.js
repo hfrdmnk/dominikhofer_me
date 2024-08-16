@@ -45,7 +45,7 @@ export async function GET(context) {
       </footer>`;
 
     // Modify the post body
-    const body = parser.render(post.body + footerContent);
+    const body = parser.render(post.body);
     // convert html string to DOM-like structure
     const html = htmlParser.parse(body);
     // hold all img tags in variable images
@@ -85,7 +85,7 @@ export async function GET(context) {
       description: post.data.excerpt,
       author: SITE_AUTHOR,
       link: `/${post.slug}`,
-      content: sanitizeHtml(html.toString(), {
+      content: sanitizeHtml(html.toString() + footerContent, {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
       customData: post.data.visual
@@ -109,7 +109,7 @@ export async function GET(context) {
       media: "http://search.yahoo.com/mrss/",
       atom: "http://www.w3.org/2005/Atom",
     },
-    // stylesheet: "/styles/rss.xsl",
+    stylesheet: "/styles/rss.xsl",
     customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: feed,
   });
