@@ -45,9 +45,9 @@ const description = 'These are my recent race results & personal bests.';
 		<SectionMarginTitle title="Races">
 			{
 				races.map((race) => (
-					<article class="flex flex-col gap-8 sm:p-6 p-3 border rounded-lg">
+					<article class="flex flex-col gap-4 sm:p-6 p-3 border rounded-lg">
 						<div class="flex flex-col items-start gap-2">
-							<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
+							<div class="flex flex-wrap items-center gap-2 select-none">
 								<SimpleTag icon="calendar-dots">
 									{(() => {
 										const d = new Date(race.data.date);
