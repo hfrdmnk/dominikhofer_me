@@ -1,3 +1,5 @@
+// Adapted form https://www.seanmcp.com/articles/use-your-domain-on-mastodon-with-astro/
+
 export const prerender = false;
 
 const INSTANCE = "mastodon.design";
