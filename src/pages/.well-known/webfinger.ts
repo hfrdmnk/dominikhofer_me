@@ -30,7 +30,7 @@ const WEBFINGER_JSON = {
 export async function GET() {
   return new Response(JSON.stringify(WEBFINGER_JSON), {
     headers: {
-      "Content-Type": "application/jrd+json",
+      "Content-Type": "application/activity+json",
     },
   });
 }
