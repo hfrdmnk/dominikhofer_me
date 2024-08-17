@@ -8,6 +8,8 @@ export type Feed = {
 
 let feedCategories: Feed[] = [];
 
+// TODO: Refactor to other package or just use JSON
+
 async function parseOpmlFile(filePath: string): Promise<void> {
   try {
     const buffer = await fs.readFile(filePath);
