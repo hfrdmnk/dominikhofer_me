@@ -10,7 +10,7 @@ const ACCOUNTS = [
       "https://mastodon.design/.well-known/webfinger?resource=acct:dominik@mastodon.design",
   },
   {
-    username: "posts",
+    username: "dominikhofer.me",
     redirect:
       "https://fed.brid.gy/.well-known/webfinger?resource=acct:dominikhofer.me@dominikhofer.me",
   },
