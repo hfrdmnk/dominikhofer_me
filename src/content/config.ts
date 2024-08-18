@@ -67,6 +67,16 @@ const milestones = defineCollection({
     }),
 });
 
+const slashPages = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: text(),
+      visual: image().optional(),
+    }),
+});
+
 const redirects = defineCollection({
   type: "content",
   schema: z.object({
@@ -74,4 +84,12 @@ const redirects = defineCollection({
   }),
 });
 
-export const collections = { posts, photos, races, milestones, redirects, til };
+export const collections = {
+  posts,
+  til,
+  photos,
+  races,
+  milestones,
+  slashPages,
+  redirects,
+};
