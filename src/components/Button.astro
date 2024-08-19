@@ -18,6 +18,17 @@ const {
 			'bg-gray-900 hover:bg-gray-700 text-gray-100 hover:text-gray-50 border-none':
 				isActive,
 			'text-gray-500 hover:text-gray-800 border-gray-200': !isActive,
+			'hover:text-indigo-500 hover:border-indigo-500':
+				iconName === 'mastodon-logo',
+			'hover:bg-indigo-100': iconName === 'mastodon-logo' && !isSimple,
+			'hover:text-green-500 hover:border-green-500': iconName === 'github-logo',
+			'hover:bg-green-100': iconName === 'github-logo' && !isSimple,
+			'hover:text-sky-500 hover:border-sky-500': iconName === 'envelope',
+			'hover:bg-sky-100': iconName === 'envelope' && !isSimple,
+			'hover:text-orange-500 hover:border-orange-500': iconName === 'rss',
+			'hover:bg-orange-100': iconName === 'rss' && !isSimple,
+			'hover:text-purple-500 hover:border-purple-500': iconName === 'mailbox',
+			'hover:bg-purple-100': iconName === 'mailbox' && !isSimple,
 		}
 	)}>
 	<Icon name=`ph:${iconName}` class="w-5 h-5" />
