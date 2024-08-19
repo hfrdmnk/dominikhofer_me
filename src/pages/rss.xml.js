@@ -82,7 +82,9 @@ export async function GET(context) {
 
         // Add figure and figcaption
         const figure = htmlParser.parse(`<figure>${img.outerHTML}</figure>`);
-        const figcaption = htmlParser.parse(`<figcaption>${alt}</figcaption>`);
+        const figcaption = htmlParser.parse(
+          `<figcaption style="text-align: center;">${alt}</figcaption>`,
+        );
         figure.appendChild(figcaption);
         img.replaceWith(figure);
       } else {
