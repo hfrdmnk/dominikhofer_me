@@ -1,10 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
-const { icon: iconName } = Astro.props;
+const { icon: iconName, class: className } = Astro.props;
 ---
 
 <div
-	class="text-gray-500 transition-all items-center gap-2 no-underline py-1 inline-flex font-mono text-sm self-start">
+	class:list={[
+		className,
+		'text-gray-500 transition-all items-center gap-2 no-underline py-1 inline-flex font-mono text-sm self-start',
+	]}>
 	<Icon name={`ph:${iconName}`} class="w-4 h-4" />
 	<slot />
 </div>
