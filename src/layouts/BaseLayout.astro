@@ -1,9 +1,9 @@
 ---
-import BaseHead from './BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import BaseHead from './BaseHead.astro';
 
-let { title, description, image, redirect, index } = Astro.props;
+let { title, description, image, redirect, index, isArticle } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,14 +17,25 @@ let { title, description, image, redirect, index } = Astro.props;
 			index={index}
 		/>
 	</head>
-	<body>
+	<body class:list={{ 'h-entry': isArticle }}>
 		<Navbar />
 		<div class="mt-36 mb-24">
 			<slot name="header" />
 		</div>
-		<main>
-			<slot />
-		</main>
+		{
+			isArticle && (
+				<article>
+					<slot />
+				</article>
+			)
+		}
+		{
+			!isArticle && (
+				<main>
+					<slot />
+				</main>
+			)
+		}
 		<Footer />
 	</body>
 </html>

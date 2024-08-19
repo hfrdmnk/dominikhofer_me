@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
+import { formatISO } from 'date-fns';
 import readingTime from 'reading-time';
 import Callout from '../components/Callout.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
@@ -17,10 +18,16 @@ const { title, excerpt, date, lastUpdated, tags, visual } = Astro.props;
 
 const ogImage = visual ?? og;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+
 const content = await Astro.slots.render('default');
 ---
 
-<BaseLayout title={title} description={excerpt} image={ogImage.src}>
+<BaseLayout
+	title={title}
+	description={excerpt}
+	image={ogImage.src}
+	isArticle={true}>
 	<header slot="header" class="main-grid -mb-12">
 		<HeaderContainer>
 			{
@@ -35,11 +42,14 @@ const content = await Astro.slots.render('default');
 				)
 			}
 			<HeaderTitle>
-				<h1>{title}</h1>
+				<h1 class="p-name">{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
 					<SimpleTag icon="calendar-dots"
-						>{formatPostDate(new Date(date))}</SimpleTag
+						>{formatPostDate(new Date(date))}<time class="dt-published hidden"
+							>{formatISO(new Date(date))}</time
+						></SimpleTag
 					>
+					<a href={canonicalUrl} class="u-url hidden">Canonical URL to post</a>
 					{
 						lastUpdated &&
 							new Date(lastUpdated).toDateString() !==
@@ -77,7 +87,9 @@ const content = await Astro.slots.render('default');
 				<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
 				<span>Back to all posts</span>
 			</a>
-			<slot />
+			<div class="e-content">
+				<slot />
+			</div>
 			<div class="mt-6">
 				<Callout icon="envelope" title="What are your thoughts on this post?">
 					<div class="space-y-2">
