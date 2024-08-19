@@ -50,7 +50,9 @@ const content = await Astro.slots.render('default');
 						></SimpleTag
 					>
 					<a href={canonicalUrl} class="u-url hidden">Canonical URL to post</a>
-					<a href={Astro.site} class="hidden" rel="author">Dominik Hofer</a>
+					<a href={Astro.site} class="p-author h-card hidden" rel="author"
+						>Dominik Hofer</a
+					>
 					{
 						lastUpdated &&
 							new Date(lastUpdated).toDateString() !==
