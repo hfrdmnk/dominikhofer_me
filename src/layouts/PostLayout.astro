@@ -21,6 +21,18 @@ const ogImage = visual ?? og;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 const content = await Astro.slots.render('default');
+
+/* Webmentions */
+// const webmentionsUrl = import.meta.env.PROD
+// 	? `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}`
+// 	: `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}/`;
+
+// console.log(webmentionsUrl);
+
+// const webmentionsJson = await fetch(webmentionsUrl).then((res) => res.json());
+// const webmentions = webmentionsJson.children ?? [];
+
+// console.log(webmentions);
 ---
 
 <BaseLayout
