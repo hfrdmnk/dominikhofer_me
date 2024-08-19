@@ -12,17 +12,18 @@ const year = today.getFullYear();
 				class="flex flex-col items-center gap-4 sm:flex-row sm:items-baseline sm:justify-between w-full">
 				<a
 					href="https://dominikhofer.me"
-					class="h-card u-url flex items-center gap-2 no-highlight no-underline text-inherit py-1 px-2 rounded-md transition-colors duration-300 hover:bg-gray-50">
+					rel="me"
+					class="h-card u-url u-uid flex items-center gap-2 no-highlight no-underline text-inherit py-1 px-2 rounded-md transition-colors duration-300 hover:bg-gray-50">
 					<img
 						src="/images/profile-pic.jpg"
-						alt=""
+						alt="A picture of me wearing sunglasses"
 						class="u-photo h-10 aspect-square block rounded"
 					/>
 					<div class="text-left">
 						<p class="p-name font-sans font-normal text-gray-950">
 							Dominik Hofer
 						</p>
-						<p class="text-sm">Coder & occasional pixel pusher.</p>
+						<p class="p-note text-sm">Coder & occasional pixel pusher.</p>
 					</div>
 				</a>
 				<Socials isFooter={true} />
