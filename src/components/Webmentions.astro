@@ -2,8 +2,6 @@
 import { Icon } from 'astro-icon/components';
 import { format, parseISO } from 'date-fns';
 
-const { link } = Astro.props;
-
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const webmentionsUrl = `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}`;
 
@@ -33,7 +31,7 @@ function organizeWebmentions(webmentions: any[]): Webmention[] {
 		},
 		date: mention['wm-received'],
 		type: getWebmentionType(mention),
-		content: mention.content ? mention.content.html : null,
+		content: mention.content ? cleanMentionContent(mention.content.html) : null,
 		url: mention.url,
 	}));
 }
@@ -45,11 +43,15 @@ function getWebmentionType(mention: any): Webmention['type'] {
 	return 'mention';
 }
 
+function cleanMentionContent(content: string): string {
+	return content.replace(/\?{4} ?/g, '');
+}
+
 const webmentions = organizeWebmentions(rawWebmentions);
 
-// Sort webmentions by date, newest first
+// Sort webmentions by date, oldest first
 const sortedWebmentions = webmentions.sort(
-	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+	(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
 );
 
 function formatDate(dateString: string): string {
