@@ -68,8 +68,8 @@ function formatDate(dateString: string): string {
 				{sortedWebmentions.map((webmention) => (
 					<li>
 						{webmention.type === 'like' && (
-							<div class="flex gap-4 items-center">
-								<div class="rounded-full bg-rose-100 border border-rose-500 h-8 w-8 flex items-center justify-center">
+							<div class="flex gap-4 sm:items-center items-start">
+								<div class="rounded-full bg-rose-100 border border-rose-500 h-8 w-8 flex items-center justify-center shrink-0 relative z-10">
 									<Icon name="ph:heart-duotone" class="text-rose-500 w-4 h-4" />
 								</div>
 								<div>
@@ -86,8 +86,8 @@ function formatDate(dateString: string): string {
 							</div>
 						)}
 						{webmention.type === 'repost' && (
-							<div class="flex gap-4 items-center">
-								<div class="rounded-full bg-blue-100 border border-blue-500 h-8 w-8 flex items-center justify-center">
+							<div class="flex gap-4 sm:items-center items-start">
+								<div class="rounded-full bg-blue-100 border border-blue-500 h-8 w-8 flex items-center justify-center shrink-0 relative z-10">
 									<Icon
 										name="ph:rocket-launch-duotone"
 										class="text-blue-500 w-4 h-4"
@@ -108,8 +108,8 @@ function formatDate(dateString: string): string {
 						)}
 						{webmention.type === 'comment' && (
 							<article class="flex flex-col gap-2 relative">
-								<div class="flex gap-4 items-center">
-									<div class="rounded-full bg-emerald-100 border border-emerald-500 h-8 w-8 flex items-center justify-center">
+								<div class="flex gap-4 sm:items-center items-start">
+									<div class="rounded-full bg-emerald-100 border border-emerald-500 h-8 w-8 flex items-center justify-center shrink-0 relative z-10">
 										<Icon
 											name="ph:chat-duotone"
 											class="text-emerald-500 w-4 h-4"
@@ -126,7 +126,7 @@ function formatDate(dateString: string): string {
 											</time>
 										</span>
 									</div>
-									<a href={webmention.url} class="ml-auto">
+									<a href={webmention.url} class="ml-auto sm:mt-0 mt-1">
 										<Icon name="ph:arrow-square-out" class="w-4 h-4" />
 									</a>
 								</div>
