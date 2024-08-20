@@ -12,27 +12,17 @@ import SimpleTag from '../components/SimpleTag.astro';
 import { formatPostDate } from '../utils/helper';
 import BaseLayout from './BaseLayout.astro';
 
+import Webmentions from '../components/Webmentions.astro';
 import og from '../images/og/posts.jpg';
 
-const { title, excerpt, date, lastUpdated, tags, visual } = Astro.props;
+const { title, excerpt, date, lastUpdated, tags, visual, webmentionsLink } =
+	Astro.props;
 
 const ogImage = visual ?? og;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 const content = await Astro.slots.render('default');
-
-/* Webmentions */
-// const webmentionsUrl = import.meta.env.PROD
-// 	? `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}`
-// 	: `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}/`;
-
-// console.log(webmentionsUrl);
-
-// const webmentionsJson = await fetch(webmentionsUrl).then((res) => res.json());
-// const webmentions = webmentionsJson.children ?? [];
-
-// console.log(webmentions);
 ---
 
 <BaseLayout
@@ -107,7 +97,7 @@ const content = await Astro.slots.render('default');
 			<div class="e-content">
 				<slot />
 			</div>
-			<div class="mt-6">
+			<div class="mt-12">
 				<Callout icon="envelope" title="What are your thoughts on this post?">
 					<div class="space-y-2">
 						<p>
@@ -115,11 +105,22 @@ const content = await Astro.slots.render('default');
 								href="/hi"
 								target="_blank"
 								rel="noopener">this link</a
-							>.
+							> (I reply to every email I receive!).
 						</p>
-						<p>I reply to every email I receive!</p>
+						{
+							webmentionsLink && (
+								<p>
+									If you're on Mastodon, interact with{' '}
+									<a href={webmentionsLink} rel="noopener" target="_blank">
+										this post
+									</a>{' '}
+									and your reaction will appear below after some time.
+								</p>
+							)
+						}
 					</div>
 				</Callout>
+				<Webmentions />
 			</div>
 		</SectionMarginTitle>
 	</MainContainer>

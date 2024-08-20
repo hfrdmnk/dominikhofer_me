@@ -13,6 +13,7 @@ const posts = defineCollection({
       lastUpdated: z.coerce.string().optional(),
       visual: image().optional(),
       isFeatured: z.boolean().default(false),
+      webmentionsLink: z.string().url().optional(),
     }),
 });
 

@@ -1,0 +1,143 @@
+---
+import { Icon } from 'astro-icon/components';
+import { format, parseISO } from 'date-fns';
+
+const { link } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const webmentionsUrl = `https://webmention.io/api/mentions.jf2?target=${canonicalUrl}`;
+
+const webmentionsJson = await fetch(webmentionsUrl).then((res) => res.json());
+const rawWebmentions = webmentionsJson.children ?? [];
+
+interface Author {
+	name: string;
+	photo: string;
+	url: string;
+}
+
+interface Webmention {
+	author: Author;
+	date: string;
+	type: 'like' | 'repost' | 'comment' | 'mention';
+	content: string | null;
+	url: string;
+}
+
+function organizeWebmentions(webmentions: any[]): Webmention[] {
+	return webmentions.map((mention) => ({
+		author: {
+			name: mention.author.name,
+			photo: mention.author.photo,
+			url: mention.author.url,
+		},
+		date: mention['wm-received'],
+		type: getWebmentionType(mention),
+		content: mention.content ? mention.content.html : null,
+		url: mention.url,
+	}));
+}
+
+function getWebmentionType(mention: any): Webmention['type'] {
+	if (mention['wm-property'] === 'like-of') return 'like';
+	if (mention['wm-property'] === 'repost-of') return 'repost';
+	if (mention['wm-property'] === 'in-reply-to') return 'comment';
+	return 'mention';
+}
+
+const webmentions = organizeWebmentions(rawWebmentions);
+
+// Sort webmentions by date, newest first
+const sortedWebmentions = webmentions.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+function formatDate(dateString: string): string {
+	return format(parseISO(dateString), 'MMMM d, yyyy');
+}
+---
+
+{
+	sortedWebmentions.length > 0 && (
+		<section class="mt-12 flex flex-col gap-8">
+			<h2 class="h3 font-medium">Public reactions to this post</h2>
+
+			<ul class="flex flex-col gap-6">
+				{sortedWebmentions.map((webmention) => (
+					<li>
+						{webmention.type === 'like' && (
+							<div class="flex gap-4 items-center">
+								<div class="rounded-full bg-rose-100 border border-rose-500 h-8 w-8 flex items-center justify-center">
+									<Icon name="ph:heart-duotone" class="text-rose-500 w-4 h-4" />
+								</div>
+								<div>
+									<a href={webmention.author.url} rel="author">
+										{webmention.author.name}
+									</a>
+									<span class="text-gray-600">
+										liked this on{' '}
+										<time datetime={webmention.date}>
+											{formatDate(webmention.date)}
+										</time>
+									</span>
+								</div>
+							</div>
+						)}
+						{webmention.type === 'repost' && (
+							<div class="flex gap-4 items-center">
+								<div class="rounded-full bg-blue-100 border border-blue-500 h-8 w-8 flex items-center justify-center">
+									<Icon
+										name="ph:rocket-launch-duotone"
+										class="text-blue-500 w-4 h-4"
+									/>
+								</div>
+								<div>
+									<a href={webmention.author.url} rel="author">
+										{webmention.author.name}
+									</a>
+									<span class="text-gray-600">
+										reposted this on{' '}
+										<time datetime={webmention.date}>
+											{formatDate(webmention.date)}
+										</time>
+									</span>
+								</div>
+							</div>
+						)}
+						{webmention.type === 'comment' && (
+							<article class="flex flex-col gap-2 relative">
+								<div class="flex gap-4 items-center">
+									<div class="rounded-full bg-emerald-100 border border-emerald-500 h-8 w-8 flex items-center justify-center">
+										<Icon
+											name="ph:chat-duotone"
+											class="text-emerald-500 w-4 h-4"
+										/>
+									</div>
+									<div>
+										<a href={webmention.author.url} rel="author">
+											{webmention.author.name}
+										</a>
+										<span class="text-gray-600">
+											commented on this on{' '}
+											<time datetime={webmention.date}>
+												{formatDate(webmention.date)}
+											</time>
+										</span>
+									</div>
+									<a href={webmention.url} class="ml-auto">
+										<Icon name="ph:arrow-square-out" class="w-4 h-4" />
+									</a>
+								</div>
+								<div class="absolute left-4 top-8 bottom-0 w-1 -translate-x-1/2 bg-gradient-to-b from-emerald-500 to-emerald-500/0" />
+								<div
+									class="prose prose-p:mb-1 pl-12"
+									set:html={webmention.content}
+								/>
+							</article>
+						)}
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}
