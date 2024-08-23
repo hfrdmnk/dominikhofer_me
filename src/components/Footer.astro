@@ -10,22 +10,24 @@ const year = today.getFullYear();
 		<div class="content-stretch flex flex-col items-center gap-6 lg:gap-8">
 			<div
 				class="flex flex-col items-center gap-4 sm:flex-row sm:items-baseline sm:justify-between w-full">
-				<a
-					href={Astro.site}
-					rel="me"
-					class="h-card u-url u-uid flex items-center gap-2 no-highlight no-underline text-inherit py-1 px-2 rounded-md transition-colors duration-300 hover:bg-gray-50">
-					<img
-						src="/images/profile-pic.jpg"
-						alt="A picture of me wearing sunglasses"
-						class="u-photo h-10 aspect-square block rounded"
-					/>
-					<div class="text-left">
-						<p class="p-name font-sans font-normal text-gray-950">
-							Dominik Hofer
-						</p>
-						<p class="p-note text-sm">Coder & occasional pixel pusher.</p>
-					</div>
-				</a>
+				<div class="h-card">
+					<a
+						href={Astro.site}
+						rel="me"
+						class="u-url u-uid flex items-center gap-2 no-highlight no-underline text-inherit py-1 px-2 rounded-md transition-colors duration-300 hover:bg-gray-50">
+						<img
+							src="/images/profile-pic.jpg"
+							alt="A picture of me wearing sunglasses"
+							class="u-photo h-10 aspect-square block rounded"
+						/>
+						<div class="text-left">
+							<p class="p-name font-sans font-normal text-gray-950">
+								Dominik Hofer
+							</p>
+							<p class="p-note text-sm">Coder & occasional pixel pusher.</p>
+						</div>
+					</a>
+				</div>
 				<Socials isFooter={true} />
 			</div>
 			<p class="text-sm">
