@@ -14,6 +14,11 @@ const ACCOUNTS = [
     redirect:
       "https://fed.brid.gy/.well-known/webfinger?resource=acct:dominikhofer.me@dominikhofer.me",
   },
+  {
+    username: "newsletter",
+    redirect:
+      "https://newsletter.dominikhofer.me/.well-known/webfinger?resource=acct:social@newsletter.dominikhofer.me",
+  },
 ];
 
 const hostname = new URL(SITE_URL).hostname;
