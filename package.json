@@ -22,6 +22,7 @@
     "alpinejs": "^3.14.0",
     "astro": "^4.11.3",
     "astro-compress": "^2.2.27",
+    "astro-embed": "^0.7.2",
     "astro-icon": "^1.1.0",
     "classnames": "^2.5.1",
     "darkmatter": "^2.0.3",
