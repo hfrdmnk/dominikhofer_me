@@ -5,6 +5,7 @@ const {
 	isSimple = false,
 	isActive = false,
 	icon: iconName,
+	iconClass,
 	...props
 } = Astro.props;
 ---
@@ -31,6 +32,6 @@ const {
 			'hover:bg-purple-100': iconName === 'mailbox' && !isSimple,
 		}
 	)}>
-	<Icon name=`ph:${iconName}` class="w-5 h-5" />
+	<Icon name=`ph:${iconName}` class:list={iconClass ? iconClass : 'w-5 h-5'} />
 	<slot />
 </a>

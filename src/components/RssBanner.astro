@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import SimpleLinkButton from './Button.astro';
+---
+
+<aside
+	x-data="{
+    isHidden: false,
+    checkCookie() {
+      const hideRssBanner = document.cookie.split('; ').find(row => row.startsWith('hideRssBanner='));
+      this.isHidden = hideRssBanner ? true : false;
+    },
+    hideRssBanner() {
+      this.isHidden = true;
+      const date = new Date();
+      date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000)); // 7 days
+      document.cookie = `hideRssBanner=true; expires=${date.toUTCString()}; path=/`;
+    }
+  }"
+	x-init="checkCookie"
+	x-show="!isHidden"
+	class="fixed bottom-0 left-0 right-0 z-40 sm:static">
+	<div class="bg-brand-400 sm:bg-gray-50 main-grid">
+		<div class="margin-stretch py-2 flex justify-between items-center">
+			<div class="text-sm font-mono flex flex-wrap items-center gap-2">
+				<span
+					>Never miss an update by subscribing to my <a href="/rss">RSS feed</a
+					>!</span
+				>
+				<div class="hidden sm:block">
+					<SimpleLinkButton
+						href="/rss"
+						iconClass="h-4 w-4"
+						target="_blank"
+						rel="noopener"
+						isSimple="true"
+						icon="rss"
+					/>
+				</div>
+			</div>
+			<button @click="hideRssBanner"
+				><Icon name="ph:x" class="w-4 h-4" /></button
+			>
+		</div>
+	</div>
+</aside>

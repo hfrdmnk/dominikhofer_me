@@ -42,7 +42,7 @@ export async function GET(context) {
         <p><strong>---</strong></p>
         <p><strong>Thanks for being an RSS subscriber!</strong></p>
         <p>Reply to this post via <a href="mailto:hi@dominikhofer.me?subject=${encodeURIComponent(`Reply to: ${post.data.title}`)}">email</a>.</p>
-        <p>Or subscribe to my bi-weekly newsletter if you want to stay up date with everything I do: <a href="https://hoferdo.link/newsletter">Tiny Sparks</a>.</p>
+        <p>Or subscribe to my bi-weekly newsletter if you want to stay up date with everything I do: <a href="https://newsletter.dominikhofer.me">Tiny Sparks</a>.</p>
       </footer>`;
 
     // Do all the image parsing stuff
