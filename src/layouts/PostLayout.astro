@@ -22,6 +22,8 @@ const ogImage = visual ?? og;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
+const isNewsletter = Astro.url.pathname.startsWith('/newsletter');
+
 const content = await Astro.slots.render('default');
 ---
 
@@ -87,13 +89,25 @@ const content = await Astro.slots.render('default');
 	</header>
 	<MainContainer>
 		<SectionMarginTitle>
-			<a
-				href="/posts"
-				class="flex items-center gap-2 no-highlight no-underline text-gray-500"
-				slot="aside">
-				<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
-				<span>Back to all posts</span>
-			</a>
+			{
+				!isNewsletter ? (
+					<a
+						href="/posts"
+						class="flex items-center gap-2 no-highlight no-underline text-gray-500"
+						slot="aside">
+						<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
+						<span>Back to all posts</span>
+					</a>
+				) : (
+					<a
+						href="/newsletter"
+						class="flex items-center gap-2 no-highlight no-underline text-gray-500"
+						slot="aside">
+						<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
+						<span>Back to all newsletter issues</span>
+					</a>
+				)
+			}
 			<div class="e-content">
 				<slot />
 			</div>

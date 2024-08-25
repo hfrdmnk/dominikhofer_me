@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content';
+
+import SimpleLinkButton from '../components/Button.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
+import PostLink from '../components/PostLink.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import og from '../images/og/newsletter.jpg';
+
+let newsletters = await getCollection('newsletter');
+type Newsletters = (typeof newsletters)[number][];
+
+const currentDate = new Date();
+
+newsletters = newsletters.filter(
+	(newsletter) => new Date(newsletter.data.date) <= currentDate
+);
+
+const groupedNewsletters = groupNewslettersByYear(newsletters);
+
+function groupNewslettersByYear(
+	newsletters: Newsletters
+): [number, Newsletters][] {
+	const years: { [key: number]: Newsletters } = {};
+
+	newsletters.forEach((newsletter) => {
+		const year = new Date(newsletter.data.date).getFullYear();
+
+		if (!years[year]) {
+			years[year] = [] as Newsletters;
+		}
+
+		years[year].push(newsletter);
+	});
+
+	Object.keys(years).forEach((year) => {
+		years[Number(year)].sort(
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+		);
+	});
+
+	// Convert the years object to an array of [year, milestones] tuples
+	const sortedYears: [number, Newsletters][] = Object.entries(years).map(
+		([year, posts]) => [Number(year), posts]
+	);
+
+	// Sort the years in descending order (newest to oldest)
+	sortedYears.sort((a, b) => b[0] - a[0]);
+
+	return sortedYears;
+}
+
+const title = 'Tiny Sparks.';
+
+const description =
+	'Simple ideas worth sharing. Coming to an inbox near you every other Saturday.';
+---
+
+<BaseLayout title={title} description={description} image={og.src}>
+	<header slot="header" class="main-grid">
+		<HeaderContainer>
+			<HeaderTitle>
+				<h1>{title}</h1>
+			</HeaderTitle>
+			<div class="flex flex-col gap-4">
+				<p class="font-medium text-pretty">
+					{description}
+				</p>
+				<div class="prose prose-li:first:mt-0 prose-strong:font-medium">
+					<p>
+						Every issue contains three things:
+						<ol class="">
+							<li>
+								<strong>Personal updates</strong> from me, mainly related to my personal
+								website and the things I create.
+							</li>
+							<li>
+								<strong>A tool/app</strong> I regularly use and that might also be
+								helpful to you. Often times design and/or code related, but you’ll
+								enjoy most of them, even if you aren’t necessarily a designer or
+								dev.
+							</li>
+							<li>
+								<strong>A piece of content</strong> I enjoyed recently. This can
+								be an article, blog, video, book, podcast – you name it.
+							</li>
+						</ol>
+					</p>
+				</div>
+				<div class="prose">
+					<p>Never miss an issue by subscribing via RSS or email below!</p>
+				</div>
+				<div class="flex flex-wrap gap-4">
+					<SimpleLinkButton
+						href="/newsletter.xml"
+						target="_blank"
+						rel="noopener"
+						icon="rss">
+						<span>Tiny Sparks RSS feed</span>
+					</SimpleLinkButton>
+					<SimpleLinkButton
+						href="https://buttondown.com/tinysparks"
+						target="_blank"
+						rel="noopener"
+						icon="mailbox">
+						<span>Get notified via email</span>
+					</SimpleLinkButton>
+				</div>
+			</div>
+		</HeaderContainer>
+	</header>
+	<MainContainer>
+		{
+			groupedNewsletters.map(([year, posts]) => (
+				<>
+					<SectionMarginTitle title={year.toString()} gap="1.5">
+						{posts.map((post) => (
+							<PostLink post={post} postFormat="newsletter" />
+						))}
+					</SectionMarginTitle>
+				</>
+			))
+		}
+	</MainContainer>
+</BaseLayout>

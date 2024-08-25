@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionMarginTitle from '../components/SectionMarginTitle.astro';
-import HeaderTitle from '../components/HeaderTitle.astro';
-import HeaderContainer from '../components/HeaderContainer.astro';
-import MainContainer from '../components/MainContainer.astro';
 import SimpleLinkButton from '../components/Button.astro';
+import HeaderContainer from '../components/HeaderContainer.astro';
+import HeaderTitle from '../components/HeaderTitle.astro';
+import MainContainer from '../components/MainContainer.astro';
 import PostLink from '../components/PostLink.astro';
+import SectionMarginTitle from '../components/SectionMarginTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import og from '../images/og/posts.jpg';
 
@@ -16,8 +16,12 @@ const { type } = Astro.props;
 let posts = await getCollection('posts');
 type Posts = (typeof posts)[number][];
 
+const currentDate = new Date();
+
 if (type === 'note' || type === 'post' || type === 'essay') {
-	posts = posts.filter((post) => post.data.type === type);
+	posts = posts.filter(
+		(post) => post.data.type === type && new Date(post.data.date) <= currentDate
+	);
 }
 
 const groupedPosts = groupPostsByYear(posts);

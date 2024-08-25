@@ -16,7 +16,7 @@ import NavLink from './NavLink.astro';
 		<nav
 			class="fixed inset-0 z-40 bg-white/50 backdrop-blur-lg sm:transition-none sm:backdrop-blur-none sm:bg-transparent p-6 sm:p-0 sm:static translate-x-full sm:translate-x-0 transition-transform duration-500 ease-in-out">
 			<ul
-				class="flex flex-col sm:flex-row gap-6 text-lg sm:text-sm font-mono pt-24 sm:pt-0">
+				class="flex flex-col sm:flex-row gap-x-6 gap-y-6 sm:gap-y-2 text-lg sm:text-sm font-mono pt-24 sm:pt-0 flex-wrap justify-end">
 				<li><NavLink href="/about">/about</NavLink></li>
 				<li><NavLink href="/now">/now</NavLink></li>
 				<li><NavLink href="/posts">/posts</NavLink></li>
@@ -24,6 +24,7 @@ import NavLink from './NavLink.astro';
 				<li><NavLink href="/til">/til</NavLink></li>
 				<li><NavLink href="/races">/races</NavLink></li>
 				<li><NavLink href="/photos">/photos</NavLink></li>
+				<li><NavLink href="/newsletter">/newsletter</NavLink></li>
 				<li>
 					<NavLink href="/hello">/hello</NavLink>
 				</li>

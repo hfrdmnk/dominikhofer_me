@@ -1,8 +1,8 @@
 ---
-import { format } from 'date-fns';
 import { Icon } from 'astro-icon/components';
+import { format } from 'date-fns';
 
-const { post } = Astro.props;
+const { post, postFormat = 'post' } = Astro.props;
 const { title, date, type, isFeatured } = post.data;
 const slug = post.slug;
 
@@ -38,7 +38,10 @@ const formattedDate = format(new Date(date), 'MMMM do');
 		]}
 	/>
 	<h2 class="h5 leading-none">
-		<a href={`/${slug}`} class="no-underline">{title}</a>
+		<a
+			href={`${postFormat === 'newsletter' ? '/newsletter' : ''}/${slug}`}
+			class="no-underline">{title}</a
+		>
 	</h2>
 	<div class="hidden sm:block h-px flex-1 bg-gray-200"></div>
 	<time
