@@ -9,10 +9,16 @@ import Post from '../layouts/PostLayout.astro';
 type Props = CollectionEntry<'posts'> | CollectionEntry<'redirects'>;
 
 export async function getStaticPaths() {
-	const entries = [
-		...(await getCollection('posts')),
-		...(await getCollection('redirects')),
-	];
+	const currentDate = new Date();
+	const posts = await getCollection('posts');
+	const redirects = await getCollection('redirects');
+
+	const filteredPosts = posts.filter(
+		(post) => new Date(post.data.date) <= currentDate
+	);
+
+	const entries = [...filteredPosts, ...redirects];
+
 	return entries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: entry,
