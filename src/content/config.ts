@@ -17,6 +17,17 @@ const posts = defineCollection({
     }),
 });
 
+const newsletter = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.coerce.string(),
+      excerpt: text(),
+      visual: image().optional(),
+    }),
+});
+
 const til = defineCollection({
   type: "content",
   schema: () =>
@@ -87,6 +98,7 @@ const redirects = defineCollection({
 
 export const collections = {
   posts,
+  newsletter,
   til,
   photos,
   races,

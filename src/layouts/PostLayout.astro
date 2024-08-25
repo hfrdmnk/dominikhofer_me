@@ -70,7 +70,7 @@ const content = await Astro.slots.render('default');
 						>{readingTime(content).text}</span
 					>
 					{
-						tags.length > 0 && (
+						tags?.length > 0 && (
 							<>
 								<span class="text-gray-500">&#183;</span>
 								{tags.map((tag: string) => (
