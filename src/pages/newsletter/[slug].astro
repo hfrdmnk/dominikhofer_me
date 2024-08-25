@@ -6,14 +6,19 @@ import Post from '../../layouts/PostLayout.astro';
 type Props = CollectionEntry<'newsletter'>;
 
 export async function getStaticPaths() {
-	const entries = [...(await getCollection('newsletter'))];
-	return entries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: entry,
-	}));
+	const entries = await getCollection('newsletter');
+	const currentDate = new Date();
+
+	return entries
+		.filter((entry) => new Date(entry.data.date) <= currentDate)
+		.map((entry) => ({
+			params: { slug: entry.slug },
+			props: entry,
+		}));
 }
 
 const entry = Astro.props as Props;
+
 const { Content } = await entry.render();
 ---
 
