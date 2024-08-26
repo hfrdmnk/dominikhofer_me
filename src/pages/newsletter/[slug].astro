@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import PostImage from '../../components/PostImage.astro';
+import { PROSE_CLASSES } from '../../consts';
 import Post from '../../layouts/PostLayout.astro';
 
 type Props = CollectionEntry<'newsletter'>;
@@ -23,8 +24,7 @@ const { Content } = await entry.render();
 ---
 
 <Post {...entry.data}>
-	<div
-		class="prose prose-img:rounded prose-headings:font-medium prose-strong:font-medium max-w-none prose-code:before:hidden prose-code:after:hidden">
+	<div class={`${PROSE_CLASSES}`}>
 		<Content components={{ img: PostImage }} />
 	</div>
 </Post>

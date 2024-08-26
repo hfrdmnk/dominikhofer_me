@@ -14,7 +14,18 @@ export default defineConfig({
   site: "https://dominikhofer.me",
   trailingSlash: "never",
   // TODO: Configure only icons in use: https://www.astroicon.dev/reference/configuration#include
-  integrations: [embeds(), mdx(), tailwind(), alpinejs(), sitemap(), icon()],
+  integrations: [
+    embeds({
+      services: {
+        LinkPreview: false,
+      },
+    }),
+    mdx(),
+    tailwind(),
+    alpinejs(),
+    sitemap(),
+    icon(),
+  ],
   output: "hybrid",
   adapter: vercel(),
   markdown: {

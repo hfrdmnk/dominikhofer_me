@@ -1,0 +1,111 @@
+---
+title: Implement a WebFinger endpoint in Astro
+type: post
+tags:
+  - Code
+  - Astro
+  - Fediverse
+excerpt: How to have Mastodon on your own domain without hosting a server. Kind of.
+date: 2024-08-26T08:14:16+02:00
+---
+
+With the use of the [WebFinger protocol](https://webfinger.net/), you can make your Mastodon account discoverable via your own domain. Without hosting a separate Mastodon instance.
+
+For example, my Mastodon account is `dominik@mastodon.design`. But when you search for `toots@dominikhofer.me`, you’ll also find my profile[^1].
+
+Here’s how you can add this functionality relatively easy to your own Astro site. The approach also works for other frameworks, the specific code just might look a bit different. You can always [reach out to me](/hello), and I’ll see, how I can support you!
+
+## Preparation 
+Your Mastodon instance gives you the exact JSON, you need for this to work. Just go to `https://[your_instance]/.well-known/webfinger?resource=acct:[your_username]@[your_instance]` and you should be greeted with a JSON object. Mine is for example under [https://mastodon.design/.well-known/webfinger?resource=acct:dominik@mastodon.design](https://mastodon.design/.well-known/webfinger?resource=acct:dominik@mastodon.design).
+
+Save both the link and the JSON response somewhere, we’ll need it later.
+
+## Static method
+This method uses a static Astro endpoint. This means that it will ignore anything that comes after the `?` in the url and always serve the same JSON. So `toots@dominikhofer.me` will work, just as `posts@dominikhofer.me` or `justarandomuser@dominikhofer.me` will.
+
+We will have to follow the same directory structure as Mastodon, though.
+
+So in your `src/pages` folder, create the `.well-known` directory (with the dot!) and add a `webfinger.ts` file within.
+
+This file then contains the JSON you copied earlier and a GET function, that just serves that JSON when someone (or something, like Mastodon) looks for your WebFinger.
+
+Here’s a template for you to copy:
+
+```ts
+// Endpoint for WebFinger
+const WEBFINGER_JSON = {} // replace {} with your full JSON object
+
+export async function GET() {
+  return new Response(JSON.stringify(WEBFINGER_JSON), {
+    headers: {
+      "Content-Type": "application/activity+json",
+    },
+  });
+}
+```
+
+You can now open [https://localhost:4321/.well-known/webfinger?resource=acct:youruser@yourdomain.com](https://localhost:4321/.well-known/webfinger?resource=acct:toots@dominikhofer.me) and should see your JSON object on screen.
+
+## Dynamic method
+The dynamic version is just a bit more complicated to implement, but has the added benefit of allowing you to specify multiple users on your domain. So you could create a `toots@youdomain.com` as well as a `photos@yourdomain.com` user for your Pixelfed account. This is possible because the endpoint now respects the resource parameter after the `?` in the url.
+
+It only works though, if you deploy your project in `server` or `hybrid` mode. You can find more infos about this [in the Astro docs](https://docs.astro.build/en/guides/server-side-rendering/).
+
+Just like with the other method, we need to create the `webfinger.ts` file within the `src/pages/.well-known` directory.
+
+The file then looks something like this:
+
+```ts
+// Endpoint for WebFinger requests
+export const prerender = false;
+
+// Edit this array
+const ACCOUNTS = [
+  {
+    username: "toots",
+    redirect:
+      "https://mastodon.design/.well-known/webfinger?resource=acct:dominik@mastodon.design",
+  },
+  // ... more users here
+];
+
+const hostname = "yourdomain.com";
+
+export async function GET({ request, redirect }) {
+  const url = new URL(request.url);
+  const resource = url.searchParams.get("resource");
+
+  if (!resource) {
+    return new Response("Bad request", { status: 400 });
+  }
+
+  for (const account of ACCOUNTS) {
+    if (resource === `acct:${account.username}@${hostname}`) {
+      console.log(account.redirect);
+      return redirect(account.redirect, 301);
+    }
+  }
+
+  return new Response("Not found", { status: 404 });
+}
+```
+
+One thing that is crucial is that you put `export const prerender = false;` at the top of the file if you have set your `output` in your `astro.config.mjs` file to `hybrid`. 
+
+You can then add as many users in your `ACCOUNTS` array as you please. Just remember that the redirect has to be the `.well-known` link from Mastodon (or another Fediverse platform) you copied earlier.
+
+When Mastodon now reaches out to your server to look for `toots@yourdomain.com`, this function will resolve this user to the appropriate redirect and thus return the correct JSON.
+
+If someone is looking for `nonexistenuser@yourdomain.com` a 404 error will be returned.
+
+That’s already it, now you have Mastodon on your own domain without hosting a server! If you need some further help, take a look at the [source code of this website](/repo) or [reach out to me](/hello). I’m happy to assist you in setting this up.
+
+## Further reading
+Here are some other articles that helped me along the way that might serve you as well:
+- [https://www.seanmcp.com/articles/use-your-domain-on-mastodon-with-astro/](https://www.seanmcp.com/articles/use-your-domain-on-mastodon-with-astro/)
+- [https://tonysull.co/articles/introducing-astro-webfinger/](https://tonysull.co/articles/introducing-astro-webfinger/)[^2]
+- [https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html](https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html)
+
+[^1]:	This unfortunately doesn’t work in some Mastodon clients like Ivory. The official apps/websites work perfectly though.
+
+[^2]:	This post was helpful for my understanding, the package didn’t work in my setup unfortunately.
