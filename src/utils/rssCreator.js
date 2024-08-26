@@ -60,9 +60,12 @@ async function createRSSFeed(context, options) {
         collectionName === "newsletter"
           ? `/newsletter/${item.slug}`
           : `/${item.slug}`,
-      content: sanitizeHtml(content + footerContent(item.data.title), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-      }),
+      content: sanitizeHtml(
+        content + footerContent(item.data.title, item.data.webmentionsLink),
+        {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+        },
+      ),
       customData: getCustomData(item.data.visual, firstImage, context),
     });
   }
