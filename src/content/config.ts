@@ -54,9 +54,10 @@ const races = defineCollection({
   schema: () =>
     z.object({
       title: z.string(),
-      date: z.coerce.string(),
-      location: z.coerce.string(),
-      distance: z.coerce.string(),
+      // Transform string to Date object
+      date: z.coerce.date(),
+      location: z.string(),
+      distance: z.number(),
       time: z.coerce.string(),
       pace: z.coerce.string(),
     }),
