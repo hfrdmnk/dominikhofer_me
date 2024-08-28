@@ -17,7 +17,9 @@ import mainImage from '../images/pages/view.jpg';
 import og from '../images/og/index.jpg';
 
 let posts = await getCollection('posts');
-posts = posts.filter((post) => post.data.type === 'post');
+posts = posts.filter(
+	(post) => post.data.type === 'post' || post.data.type === 'essay'
+);
 posts.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
