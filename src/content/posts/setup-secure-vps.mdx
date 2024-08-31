@@ -1,0 +1,52 @@
+---
+title: But, how do I actually set up and secure a new VPS (on Hetzner)?
+type: post
+tags:
+  - Code
+  - Tutorial
+excerpt: An easy guide on how to setup your own VPS.
+visual: ../../assets/posts/setup-secure-vps/setup-secure-vps-5a1a2869ec.jpg
+date: 2024-08-31T14:28:15+02:00
+---
+
+**In the “But, how do I actually…” series, I try to explain how to do computer things in a way that previous me would have appreciated (and future me can reference).**
+
+This is a written checklist for me, borrowed and slightly adapted for my personal needs from an awesome video by [CJ](https://github.com/w3cj) on the [Syntax YouTube Channel](https://www.youtube.com/@syntaxfm). The video is included at the end of this post.
+
+_Keep in mind that I’m still learning, so if you have more tips for me when it comes to setting up a VPS as efficient and securely as possible, [please reach out](/hello)!_
+
+## Setup and secure a new VPS provisioned on Hetzner
+1. Go to the Hetzner Cloud Dashboard and provision a new Ubuntu server (don’t overthink this too much, you can easily rescale these servers later – the only thing you can’t downsize is the disk storage)
+2. Add your **public** SSH Key during setup
+3. Connect to the server via your terminal `ssh root@<serverip>`
+4. Accept the fingerprint (if this ever comes up again, be aware that you might be the target of a man-in-the-middle attack)
+5. Update package lists: `apt update`
+6. Upgrade packages: `apt upgrade`
+7. Check, if a reboot is required: `ls /var/run/reboot-required`. If no such file or directory exists, you’re good. If it exists, reboot the server via the Hetzner dashboard.
+8. Run `apt upgrade` again. If a package has been kept back, try upgrading it manually with `apt upgrade <package-name>`.
+9. Optionally add a secondary user (see below)
+10. Disable password login: `vim /etc/ssh/sshd_config`, search for `PasswordAuthentication` and set it to `no`
+11. Restart ssh service: `service ssh restart`
+12. Add a firewall in Hetzner, a good default is to just open the ports 22, 80 and 443
+13. Enable auto-updates: `apt install unattended-upgrades`, then `dpkg-reconfigure unattended-upgrades`
+14. Open the config file: `vim /etc/apt/apt.conf.d/50unattended-upgrades`
+15. Uncomment this line to enable regular updates as well (not just security ones): `// "$${distro\_codename}-updates";`
+16. Verify with `systemctl status unattended-upgrades` (you should see a green dot)
+17. Done, your server is ready to be used now!
+
+## Create a separate user (optional)
+1. While logged in as root, run `adduser <username>`
+2. Set a secure password
+3. Add your data like full name etc. (optional)
+4. Give the new user the possibility to run sudo commands: `usermod -aG sudo <username>`
+5. Verify with `groups <username>`
+6. Create the .ssh directory in your `home/<username>` folder (you can get your current directory by running `pwd`): `mkdir .ssh`
+7. Add your public key to the server: `vim .ssh/authorized_keys`
+
+## Video
+Here’s the video by CJ, that goes over many more details if you’re interested:
+
+[https://youtu.be/Q1Y\_g0wMwww](https://youtu.be/Q1Y_g0wMwww)
+
+## Just a fun little command
+Run `tail -n 10 -f /var/log/auth.log` on your server to see all login attempts that happened on your server. The better secured your server is, the less login attempts not coming from you, you should see.
