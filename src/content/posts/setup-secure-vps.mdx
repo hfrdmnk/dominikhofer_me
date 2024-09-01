@@ -23,7 +23,7 @@ _Keep in mind that I’m still learning, so if you have more tips for me when it
 4. Accept the fingerprint (if this ever comes up again, be aware that you might be the target of a man-in-the-middle attack)
 5. Update package lists: `apt update`
 6. Upgrade packages: `apt upgrade`
-7. Check, if a reboot is required: `ls /var/run/reboot-required`. If no such file or directory exists, you’re good. If it exists, reboot the server via the Hetzner dashboard.
+7. Check, if a reboot is required: `ls /var/run/reboot-required`. If no such file or directory exists, you’re good. If it exists, reboot the server via the Hetzner dashboard. Alternatively, type `reboot` into the terminal.
 8. Run `apt upgrade` again. If a package has been kept back, try upgrading it manually with `apt upgrade <package-name>`.
 9. Optionally add a secondary user (see below)
 10. Disable password login: `vim /etc/ssh/sshd_config`, search for `PasswordAuthentication` and set it to `no`
