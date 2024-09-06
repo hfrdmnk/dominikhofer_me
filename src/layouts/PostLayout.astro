@@ -9,20 +9,22 @@ import HeaderTitle from '../components/HeaderTitle.astro';
 import MainContainer from '../components/MainContainer.astro';
 import SectionMarginTitle from '../components/SectionMarginTitle.astro';
 import SimpleTag from '../components/SimpleTag.astro';
+import Webmentions from '../components/Webmentions.astro';
+import newsletterOg from '../images/og/newsletter.jpg';
+import postsOg from '../images/og/posts.jpg';
 import { formatPostDate } from '../utils/helper';
 import BaseLayout from './BaseLayout.astro';
-
-import Webmentions from '../components/Webmentions.astro';
-import og from '../images/og/posts.jpg';
 
 const { title, excerpt, date, lastUpdated, tags, visual, webmentionsLink } =
 	Astro.props;
 
+const isNewsletter = Astro.url.pathname.startsWith('/newsletter');
+
+const og = isNewsletter ? newsletterOg : postsOg;
+
 const ogImage = visual ?? og;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-
-const isNewsletter = Astro.url.pathname.startsWith('/newsletter');
 
 const content = await Astro.slots.render('default');
 ---
