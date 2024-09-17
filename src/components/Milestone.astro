@@ -44,17 +44,27 @@ if (milestone.data.isFeatured) {
 		)
 	}
 	<div class="relative flex flex-col items-start gap-2 p-6 px-4 sm:px-6">
-		{
-			milestone.data.link && (
-				<a
-					href={milestone.data.link}
-					target="_blank"
-					rel="noopener"
-					class="absolute top-6 right-6 select-none text-gray-500 hover:text-gray-800">
-					<Icon name="ph:link" class="w-5 h-5" />
-				</a>
-			)
-		}
+		<div class="absolute top-6 right-6 flex items-center gap-2">
+			{
+				milestone.data.isActive && (
+					<div class="bg-emerald-50 text-emerald-500 rounded-full px-2 py-1 text-xs flex items-center gap-2">
+						<span class="relative h-2 w-2 rounded-full bg-emerald-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:origin-center after:rounded-full after:bg-emerald-500/75 after:animate-[ping_2s_ease-in-out_infinite]" />
+						<span>Active</span>
+					</div>
+				)
+			}
+			{
+				milestone.data.link && (
+					<a
+						href={milestone.data.link}
+						target="_blank"
+						rel="noopener"
+						class="select-none text-gray-500 hover:text-gray-800">
+						<Icon name="ph:link" class="w-5 h-5" />
+					</a>
+				)
+			}
+		</div>
 		<div class="flex flex-col gap-1">
 			<div class="flex sm:flex-row sm:items-baseline xl:pt-1">
 				<Icon

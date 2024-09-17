@@ -7,4 +7,6 @@ tags:
 company: Bloq Labs
 link: https://www.bloqlabs.ch/
 date: 2023-08-21
+isActive: true
 ---
+

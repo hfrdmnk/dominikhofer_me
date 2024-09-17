@@ -76,6 +76,7 @@ const milestones = defineCollection({
       isFeatured: z.boolean().default(false),
       date: z.coerce.string(),
       dateEnd: z.coerce.string().optional(),
+      isActive: z.boolean().optional(),
       visual: image().optional(),
     }),
 });
