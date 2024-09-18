@@ -66,7 +66,8 @@ if (milestone.data.isFeatured) {
 			}
 		</div>
 		<div class="flex flex-col gap-1">
-			<div class="flex sm:flex-row sm:items-baseline xl:pt-1">
+			<div
+				class="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:items-baseline xl:pt-1">
 				<Icon
 					name=`ph:${icon}`
 					class:list={[
@@ -74,7 +75,7 @@ if (milestone.data.isFeatured) {
 						{ 'text-yellow-500': milestone.data.isFeatured },
 					]}
 				/>
-				<h3 class="h5">{milestone.data.title}</h3>
+				<h3 class="h5 pr-24">{milestone.data.title}</h3>
 			</div>
 			<p>{milestone.data.shortDescription}</p>
 		</div>
