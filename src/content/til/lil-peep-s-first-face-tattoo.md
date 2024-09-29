@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lil Peep’s first face tattoo
 date: 2024-08-20
 source: https://www.rollingstone.com/feature/lil-peep-tragedy-torment-804686/

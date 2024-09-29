@@ -1,5 +1,4 @@
 ---
-draft: true
 title: A fun fact
 date: 2024-08-23
 source: https://youtube.com/shorts/f4wzUEQxurM?
