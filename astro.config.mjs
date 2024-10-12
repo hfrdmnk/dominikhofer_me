@@ -8,6 +8,8 @@ import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +22,9 @@ export default defineConfig({
         LinkPreview: false,
       },
     }),
-    mdx(),
+    mdx({
+      allowEmpty: true,
+    }),
     tailwind(),
     alpinejs(),
     sitemap(),
@@ -31,6 +35,8 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener"] }],
+      rehypeKatex,
     ],
+    remarkPlugins: [remarkMath],
   },
 });
