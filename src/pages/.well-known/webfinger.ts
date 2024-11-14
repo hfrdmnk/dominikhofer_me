@@ -9,11 +9,11 @@ const ACCOUNTS = [
     redirect:
       "https://mastodon.design/.well-known/webfinger?resource=acct:dominik@mastodon.design",
   },
-  {
-    username: "dominikhofer.me",
-    redirect:
-      "https://fed.brid.gy/.well-known/webfinger?resource=acct:dominikhofer.me@dominikhofer.me",
-  },
+  //   {
+  //     username: "dominikhofer.me",
+  //     redirect:
+  //       "https://fed.brid.gy/.well-known/webfinger?resource=acct:dominikhofer.me@dominikhofer.me",
+  //   },
 ];
 
 const hostname = new URL(SITE_URL).hostname;
