@@ -18,7 +18,7 @@ let { title, description, image, redirect, index, isArticle } = Astro.props;
 			index={index}
 		/>
 	</head>
-	<body class:list={{ 'h-entry': isArticle }}>
+	<body>
 		<RssBanner />
 		<Navbar />
 		<div class="mt-36 mb-24">

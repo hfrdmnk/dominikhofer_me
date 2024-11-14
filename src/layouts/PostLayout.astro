@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
-import { formatISO } from 'date-fns';
 import readingTime from 'reading-time';
 import Callout from '../components/Callout.astro';
 import HeaderContainer from '../components/HeaderContainer.astro';
@@ -48,16 +47,10 @@ const content = await Astro.slots.render('default');
 				)
 			}
 			<HeaderTitle>
-				<h1 class="p-name">{title}</h1>
+				<h1>{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
 					<SimpleTag icon="calendar-dots"
-						>{formatPostDate(new Date(date))}<time class="dt-published hidden"
-							>{formatISO(new Date(date))}</time
-						></SimpleTag
-					>
-					<a href={canonicalUrl} class="u-url hidden">Canonical URL to post</a>
-					<a href={Astro.site} class="p-author h-card hidden" rel="author"
-						>Dominik Hofer</a
+						>{formatPostDate(new Date(date))}</SimpleTag
 					>
 					{
 						lastUpdated &&
@@ -78,9 +71,7 @@ const content = await Astro.slots.render('default');
 							<>
 								<span class="text-gray-500">&#183;</span>
 								{tags.map((tag: string) => (
-									<SimpleTag icon="tag" class="p-category">
-										{tag}
-									</SimpleTag>
+									<SimpleTag icon="tag">{tag}</SimpleTag>
 								))}
 							</>
 						)
