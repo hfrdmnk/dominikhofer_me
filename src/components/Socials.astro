@@ -10,6 +10,13 @@ const { isFooter } = Astro.props;
 		isFooter ? 'gap-4 text-sm' : 'gap-2'
 	)}>
 	<SimpleLinkButton
+		href="https://bsky.app/profile/dominikhofer.me"
+		target="_blank"
+		rel="noopener"
+		isSimple={isFooter}
+		icon="at"
+	/>
+	<SimpleLinkButton
 		href="https://mastodon.design/@dominik"
 		target="_blank"
 		rel="nofollow me"
