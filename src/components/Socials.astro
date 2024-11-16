@@ -44,13 +44,5 @@ const { isFooter } = Astro.props;
 		isSimple={isFooter}
 		icon="rss"
 	/>
-	<SimpleLinkButton
-		href="/newsletter"
-		target="_blank"
-		rel="noopener"
-		isSimple={isFooter}
-		icon="mailbox">
-		{!isFooter && <span class="hidden sm:block">Personal newsletter</span>}
-	</SimpleLinkButton>
 	{!isFooter && <div class="h-[1px] bg-gray-200 w-full" />}
 </div>
