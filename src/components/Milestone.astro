@@ -19,17 +19,17 @@ switch (milestone.data.type) {
 		icon = 'heart';
 		break;
 	case 'cv':
-		icon = 'read-cv-logo';
+		icon = 'clipboard-list';
 		break;
 	case 'project':
-		icon = 'laptop';
+		icon = 'devices';
 		break;
 	default:
-		icon = 'notepad';
+		icon = 'select-all';
 }
 
 if (milestone.data.isFeatured) {
-	icon = 'star-duotone';
+	icon = 'sparkles';
 }
 ---
 
@@ -60,7 +60,7 @@ if (milestone.data.isFeatured) {
 						target="_blank"
 						rel="noopener"
 						class="select-none text-gray-500 hover:text-gray-800">
-						<Icon name="ph:link" class="w-5 h-5" />
+						<Icon name="tabler:link" class="w-5 h-5" />
 					</a>
 				)
 			}
@@ -69,7 +69,7 @@ if (milestone.data.isFeatured) {
 			<div
 				class="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:items-baseline xl:pt-1">
 				<Icon
-					name=`ph:${icon}`
+					name=`tabler:${icon}`
 					class:list={[
 						'w-5 h-5 text-gray-500 flex-shrink-0 sm:self-center mr-2',
 						{ 'text-yellow-500': milestone.data.isFeatured },
@@ -107,7 +107,9 @@ if (milestone.data.isFeatured) {
 			{
 				milestone.data.dateEnd && (
 					<>
-						<SimpleTag icon="calendar-dots">until {formattedEndDate}</SimpleTag>
+						<SimpleTag icon="calendar-month">
+							until {formattedEndDate}
+						</SimpleTag>
 					</>
 				)
 			}

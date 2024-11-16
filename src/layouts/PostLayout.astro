@@ -49,14 +49,14 @@ const content = await Astro.slots.render('default');
 			<HeaderTitle>
 				<h1>{title}</h1>
 				<div class="flex flex-wrap items-center gap-2 mt-2 select-none">
-					<SimpleTag icon="calendar-dots"
+					<SimpleTag icon="calendar-month"
 						>{formatPostDate(new Date(date))}</SimpleTag
 					>
 					{
 						lastUpdated &&
 							new Date(lastUpdated).toDateString() !==
 								new Date(date).toDateString() && (
-								<SimpleTag icon="clock-clockwise">
+								<SimpleTag icon="refresh">
 									Last updated:
 									{formatPostDate(new Date(lastUpdated))}
 								</SimpleTag>
@@ -88,7 +88,7 @@ const content = await Astro.slots.render('default');
 						href="/posts"
 						class="flex items-center gap-2 no-highlight no-underline text-gray-500"
 						slot="aside">
-						<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
+						<Icon name="tabler:arrow-left" class="w-5 h-5" />
 						<span>Back to all posts</span>
 					</a>
 				) : (
@@ -96,7 +96,7 @@ const content = await Astro.slots.render('default');
 						href="/newsletter"
 						class="flex items-center gap-2 no-highlight no-underline text-gray-500"
 						slot="aside">
-						<Icon name="ph:arrow-bend-up-left" class="w-5 h-5" />
+						<Icon name="tabler:arrow-left" class="w-5 h-5" />
 						<span>Back to all newsletter issues</span>
 					</a>
 				)
@@ -105,9 +105,7 @@ const content = await Astro.slots.render('default');
 				<slot />
 			</div>
 			<div class="mt-12">
-				<Callout
-					icon="chats-circle"
-					title="What are your thoughts on this post?">
+				<Callout icon="messages" title="What are your thoughts on this post?">
 					<div class="space-y-2">
 						<p>
 							I’d love to hear from you! Please write me an email by clicking <a

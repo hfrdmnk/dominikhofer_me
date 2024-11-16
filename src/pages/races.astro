@@ -48,7 +48,7 @@ const description = 'These are my recent race results & personal bests.';
 					<article class="flex flex-col gap-4 sm:p-6 p-3 border rounded-lg">
 						<div class="flex flex-col items-start gap-2">
 							<div class="flex flex-wrap items-center gap-2 select-none">
-								<SimpleTag icon="calendar-dots">
+								<SimpleTag icon="calendar-month">
 									{(() => {
 										const d = new Date(race.data.date);
 										const day = String(d.getDate()).padStart(2, '0');
@@ -58,7 +58,7 @@ const description = 'These are my recent race results & personal bests.';
 									})()}
 								</SimpleTag>
 								<span class="text-gray-500">&#183;</span>
-								<SimpleTag icon="map-pin">{race.data.location}</SimpleTag>
+								<SimpleTag icon="map-pin-2">{race.data.location}</SimpleTag>
 							</div>
 							<h3 class="text-lg font-medium">{race.data.title}</h3>
 						</div>
