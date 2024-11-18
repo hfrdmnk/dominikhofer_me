@@ -1,0 +1,85 @@
+---
+draft: true
+title: Diving into the Atmosphere
+type: post
+tags:
+  - AT Protocol
+  - Social Web
+excerpt: Some initial thoughts about Bluesky and the AT protocol
+visual: ../../assets/posts/diving-into-the-atmosphere/atmosphere-0455d7509e.jpg
+date: 2024-11-18T20:33:25+01:00
+---
+
+These past few days, Bluesky really seemed to start getting traction and starting to hit mainstream appeal – [adding over 1 **Million** people per day](https://bsky.app/profile/jay.bsky.team/post/3lb6uw744es2l). With people I know joining left and right, I also gave it a shot. Here are my initial impressions about the network and the AT protocol behind it.
+
+## The cool stuff
+
+### Identity is the most important thing
+On the web, the domain of your personal website is kinda like your identity. It’s unique, it’s recognizable, it’s not tied to any social network. On the AT protocol (and therefore on Bluesky), you can set your domain to be your handle. What a great idea! No more hoping that your username is available, you are now just @yourdomain.tld[^1].
+
+This already sounded promising, but then, I also read about how you can host your data yourself and essentially own your social graph. This means that, in theory, you could just leave Bluesky altogether but still take your data with you to another service. Granted, there don’t really exist such services yet[^2], but I’m fairly positive, that they will eventually. Or at least multiple instances of Bluesky.
+
+### User-centric
+Bluesky really gives you control over your experience, unlike any other social network I’ve used in the past. The two most notable examples are:
+- Custom feeds/algorithms[^3], just pick and choose the ones that fit your needs
+- Custom moderation services and blocklists to make Bluesky a more friendly place
+
+### Global discovery
+This one is huge, especially when coming from Mastodon. If you’re looking for someone, you’ll actually find them (if they are on the network). And likes, replies etc. are also always available, not just the ones that your server knows about.
+
+### Simple to get started, many possibilities for advanced users
+The sign-up process feels like (almost) any other social network and is fairly straightforward. This is certainly a good thing, as it helps Bluesky with onboarding a non-tech audience. The starter packs are also a great idea for getting up to speed quickly and finding your people[^4].
+
+But for devs, Bluesky also provides plenty of opportunities to build things on top of their API and the AT protocol. And, you won’t believe it, the API is actually free (looking at you, X 🙄).
+
+## Comparison to the Fediverse
+I am by no means a technical expert when it comes to ActivityPub (the protocol powering the Fediverse/Mastodon) and the AT Protocol. But upon an initial inspection, I feel the AT Protocol is more suited for social networks.
+
+The Fediverse is really server-centric: You have to choose one when you sign up, it becomes part of your identity/username, it influences what you can see on the network (because of which other servers federate with yours and/or are blocked by your admin). Sure, you can technically switch servers, but this changes your username and requires your old server to permanently redirect your old account, which doesn’t seem like the most ideal solution.
+
+On a protocol level, I also heard this comparison, which made quite a lot of sense: On ActivityPub, _everything_ is social media. Your blogposts, videos, microblogs, images, whatever format you can think of. Everything is interconnected, can be viewed across networks and in different clients.
+
+Whereas, the AT Protocol provides an ecosystem for a new Social Web that is more open than Web 2.0 and exists _alongside_ the regular web. I like this approach more, to be honest. If I want to consume long form content, I open my RSS reader (web), if I want to consume short updates and talk to others, I open Bluesky (social media).
+
+In short, Mastodon feels more like a niche forum. I still love it, especially for web related topics and the IndieWeb scene on there. But Bluesky is way more diverse, has more people with different interests and this is, ultimately, what makes such networks truly feel “social”.
+
+Both approaches are interesting and frankly, if either of them succeeded and became the new standard for communication on the web, I’d be pleased. But if I had to choose, I would go with the AT protocol.
+
+## Where to go from here
+Bluesky and the AT Protocol are by no means perfect yet and maybe, we are all a bit in our honeymoon phase right now. However, after reading about it the past few days, taking a look at the docs, listening to a lot of podcasts, I truly feel like AT has a shot at becoming the standard for future generations of social networks.
+
+On a more personal level, seeing the Bluesky team communicating just gives me a good hunch about this whole thing. I encourage you to especially listen to what Jay Graber, the CEO, has to say about the project and her vision for the future of the Social Web. I’ll link a few podcasts below.
+
+All of that said, I still believe that the best thing you can do on the web is [having your own personal website](/personal-internet-home). Social media should be an extension to your online presence, not _be_ your online presence. At least that’s my opinion.
+
+That’s why you’ll still mainly find my content here on this website. But you can now also find me on [Bluesky](https://bsky.app/profile/dominikhofer.me) as well as on [Mastodon](https://mastodon.design/@dominik)[^5]. Or [write me an email](/hello), that’s still the best and most personal medium for getting in touch online :)
+
+## Further reading
+If you’re interested, here are some links that I found helpful in wrapping my head around the AT protocol and Bluesky:
+
+- The [AT protocol documentation](https://atproto.com/)
+- The best [comparison of the two protocols](https://youtu.be/-R9CWq5CBlk), AT and ActivityPub
+- The AT protocol explained in detail: As a [video](https://youtu.be/F1sJW6nTP6E) and as a [thread](https://bsky.app/profile/samuel.bsky.team/post/3l7z3o5kl3s2v)
+- Common misunderstandings about Bluesky: [Thread 1](https://bsky.app/profile/mmasnick.bsky.social/post/3l7y5rlcleb2y) and [thread 2](https://bsky.app/profile/danabra.mov/post/3laxij3zxtc2h)
+- A [research paper that helped inspire Bluesky](https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech)
+- How to [self host parts of Bluesky](https://alice.bsky.sh/post/3laega7icmi2q%20)
+- Podcast episodes with Jay Graber: [Techdirt](https://podcasts.apple.com/ch/podcast/techdirt/id940871872?i=1000648127274), [Decoder](https://podcasts.apple.com/ch/podcast/decoder-with-nilay-patel/id1011668648?i=1000650348585) and [Dot Social](https://podcasts.apple.com/ch/podcast/dot-social/id1717622022?i=1000671461193)
+
+And here is [an earlier post of mine](/diving-into-the-fediverse-once-again) where I talked more in-depth about the Fediverse.
+
+## Tools
+- [The firehose in realtime](https://firesky.tv/)
+- [Discover the data behind your profile](https://atproto-browser.vercel.app/)
+- [Create custom Bluesky feeds](https://skyfeed.app/)
+- [A directory of Bluesky starter packs and tools](https://blueskydirectory.com/)
+- [Find new people to follow](https://bsky-follow-finder.theo.io/)
+
+[^1]:	Or, in my case, [@dominikhofer.me](https://bsky.app/profile/dominikhofer.me) :)
+
+[^2]:	Apart from a blogging platform called [WhiteWind](https://whtwnd.com/) I know of.
+
+[^3]:	[Here is one I created](https://bsky.app/profile/did:plc:fthx2gjakdj4ynxxu5vysjty/feed/aaac7vgh27hg4%20) for discovering posts from around the IndieWeb.
+
+[^4]:	I created a [starter pack full of great people from the design/code space](https://bsky.app/starter-pack/dominikhofer.me/3lb36ue2bup22), if you’re interested in that kind of content as well.
+
+[^5]:	Although I might check that one less often know, as I don’t want to handle multiple social networks.
