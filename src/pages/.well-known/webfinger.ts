@@ -1,29 +1,29 @@
 // Endpoint for WebFinger
 const WEBFINGER_JSON = {
-  subject: "acct:dominik@mastodon.design",
+  subject: "acct:dominikhofer@social.lol",
   aliases: [
-    "https://mastodon.design/@dominik",
-    "https://mastodon.design/users/dominik",
+    "https://social.lol/@dominikhofer",
+    "https://social.lol/users/dominikhofer",
   ],
   links: [
     {
       rel: "http://webfinger.net/rel/profile-page",
       type: "text/html",
-      href: "https://mastodon.design/@dominik",
+      href: "https://social.lol/@dominikhofer",
     },
     {
       rel: "self",
       type: "application/activity+json",
-      href: "https://mastodon.design/users/dominik",
+      href: "https://social.lol/users/dominikhofer",
     },
     {
       rel: "http://ostatus.org/schema/1.0/subscribe",
-      template: "https://mastodon.design/authorize_interaction?uri={uri}",
+      template: "https://social.lol/authorize_interaction?uri={uri}",
     },
     {
       rel: "http://webfinger.net/rel/avatar",
       type: "image/jpeg",
-      href: "https://cdn.masto.host/mastodondesign/accounts/avatars/109/284/796/890/120/955/original/9fdec81896647dcb.jpg",
+      href: "https://media.social.lol/accounts/avatars/113/899/934/732/874/429/original/a383849354bb113f.jpg",
     },
   ],
 };

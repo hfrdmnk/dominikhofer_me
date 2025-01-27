@@ -52,15 +52,8 @@ const isProd = import.meta.env.PROD;
 <meta property="og:description" content={description} />
 {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-{image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
-
 <!-- Mastodon Author Tag -->
-<meta name="fediverse:creator" content="@dominik@mastodon.design" />
+<meta name="fediverse:creator" content="@dominik@social.lol" />
 
 <!-- RSS Feeds -->
 <!-- Posts -->
